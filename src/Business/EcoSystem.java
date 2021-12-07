@@ -5,6 +5,7 @@
  */
 package Business;
 
+
 import Business.Enterprise.Enterprise;
 import Business.Enterprise.EnterpriseDirectory;
 import Business.Network.Network;
@@ -201,5 +202,63 @@ public class EcoSystem extends Organization{
             }
         }
         return true;
+    }
+    
+    public Boolean validatePhoneFormat(String phoneNo) 
+    {
+        Pattern pattern;
+        Matcher matcher;
+        String PHONE_PATTERN = "^[0-9]{10}$";
+        pattern = Pattern.compile(PHONE_PATTERN);
+        matcher = pattern.matcher(phoneNo);
+        if (matcher.matches()) 
+        {
+            return true;
+        } 
+        else 
+        {
+            JOptionPane.showMessageDialog(null, "Please enter valid format of phone! Ex: 9876543210", "Error!", JOptionPane.ERROR_MESSAGE);
+            return false;
+        }
+    }
+
+    public Boolean validateEmailFormat(String email) 
+    {
+        Pattern pattern;
+        Matcher matcher;
+        String EMAIL_PATTERN
+                = "^[\\w!#$%&’*+/=?`{|}~^-]+(?:\\.[\\w!#$%&’*+/=?`{|}~^-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$";
+        pattern = Pattern.compile(EMAIL_PATTERN);
+        matcher = pattern.matcher(email);
+        if (matcher.matches()) 
+        {
+            return true;
+        } 
+        else 
+        {
+            JOptionPane.showMessageDialog(null, "Please enter valid format of email! Ex: hello@hello.com", "Error!", JOptionPane.ERROR_MESSAGE);
+            return false;
+        }
+    }
+
+    public Boolean validatePasswordFormat(String password) 
+    {
+        Pattern p1;
+        p1 = Pattern.compile("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#&()–[{}]:;',?/*~$^+=<>]).{8,20}$");
+        Matcher m1 = p1.matcher(password);
+        boolean b1 = m1.matches();
+        if (!b1) 
+        {
+            JOptionPane.showMessageDialog(null, "Please enter valid password  format!\nPassword must contain at least one digit [0-9].\n"
+                    + "Password must contain at least one lowercase Latin character [a-z].\n"
+                    + "Password must contain at least one uppercase Latin character [A-Z].\n"
+                    + "Password must contain at least one special character like ! @ # & ( ).\n"
+                    + "Password must contain a length of at least 8 characters and a maximum of 20 characters.", "Warning", JOptionPane.WARNING_MESSAGE);
+            return false;
+        } 
+        else 
+        {
+            return true;
+        }
     }
 }

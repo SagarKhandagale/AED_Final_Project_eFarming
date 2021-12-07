@@ -1,9 +1,14 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
+ * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
 package Business.UserAccount;
+
+import Business.Employee.Employee;
+import Business.Role.Role;
+import Business.WorkQueue.WorkQueue;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  *
@@ -20,6 +25,15 @@ public class UserAccount {
     private String city;
     private String state;
     private String zipCode;
+    private Role role;
+
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
+    }
 
     public String getUsername() {
         return username;

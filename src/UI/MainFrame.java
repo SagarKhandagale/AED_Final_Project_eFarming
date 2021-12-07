@@ -5,7 +5,13 @@
  */
 package UI;
 
-import UI.UserRegistration.UserRegistrationPanel;
+import Business.DB4OUtil.DB4OUtil;
+import Business.EcoSystem;
+import Business.Enterprise.Enterprise;
+import Business.Network.Network;
+import Business.Organization.Organization;
+import Business.UserAccount.UserAccount;
+import UI.UserRegistration.PanelUserRegistration;
 import java.awt.CardLayout;
 import javax.swing.JOptionPane;
 
@@ -15,12 +21,18 @@ import javax.swing.JOptionPane;
  */
 public class MainFrame extends javax.swing.JFrame {
 
-    /**
-     * Creates new form MainFrame
-     */
+    private EcoSystem system;
+    private DB4OUtil dB4OUtil = DB4OUtil.getInstance();
+    UserAccount userAccount;
+    Enterprise enterprise;
+    Organization organization;
+    Network network;
+    
     public MainFrame() {
         initComponents();
         userProcessContainer.setVisible(false);
+        system = dB4OUtil.retrieveSystem();
+        EcoSystem.setInstance(system);
     }
 
     /**
@@ -33,6 +45,8 @@ public class MainFrame extends javax.swing.JFrame {
     private void initComponents() {
 
         userProcessContainer = new javax.swing.JPanel();
+        pnlLeft = new javax.swing.JPanel();
+        jLabel5 = new javax.swing.JLabel();
         pnlRight = new javax.swing.JPanel();
         lblUsername = new javax.swing.JLabel();
         lblPassword = new javax.swing.JLabel();
@@ -40,14 +54,30 @@ public class MainFrame extends javax.swing.JFrame {
         txtPassword = new javax.swing.JPasswordField();
         lblLogin = new javax.swing.JLabel();
         lblRegister = new javax.swing.JLabel();
-        pnlLeft = new javax.swing.JPanel();
-        jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         userProcessContainer.setLayout(new java.awt.CardLayout());
 
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImageIcons/background1_1_730x850.jpeg"))); // NOI18N
+
+        javax.swing.GroupLayout pnlLeftLayout = new javax.swing.GroupLayout(pnlLeft);
+        pnlLeft.setLayout(pnlLeftLayout);
+        pnlLeftLayout.setHorizontalGroup(
+            pnlLeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 732, Short.MAX_VALUE)
+        );
+        pnlLeftLayout.setVerticalGroup(
+            pnlLeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
         pnlRight.setBackground(new java.awt.Color(41, 50, 80));
+        pnlRight.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                pnlRightMousePressed(evt);
+            }
+        });
 
         lblUsername.setForeground(new java.awt.Color(255, 229, 180));
         lblUsername.setText("U:");
@@ -134,19 +164,6 @@ public class MainFrame extends javax.swing.JFrame {
                 .addContainerGap(399, Short.MAX_VALUE))
         );
 
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImageIcons/background1_1_730x850.jpeg"))); // NOI18N
-
-        javax.swing.GroupLayout pnlLeftLayout = new javax.swing.GroupLayout(pnlLeft);
-        pnlLeft.setLayout(pnlLeftLayout);
-        pnlLeftLayout.setHorizontalGroup(
-            pnlLeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 732, Short.MAX_VALUE)
-        );
-        pnlLeftLayout.setVerticalGroup(
-            pnlLeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -175,7 +192,7 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void lblRegisterMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblRegisterMousePressed
 
-        UserRegistrationPanel panel = new UserRegistrationPanel();
+        PanelUserRegistration panel = new PanelUserRegistration(userProcessContainer, system);
         userProcessContainer.add("UserRegistrationPanel", panel);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);
@@ -192,6 +209,95 @@ public class MainFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_lblLoginMousePressed
 
+    private void pnlRightMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlRightMousePressed
+        
+        String userName = txtUsername.getText();
+        char[] passwordCharArray = txtPassword.getPassword();
+        String password = String.valueOf(passwordCharArray);
+        
+        if (userName.isEmpty() || password.isEmpty()) 
+        {
+            JOptionPane.showMessageDialog(null, "Enter valid user credentials to login!");
+        } 
+        else 
+        {
+            userAccount = system.getUserAccountDirectory().authenticateUser(userName, password);
+            this.enterprise = null;
+            this.organization = null;
+            this.network = null;
+
+            if (userAccount == null) 
+            {
+                for (Network network : system.getNetworkList()) 
+                {
+                    for (Enterprise enterprise : network.getEnterpriseDirectory().getEnterpriseList()) 
+                    {
+                        userAccount = enterprise.getUserAccountDirectory().authenticateUser(userName, password);
+                        this.network = network;
+                        if (userAccount == null) 
+                        {
+                            //Step 3:check against each organization for each enterprise
+                            for (Organization organization : enterprise.getOrganizationDirectory().getOrganizationList()) 
+                            {
+                                userAccount = organization.getUserAccountDirectory().authenticateUser(userName, password);
+                                if (userAccount != null) 
+                                {
+                                    this.enterprise = enterprise;
+                                    this.organization = organization;
+                                    this.network = network;
+                                    break;
+                                }
+                            }
+
+                        } 
+                        else 
+                        {
+                            this.enterprise = enterprise;
+                            break;
+                        }
+                        if (this.organization != null) 
+                        {
+                            break;
+                        }
+                    }
+                    
+                    if (this.enterprise != null) 
+                    {
+                        break;
+                    }
+                }
+            }
+            if (userAccount == null) 
+            {
+                JOptionPane.showMessageDialog(null, "Invalid user credentials,Try again!");
+                return;
+            } 
+            else 
+            {
+                pnlRight.setVisible(false);
+                userProcessContainer.setVisible(true);
+                txtUsername.setText("");
+                txtPassword.setText("");
+                goToNewPanel(userAccount);
+            }
+        }
+    }//GEN-LAST:event_pnlRightMousePressed
+
+    private void goToNewPanel(UserAccount userAccount) 
+    {
+        if (userAccount != null && userAccount.getRole() != null)
+        {
+            String greetings = "Welcome";
+
+            greetings = greetings + " " + userAccount.getUsername();
+            userProcessContainer.add("workArea", userAccount.getRole().createWorkArea(userProcessContainer, userAccount, this.organization, this.enterprise, this.network, system));
+
+            CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+            layout.next(userProcessContainer);
+        }
+
+    }
+    
     /**
      * @param args the command line arguments
      */
