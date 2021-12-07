@@ -95,7 +95,6 @@ public class PanelUserRegistration extends javax.swing.JPanel {
 
         setBackground(new java.awt.Color(255, 255, 255));
         setPreferredSize(new java.awt.Dimension(1440, 850));
-        setSize(new java.awt.Dimension(1440, 850));
 
         jLabel1.setFont(new java.awt.Font("Lucida Grande", 1, 24)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -132,8 +131,6 @@ public class PanelUserRegistration extends javax.swing.JPanel {
         lblZipCode.setText("Zip Code:");
 
         lblDisplayRole.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
-
-        cmbOrganization.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         txtUsername.setText("SagarK");
 
