@@ -13,8 +13,13 @@ public class UserAccount {
     
     private String username;
     private String password;
-    private String firstName;
-    private String lastName;
+    private String name;
+    private long phoneNo;
+    private String email;
+    private String addLine;
+    private String city;
+    private String state;
+    private String zipCode;
 
     public String getUsername() {
         return username;
@@ -32,21 +37,61 @@ public class UserAccount {
         this.password = password;
     }
 
-    public String getFirstName() {
-        return firstName;
+    public String getName() {
+        return name;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getLastName() {
-        return lastName;
+    public long getPhoneNo() {
+        return phoneNo;
     }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public void setPhoneNo(long phoneNo) {
+        this.phoneNo = phoneNo;
     }
-    
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getAddLine() {
+        return addLine;
+    }
+
+    public void setAddLine(String addLine) {
+        this.addLine = addLine;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
+    }
+
+    public String getZipCode() {
+        return zipCode;
+    }
+
+    public void setZipCode(String zipCode) {
+        this.zipCode = zipCode;
+    }
+
     
 }

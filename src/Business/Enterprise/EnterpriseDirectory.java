@@ -5,10 +5,27 @@
  */
 package Business.Enterprise;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author sagar
  */
 public class EnterpriseDirectory {
+    
+    private ArrayList<Enterprise> enterpriseList;
+
+    public ArrayList<Enterprise> getEnterpriseList() {
+        return enterpriseList;
+    }
+
+    public void setEnterpriseList(ArrayList<Enterprise> enterpriseList) {
+        this.enterpriseList = enterpriseList;
+    }
+
+    public EnterpriseDirectory() {
+        this.enterpriseList = new ArrayList<Enterprise>();
+    }
+    
     
 }
