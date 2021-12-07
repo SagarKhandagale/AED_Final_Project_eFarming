@@ -5,10 +5,28 @@
  */
 package Business.Organization;
 
+import Business.Role.BigMarketManager;
+import Business.Role.CompanyManager;
+import Business.Role.Role;
+import java.util.ArrayList;
+
 /**
  *
  * @author sagar
  */
-public class CompanyOrganization {
+public class CompanyOrganization extends Organization {
+
+    public CompanyOrganization(String name) 
+    {
+        super(name);
+    }
+
+    @Override
+    public ArrayList<Role> getSupportedRole() 
+    {
+        ArrayList<Role> roles = new ArrayList();
+        roles.add(new CompanyManager());
+        return roles;
+    }
     
 }

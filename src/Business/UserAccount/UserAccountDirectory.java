@@ -1,13 +1,12 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
+ * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
 package Business.UserAccount;
-
 import Business.Employee.Employee;
 import Business.Role.Role;
 import java.util.ArrayList;
+import java.util.Map;
 
 /**
  *
@@ -37,10 +36,7 @@ public class UserAccountDirectory {
         UserAccount userAccount = new UserAccount();
         userAccount.setUsername(username);
         userAccount.setPassword(password);
-//        userAccount.setEmployee(employee);
-//        userAccount.setRole(role);
-//        userAccount.setName(employee.getName());
-//        userAccount.setStatus("Available");
+
         userAccountList.add(userAccount);
         return userAccount;
     }

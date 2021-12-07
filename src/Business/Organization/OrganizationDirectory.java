@@ -5,10 +5,68 @@
  */
 package Business.Organization;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author sagar
  */
 public class OrganizationDirectory {
     
+    private final ArrayList<Organization> organizationList;
+    
+    public OrganizationDirectory()
+    {
+        organizationList = new ArrayList<Organization> ();
+    }
+
+    public ArrayList<Organization> getOrganizationList() {
+        return organizationList;
+    }
+    
+    public Organization createOrganization(Organization.Type type, String name) 
+    {
+        Organization organization = null;
+        if (type.getValue().equals(Organization.Type.Farmer.getValue())) 
+        {
+            organization = new FarmerOrganization(name);
+            organizationList.add(organization);
+        } 
+        else if (type.getValue().equals(Organization.Type.ShopOwner.getValue())) 
+        {
+            organization = new FarmingShopsOrganization(name);
+            organizationList.add(organization);
+        } 
+        else if (type.getValue().equals(Organization.Type.Transporter.getValue())) 
+        {
+            organization = new TransporterOrganization(name);
+            organizationList.add(organization);
+        } 
+        else if (type.getValue().equals(Organization.Type.BigMarketManager.getValue())) 
+        {
+            organization = new BigMarketOrganization(name);
+            organizationList.add(organization);
+        } 
+        else if (type.getValue().equals(Organization.Type.CompanyManager.getValue())) 
+        {
+            organization = new CompanyOrganization(name);
+            organizationList.add(organization);
+        } 
+        else if (type.getValue().equals(Organization.Type.NgoOfficer.getValue())) 
+        {
+            organization = new NgoOrganization(name);
+            organizationList.add(organization);
+        } 
+        else if (type.getValue().equals(Organization.Type.WeatherForecastManager.getValue())) 
+        {
+            organization = new WeatherForecastOrganization(name);
+            organizationList.add(organization);
+        } 
+        else if (type.getValue().equals(Organization.Type.SmartFarmingManager.getValue())) 
+        {
+            organization = new SmartFarmingOrganization(name);
+            organizationList.add(organization);
+        } 
+        return organization;
+    }
 }

@@ -4,11 +4,26 @@
  * and open the template in the editor.
  */
 package Business.Organization;
+import Business.Role.NgoOfficer;
+import Business.Role.Role;
+import java.util.ArrayList;
 
 /**
  *
  * @author sagar
  */
-public class NgoOrganization {
-    
+public class NgoOrganization extends Organization {
+
+    public NgoOrganization(String name) 
+    {
+        super(name);
+    }
+
+    @Override
+    public ArrayList<Role> getSupportedRole() 
+    {
+        ArrayList<Role> roles = new ArrayList();
+        roles.add(new NgoOfficer());
+        return roles;
+    }
 }

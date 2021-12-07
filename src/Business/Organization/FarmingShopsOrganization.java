@@ -4,11 +4,26 @@
  * and open the template in the editor.
  */
 package Business.Organization;
+import Business.Role.Role;
+import Business.Role.ShopOwner;
+import java.util.ArrayList;
 
 /**
  *
  * @author sagar
  */
-public class FarmingShopsOrganization {
-    
+public class FarmingShopsOrganization extends Organization {
+
+    public FarmingShopsOrganization(String name) 
+    {
+        super(name);
+    }
+
+    @Override
+    public ArrayList<Role> getSupportedRole() 
+    {
+        ArrayList<Role> roles = new ArrayList();
+        roles.add(new ShopOwner());
+        return roles;
+    }
 }
