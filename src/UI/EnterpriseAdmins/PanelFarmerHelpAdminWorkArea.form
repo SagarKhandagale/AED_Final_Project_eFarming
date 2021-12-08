@@ -92,7 +92,7 @@
       <SubComponents>
         <Component class="javax.swing.JLabel" name="lblTopHeading">
           <Properties>
-            <Property name="text" type="java.lang.String" value="FARMER COMMUNITY ENTERPRISE"/>
+            <Property name="text" type="java.lang.String" value="FARMER HELP ENTERPRISE"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lblIconManageOrg">

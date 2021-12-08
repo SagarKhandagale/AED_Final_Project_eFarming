@@ -35,7 +35,7 @@ public class PanelFarmerCommManageWorkRequest extends javax.swing.JPanel {
 
         lblTitle.setFont(new java.awt.Font("Lucida Grande", 1, 24)); // NOI18N
         lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblTitle.setText("MANAGE BIG MARKET ENTERPRISE USERS");
+        lblTitle.setText("MANAGE FARMER COMMUNITY ENTERPRISE USERS");
 
         tblOrganization.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
