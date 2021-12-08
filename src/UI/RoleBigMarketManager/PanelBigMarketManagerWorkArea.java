@@ -5,6 +5,8 @@
  */
 package UI.RoleBigMarketManager;
 
+import UI.EnterpriseAdmins.*;
+
 /**
  *
  * @author sagar
@@ -12,7 +14,7 @@ package UI.RoleBigMarketManager;
 public class PanelBigMarketManagerWorkArea extends javax.swing.JPanel {
 
     /**
-     * Creates new form PanelBigMarketManagerWorkArea
+     * Creates new form PanelBMSetupAdminWorkArea
      */
     public PanelBigMarketManagerWorkArea() {
         initComponents();
@@ -31,27 +33,23 @@ public class PanelBigMarketManagerWorkArea extends javax.swing.JPanel {
         lblTopHeading = new javax.swing.JLabel();
         lblIconManageOrg = new javax.swing.JLabel();
         lblIconManageUserAcc = new javax.swing.JLabel();
-        lblIconManageRequest = new javax.swing.JLabel();
         lblManageOrganization = new javax.swing.JLabel();
         lblManageUserAcc = new javax.swing.JLabel();
-        lblManageRequest = new javax.swing.JLabel();
         pnlRight = new javax.swing.JPanel();
+
+        setPreferredSize(new java.awt.Dimension(1440, 850));
 
         pnlLeft.setSize(new java.awt.Dimension(300, 850));
 
-        lblTopHeading.setText("BIG MARKET SETUP ENTERPRISE");
+        lblTopHeading.setText("BIG MARKET ORGANIZATION ");
 
         lblIconManageOrg.setText("Logo");
 
         lblIconManageUserAcc.setText("Logo");
 
-        lblIconManageRequest.setText("Logo");
+        lblManageOrganization.setText("MANAGE USER PROFILE");
 
-        lblManageOrganization.setText("MANAGE ORGANIZATION");
-
-        lblManageUserAcc.setText("MANAGE USER ACCOUNT");
-
-        lblManageRequest.setText("MANAGE USER REQUESTS");
+        lblManageUserAcc.setText("MANAGE WORK REQUEST");
 
         javax.swing.GroupLayout pnlLeftLayout = new javax.swing.GroupLayout(pnlLeft);
         pnlLeft.setLayout(pnlLeftLayout);
@@ -68,11 +66,7 @@ public class PanelBigMarketManagerWorkArea extends javax.swing.JPanel {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlLeftLayout.createSequentialGroup()
                         .addComponent(lblIconManageUserAcc, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblManageUserAcc, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlLeftLayout.createSequentialGroup()
-                        .addComponent(lblIconManageRequest, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblManageRequest, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(lblManageUserAcc, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(pnlLeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(pnlLeftLayout.createSequentialGroup()
@@ -91,11 +85,7 @@ public class PanelBigMarketManagerWorkArea extends javax.swing.JPanel {
                 .addGroup(pnlLeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblManageUserAcc, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblIconManageUserAcc, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(20, 20, 20)
-                .addGroup(pnlLeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblManageRequest, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblIconManageRequest, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(579, Short.MAX_VALUE))
+                .addContainerGap(639, Short.MAX_VALUE))
             .addGroup(pnlLeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(pnlLeftLayout.createSequentialGroup()
                     .addGap(112, 112, 112)
@@ -124,10 +114,8 @@ public class PanelBigMarketManagerWorkArea extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel lblIconManageOrg;
-    private javax.swing.JLabel lblIconManageRequest;
     private javax.swing.JLabel lblIconManageUserAcc;
     private javax.swing.JLabel lblManageOrganization;
-    private javax.swing.JLabel lblManageRequest;
     private javax.swing.JLabel lblManageUserAcc;
     private javax.swing.JLabel lblTopHeading;
     private javax.swing.JPanel pnlLeft;
