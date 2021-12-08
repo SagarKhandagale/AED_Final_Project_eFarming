@@ -38,6 +38,8 @@ public class PanelSystemAdminWorkArea extends javax.swing.JPanel {
 
         setPreferredSize(new java.awt.Dimension(1440, 850));
 
+        pnlLeft.setPreferredSize(new java.awt.Dimension(300, 850));
+
         jLabel1.setText("MANAGE ENTERPRISE");
 
         jLabel2.setText("MANAGE ENTERPRISE Admin");
@@ -89,7 +91,7 @@ public class PanelSystemAdminWorkArea extends javax.swing.JPanel {
         pnlRight.setLayout(pnlRightLayout);
         pnlRightLayout.setHorizontalGroup(
             pnlRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1137, Short.MAX_VALUE)
+            .addGap(0, 1140, Short.MAX_VALUE)
         );
         pnlRightLayout.setVerticalGroup(
             pnlRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
