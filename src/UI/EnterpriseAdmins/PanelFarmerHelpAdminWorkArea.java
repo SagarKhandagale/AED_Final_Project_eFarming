@@ -37,7 +37,7 @@ public class PanelFarmerHelpAdminWorkArea extends javax.swing.JPanel {
         lblManageRequest = new javax.swing.JLabel();
         pnlRight = new javax.swing.JPanel();
 
-        lblTopHeading.setText("FARMER COMMUNITY ENTERPRISE");
+        lblTopHeading.setText("FARMER HELP ENTERPRISE");
 
         lblIconManageOrg.setText("Logo");
 
