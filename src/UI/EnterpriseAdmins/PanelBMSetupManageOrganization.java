@@ -105,7 +105,7 @@ public class PanelBMSetupManageOrganization extends javax.swing.JPanel {
                     .addComponent(cmbOrganizationType, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(15, 15, 15)
                 .addComponent(btnAddOrganization)
-                .addContainerGap(181, Short.MAX_VALUE))
+                .addContainerGap(180, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
