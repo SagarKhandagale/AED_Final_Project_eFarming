@@ -5,10 +5,25 @@
  */
 package Business.Enterprise;
 
+import Business.Role.Role;
+import Business.Role.TransporterAdmin;
+import java.util.ArrayList;
+
 /**
  *
  * @author sagar
  */
-public class TransportationEnterprise {
+public class TransportationEnterprise extends Enterprise {
+
+    public TransportationEnterprise(String name) {
+        super(name, Enterprise.EnterpriseType.Transportation);
+    }
+
+    @Override
+    public ArrayList<Role> getSupportedRole() {
+        roles = new ArrayList<Role>();
+        roles.add(new TransporterAdmin());
+        return roles;
+    }
     
 }

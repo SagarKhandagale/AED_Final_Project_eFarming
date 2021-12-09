@@ -26,6 +26,7 @@ public class UserAccountDirectory {
     public UserAccount authenticateUser(String username, String password) {
         for (UserAccount ua : userAccountList) {
             if (ua.getUsername().toLowerCase().equals(username.toLowerCase()) && ua.getPassword().equals(password)) {
+                System.out.println("ua : " + ua);
                 return ua;
             }
         }
@@ -36,8 +37,12 @@ public class UserAccountDirectory {
         UserAccount userAccount = new UserAccount();
         userAccount.setUsername(username);
         userAccount.setPassword(password);
+        userAccount.setEmployee(employee);
+        userAccount.setRole(role);
+        userAccount.setName(employee.getName());
 
         userAccountList.add(userAccount);
+        System.out.println("userAccount added " + userAccount);
         return userAccount;
     }
 }

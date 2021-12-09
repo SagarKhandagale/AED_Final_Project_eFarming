@@ -26,6 +26,28 @@ public class UserAccount {
     private String state;
     private String zipCode;
     private Role role;
+    public Employee employee;
+    private WorkQueue workQueue;
+
+    public UserAccount() {
+        workQueue = new WorkQueue();
+    }
+
+    public WorkQueue getWorkQueue() {
+        return workQueue;
+    }
+
+    public void setWorkQueue(WorkQueue workQueue) {
+        this.workQueue = workQueue;
+    }
+
+    public Employee getEmployee() {
+        return employee;
+    }
+
+    public void setEmployee(Employee employee) {
+        this.employee = employee;
+    }
 
     public Role getRole() {
         return role;
@@ -105,6 +127,11 @@ public class UserAccount {
 
     public void setZipCode(String zipCode) {
         this.zipCode = zipCode;
+    }
+
+    @Override
+    public String toString() {
+        return name;
     }
 
     
