@@ -20,7 +20,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="321" max="-2" attributes="0"/>
-                      <Component id="jLabel1" min="-2" pref="226" max="-2" attributes="0"/>
+                      <Component id="lblTitle" min="-2" pref="226" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="206" max="-2" attributes="0"/>
@@ -29,22 +29,22 @@
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="lblentname" alignment="0" min="-2" pref="140" max="-2" attributes="0"/>
-                                  <Component id="lblnetwork" alignment="0" min="-2" pref="109" max="-2" attributes="0"/>
-                                  <Component id="lblenttype" alignment="0" min="-2" pref="109" max="-2" attributes="0"/>
+                                  <Component id="lblEnterpriseName" alignment="0" min="-2" pref="140" max="-2" attributes="0"/>
+                                  <Component id="lblNetwork" alignment="0" min="-2" pref="109" max="-2" attributes="0"/>
+                                  <Component id="lblEnterpriseType" alignment="0" min="-2" pref="109" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="80" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="txtentname" pref="174" max="32767" attributes="0"/>
-                                  <Component id="combonetwork" max="32767" attributes="0"/>
-                                  <Component id="comboenttype" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="txtEnterpriseName" pref="174" max="32767" attributes="0"/>
+                                  <Component id="cmbNetwork" max="32767" attributes="0"/>
+                                  <Component id="cmbEnterpriseType" alignment="0" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="331" max="-2" attributes="0"/>
-                      <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnSaveEnterprise" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace pref="482" max="32767" attributes="0"/>
@@ -55,26 +55,26 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="63" max="-2" attributes="0"/>
-              <Component id="jLabel1" min="-2" pref="34" max="-2" attributes="0"/>
+              <Component id="lblTitle" min="-2" pref="34" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
               <Component id="jScrollPane1" min="-2" pref="89" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="lblentname" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
-                  <Component id="txtentname" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblEnterpriseName" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                  <Component id="txtEnterpriseName" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="lblnetwork" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
-                  <Component id="combonetwork" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblNetwork" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
+                  <Component id="cmbNetwork" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="lblenttype" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
-                  <Component id="comboenttype" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblEnterpriseType" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
+                  <Component id="cmbEnterpriseType" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-              <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+              <Component id="btnSaveEnterprise" min="-2" max="-2" attributes="0"/>
               <EmptySpace pref="409" max="32767" attributes="0"/>
           </Group>
       </Group>
@@ -123,57 +123,51 @@
         </Component>
       </SubComponents>
     </Container>
-    <Component class="javax.swing.JLabel" name="lblentname">
+    <Component class="javax.swing.JLabel" name="lblEnterpriseName">
       <Properties>
         <Property name="text" type="java.lang.String" value="Enter Enterprise Name:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtentname">
+    <Component class="javax.swing.JTextField" name="txtEnterpriseName">
     </Component>
-    <Component class="javax.swing.JButton" name="jButton1">
+    <Component class="javax.swing.JButton" name="btnSaveEnterprise">
       <Properties>
         <Property name="text" type="java.lang.String" value="Save Enterprise"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSaveEnterpriseActionPerformed"/>
+      </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel1">
+    <Component class="javax.swing.JLabel" name="lblTitle">
       <Properties>
         <Property name="text" type="java.lang.String" value="Manage Enterprise"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="lblnetwork">
+    <Component class="javax.swing.JLabel" name="lblNetwork">
       <Properties>
         <Property name="text" type="java.lang.String" value="Network :"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JComboBox" name="combonetwork">
+    <Component class="javax.swing.JComboBox" name="cmbNetwork">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="4">
-            <StringItem index="0" value="Item 1"/>
-            <StringItem index="1" value="Item 2"/>
-            <StringItem index="2" value="Item 3"/>
-            <StringItem index="3" value="Item 4"/>
-          </StringArray>
+          <StringArray count="0"/>
         </Property>
+        <Property name="toolTipText" type="java.lang.String" value=""/>
       </Properties>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JLabel" name="lblenttype">
+    <Component class="javax.swing.JLabel" name="lblEnterpriseType">
       <Properties>
         <Property name="text" type="java.lang.String" value="Enterprise Type:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JComboBox" name="comboenttype">
+    <Component class="javax.swing.JComboBox" name="cmbEnterpriseType">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="4">
-            <StringItem index="0" value="Item 1"/>
-            <StringItem index="1" value="Item 2"/>
-            <StringItem index="2" value="Item 3"/>
-            <StringItem index="3" value="Item 4"/>
-          </StringArray>
+          <StringArray count="0"/>
         </Property>
       </Properties>
       <AuxValues>

@@ -27,5 +27,33 @@ public class EnterpriseDirectory {
         this.enterpriseList = new ArrayList<Enterprise>();
     }
     
-    
+    public Enterprise createAndAddEnterprise(String etName, Enterprise.EnterpriseType type) 
+    {
+        Enterprise enterprise = null;
+        if (null != type) 
+        {
+            switch (type) 
+            {
+                case FarmerCommunity:
+                    enterprise = new FarmerCommunityEnterprise(etName);
+                    enterpriseList.add(enterprise);
+                    break;
+                case Transportation:
+                    enterprise = new TransportationEnterprise(etName);
+                    enterpriseList.add(enterprise);
+                    break;
+                case BigMarketSetup:
+                    enterprise = new BigMarketSetupEnterprise(etName);
+                    enterpriseList.add(enterprise);
+                    break;
+                case FarmerHelp:
+                    enterprise = new FarmerHelpEnterprise(etName);
+                    enterpriseList.add(enterprise);
+                    break;
+                default:
+                    break;
+            }
+        }
+        return enterprise;
+    }
 }
