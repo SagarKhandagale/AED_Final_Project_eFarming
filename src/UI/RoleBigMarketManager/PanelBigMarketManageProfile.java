@@ -266,7 +266,7 @@ public class PanelBigMarketManageProfile extends javax.swing.JPanel {
                 .addComponent(lblTitle)
                 .addGap(50, 50, 50)
                 .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 670, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(50, Short.MAX_VALUE))
+                .addContainerGap(48, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
