@@ -35,7 +35,7 @@ public class PanelSmartFarmingManagerWorkArea extends javax.swing.JPanel {
         lblManageUserAcc = new javax.swing.JLabel();
         pnlRight = new javax.swing.JPanel();
 
-        lblTopHeading.setText("SHOP OWNER ORGANIZATION ");
+        lblTopHeading.setText("SMART FARMING ORGANIZATION ");
 
         lblIconManageOrg.setText("Logo");
 

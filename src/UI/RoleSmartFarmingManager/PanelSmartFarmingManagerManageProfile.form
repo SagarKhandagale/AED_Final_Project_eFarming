@@ -43,7 +43,7 @@
           <Font name="Lucida Grande" size="24" style="1"/>
         </Property>
         <Property name="horizontalAlignment" type="int" value="0"/>
-        <Property name="text" type="java.lang.String" value="MANAGE SHOP OWNER USER PROFILE"/>
+        <Property name="text" type="java.lang.String" value="MANAGE SMART OWNER USER PROFILE"/>
       </Properties>
     </Component>
     <Container class="javax.swing.JTabbedPane" name="jTabbedPane1">
