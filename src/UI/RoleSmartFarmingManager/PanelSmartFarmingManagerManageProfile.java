@@ -63,7 +63,7 @@ public class PanelSmartFarmingManagerManageProfile extends javax.swing.JPanel {
 
         lblTitle.setFont(new java.awt.Font("Lucida Grande", 1, 24)); // NOI18N
         lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblTitle.setText("MANAGE SHOP OWNER USER PROFILE");
+        lblTitle.setText("MANAGE SMART OWNER USER PROFILE");
 
         jButton1.setText("Save");
 
