@@ -5,6 +5,8 @@
  */
 package UI.SystemAdminWorkArea;
 
+import Business.EcoSystem;
+
 /**
  *
  * @author Admin
@@ -14,8 +16,12 @@ public class PanelManageNetwork extends javax.swing.JPanel {
     /**
      * Creates new form PanelManageNetwork
      */
-    public PanelManageNetwork() {
+    
+    private final EcoSystem system;
+    
+    public PanelManageNetwork(EcoSystem system) {
         initComponents();
+        this.system = system;
     }
 
     /**

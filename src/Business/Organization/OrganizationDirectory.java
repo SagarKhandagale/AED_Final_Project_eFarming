@@ -32,7 +32,7 @@ public class OrganizationDirectory {
             organization = new FarmerOrganization(name);
             organizationList.add(organization);
         } 
-        else if (type.getValue().equals(Organization.Type.ShopOwner.getValue())) 
+        else if (type.getValue().equals(Organization.Type.FarmingShopOwner.getValue())) 
         {
             organization = new FarmingShopsOrganization(name);
             organizationList.add(organization);
@@ -42,27 +42,27 @@ public class OrganizationDirectory {
             organization = new TransporterOrganization(name);
             organizationList.add(organization);
         } 
-        else if (type.getValue().equals(Organization.Type.BigMarketManager.getValue())) 
+        else if (type.getValue().equals(Organization.Type.BigMarket.getValue())) 
         {
             organization = new BigMarketOrganization(name);
             organizationList.add(organization);
         } 
-        else if (type.getValue().equals(Organization.Type.CompanyManager.getValue())) 
+        else if (type.getValue().equals(Organization.Type.Company.getValue())) 
         {
             organization = new CompanyOrganization(name);
             organizationList.add(organization);
         } 
-        else if (type.getValue().equals(Organization.Type.NgoOfficer.getValue())) 
+        else if (type.getValue().equals(Organization.Type.NGO.getValue())) 
         {
             organization = new NgoOrganization(name);
             organizationList.add(organization);
         } 
-        else if (type.getValue().equals(Organization.Type.WeatherForecastManager.getValue())) 
+        else if (type.getValue().equals(Organization.Type.WeatherForecast.getValue())) 
         {
             organization = new WeatherForecastOrganization(name);
             organizationList.add(organization);
         } 
-        else if (type.getValue().equals(Organization.Type.SmartFarmingManager.getValue())) 
+        else if (type.getValue().equals(Organization.Type.SmartFarming.getValue())) 
         {
             organization = new SmartFarmingOrganization(name);
             organizationList.add(organization);

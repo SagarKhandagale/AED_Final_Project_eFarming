@@ -3,6 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
+            <file>file:/Users/sagar/Sagar/Sem%201%20-%20AED/Project/AED_Final_Project_eFarming/src/UI/UserRegistration/PanelUserRegistration.java</file>
+            <file>file:/Users/sagar/Sagar/Sem%201%20-%20AED/Project/AED_Final_Project_eFarming/src/Business/Organization/Organization.java</file>
+=======
             <file>file:/C:/Users/Admin/Documents/NetBeansProjects/AED_Final_Project_eFarming/src/UI/EnterpriseAdmins/PanelFarmerHelpManageWorkRequest.java</file>
             <file>file:/C:/Users/Admin/Documents/NetBeansProjects/AED_Final_Project_eFarming/src/UI/EnterpriseAdmins/PanelBMSetupManageOrganization.java</file>
             <file>file:/C:/Users/Admin/Documents/NetBeansProjects/AED_Final_Project_eFarming/src/UI/EnterpriseAdmins/PanelFarmerHelpManageUserAccount.java</file>
@@ -19,6 +23,7 @@
             <file>file:/C:/Users/Admin/Documents/NetBeansProjects/AED_Final_Project_eFarming/src/UI/EnterpriseAdmins/PanelTransportationAdminWorkArea.java</file>
             <file>file:/C:/Users/Admin/Documents/NetBeansProjects/AED_Final_Project_eFarming/src/UI/EnterpriseAdmins/PanelTransportationManageUserAccount.java</file>
             <file>file:/C:/Users/Admin/Documents/NetBeansProjects/AED_Final_Project_eFarming/src/UI/EnterpriseAdmins/PanelFarmerCommManageUserAccount.java</file>
+>>>>>>> main
         </group>
     </open-files>
 </project-private>
