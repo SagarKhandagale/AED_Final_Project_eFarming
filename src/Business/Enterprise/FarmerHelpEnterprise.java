@@ -5,10 +5,25 @@
  */
 package Business.Enterprise;
 
+import Business.Role.FarmerHelpAdmin;
+import Business.Role.Role;
+import java.util.ArrayList;
+
 /**
  *
  * @author sagar
  */
-public class FarmerHelpEnterprise {
+public class FarmerHelpEnterprise extends Enterprise {
+
+    public FarmerHelpEnterprise(String name) {
+        super(name, Enterprise.EnterpriseType.FarmerHelp);
+    }
+
+    @Override
+    public ArrayList<Role> getSupportedRole() {
+        roles = new ArrayList<Role>();
+        roles.add(new FarmerHelpAdmin());
+        return roles;
+    }
     
 }
