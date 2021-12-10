@@ -14,6 +14,7 @@ import Business.Role.FarmerCommAdmin;
 import Business.Role.FarmerHelpAdmin;
 import Business.Role.TransporterAdmin;
 import Business.UserAccount.UserAccount;
+import java.util.Arrays;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -34,6 +35,8 @@ public class PanelManageEnterpriseAdmin extends javax.swing.JPanel {
         this.system = system;
         populateTable();
         populateCmbNetwork();
+        populateCmbEnterprise();
+        System.out.println("Constructor : " + system.getEnterpriseDirectory().getEnterpriseList());
     }
     
     private void populateTable() 
@@ -60,22 +63,37 @@ public class PanelManageEnterpriseAdmin extends javax.swing.JPanel {
 
     private void populateCmbNetwork() {
         cmbNetwork.removeAllItems();
-
-        for (Network network : system.getNetworkList()) 
+        
+        System.out.println("populateCmbNetwork() System : " + Arrays.toString(system.getNetworkList().toArray()));
+        for (Network network : system.getNetworkList())
         {
             cmbNetwork.addItem(network.toString());
         }
     }
 
-    private void populateCmbEnterprise(Network network) 
+    private void populateCmbEnterprise() 
     {
-        cmbEnterprise.removeAllItems();
-
-        for (Enterprise enterprise : network.getEnterpriseDirectory().getEnterpriseList()) 
+        Network network = null;
+        String networkName = cmbNetwork.getSelectedItem().toString();
+        
+        
+        for(Network n : system.getNetworkList())
         {
-            cmbEnterprise.addItem(enterprise.toString());
+            if(n.getNetworkName().equals(networkName))
+            {
+                network = n;
+            }
         }
+        
+        if (network != null)
+        {
+            cmbEnterprise.removeAllItems();
 
+            for (Enterprise enterprise : network.getEnterpriseDirectory().getEnterpriseList()) 
+            {
+                cmbEnterprise.addItem(enterprise.toString());
+            }
+        }
     }
 
     /**
@@ -107,6 +125,11 @@ public class PanelManageEnterpriseAdmin extends javax.swing.JPanel {
         lblNetwork.setText("Network :");
 
         cmbNetwork.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cmbNetwork.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbNetworkActionPerformed(evt);
+            }
+        });
 
         lblEnterpriseType.setText("Enterprise:");
 
@@ -211,7 +234,20 @@ public class PanelManageEnterpriseAdmin extends javax.swing.JPanel {
 
     private void btnEnterpriseAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnterpriseAdminActionPerformed
         
-        Enterprise enterprise = (Enterprise) cmbEnterprise.getSelectedItem();
+        Enterprise enterprise = null;
+        String ent  = cmbEnterprise.getSelectedItem().toString();
+        System.out.println("getEnterpriseList : " + Arrays.toString(system.getEnterpriseDirectory().getEnterpriseList().toArray()));
+        for (Network network : system.getNetworkList()) 
+        {
+            for (Enterprise et : network.getEnterpriseDirectory().getEnterpriseList()) 
+            {
+                if(et.getName().equals(ent))
+                {
+                    enterprise = et;
+                }
+            }
+        }
+        
         String username = txtUsername.getText();
         String password = String.valueOf(txtPassword.getPassword());
         String name = txtName.getText();
@@ -227,11 +263,12 @@ public class PanelManageEnterpriseAdmin extends javax.swing.JPanel {
         if (!system.checkUniqueUsername(username))
             return;
 
+        JOptionPane.showMessageDialog(null, "enterprise " + enterprise);
         Employee employee = enterprise.getEmployeeDirectory().createEmployee(name);
         UserAccount account = null;
         
         if (null != enterprise.getEnterpriseType()) 
-        {
+        {   
             switch (enterprise.getEnterpriseType()) 
             {
                 case FarmerCommunity:
@@ -257,6 +294,10 @@ public class PanelManageEnterpriseAdmin extends javax.swing.JPanel {
         JOptionPane.showMessageDialog(null, "User Account created sucessfully");
         populateTable();
     }//GEN-LAST:event_btnEnterpriseAdminActionPerformed
+
+    private void cmbNetworkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbNetworkActionPerformed
+        
+    }//GEN-LAST:event_cmbNetworkActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

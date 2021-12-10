@@ -5,6 +5,8 @@
  */
 package UI.EnterpriseAdmins;
 
+import Business.Organization.OrganizationDirectory;
+
 /**
  *
  * @author sagar
@@ -14,8 +16,12 @@ public class PanelBMSetupManageOrganization extends javax.swing.JPanel {
     /**
      * Creates new form PanelBMSetupManageOrganization
      */
-    public PanelBMSetupManageOrganization() {
+    
+    private final OrganizationDirectory directory;
+    
+    public PanelBMSetupManageOrganization(OrganizationDirectory directory) {
         initComponents();
+        this.directory = directory;
     }
 
     /**
@@ -60,6 +66,11 @@ public class PanelBMSetupManageOrganization extends javax.swing.JPanel {
         cmbOrganizationType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         btnAddOrganization.setText("Add Organization");
+        btnAddOrganization.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddOrganizationActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -108,6 +119,10 @@ public class PanelBMSetupManageOrganization extends javax.swing.JPanel {
                 .addContainerGap(180, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnAddOrganizationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddOrganizationActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnAddOrganizationActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -7,7 +7,9 @@ package UI.SystemAdminWorkArea;
 
 import Business.EcoSystem;
 import Business.Enterprise.Enterprise;
+import Business.Enterprise.Enterprise.EnterpriseType;
 import Business.Network.Network;
+import Business.Organization.Organization.Type;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -22,6 +24,7 @@ public class PanelManageEnterprise extends javax.swing.JPanel {
      */
     
     private final EcoSystem system;
+    Enterprise enterprise;
     
     public PanelManageEnterprise(EcoSystem system) {
         initComponents();
@@ -173,9 +176,20 @@ public class PanelManageEnterprise extends javax.swing.JPanel {
 
     private void btnSaveEnterpriseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveEnterpriseActionPerformed
         
-        System.out.println("cmbNetwork.getSelectedItem() : " + cmbNetwork.getSelectedItem());
-        Network nw = (Network) cmbNetwork.getSelectedItem();
-        Enterprise.EnterpriseType type = (Enterprise.EnterpriseType) cmbEnterpriseType.getSelectedItem();
+        String network = cmbNetwork.getSelectedItem().toString();
+        
+        Network nw = null;
+        
+        for(Network n: system.getNetworkList()) 
+        {
+            if (n.getNetworkName().equals(network)) 
+            {
+                nw = n;
+            }
+        }
+        
+        EnterpriseType type = EnterpriseType.valueOf(cmbEnterpriseType.getSelectedItem().toString().split(" ")[0]);
+        
         String name = txtEnterpriseName.getText();
 
         if (nw == null || type == null || name.isEmpty()) 

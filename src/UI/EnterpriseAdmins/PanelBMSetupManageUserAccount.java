@@ -5,6 +5,10 @@
  */
 package UI.EnterpriseAdmins;
 
+import Business.EcoSystem;
+import Business.Enterprise.Enterprise;
+import Business.Organization.Organization;
+
 /**
  *
  * @author sagar
@@ -14,8 +18,16 @@ public class PanelBMSetupManageUserAccount extends javax.swing.JPanel {
     /**
      * Creates new form PanelBMSetupManageUserAccount
      */
-    public PanelBMSetupManageUserAccount() {
+    
+    private final Enterprise enterprise;
+    private final EcoSystem ecosystem;
+    Organization organization;
+    
+    public PanelBMSetupManageUserAccount(Enterprise enterprise, EcoSystem system, Organization organization) {
         initComponents();
+        this.enterprise = enterprise;
+        this.ecosystem = system;
+        this.organization = organization;
     }
 
     /**

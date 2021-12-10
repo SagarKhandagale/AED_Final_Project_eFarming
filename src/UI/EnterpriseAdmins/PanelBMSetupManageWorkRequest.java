@@ -5,6 +5,9 @@
  */
 package UI.EnterpriseAdmins;
 
+import Business.Enterprise.Enterprise;
+import Business.Organization.OrganizationDirectory;
+
 /**
  *
  * @author sagar
@@ -14,8 +17,14 @@ public class PanelBMSetupManageWorkRequest extends javax.swing.JPanel {
     /**
      * Creates new form PanelBMSetupManageWorkRequest
      */
-    public PanelBMSetupManageWorkRequest() {
+    private final Enterprise enterprise;
+    private final OrganizationDirectory organizationDirectory;
+
+
+    public PanelBMSetupManageWorkRequest(Enterprise enterprise) {
         initComponents();
+        this.enterprise = enterprise;
+        this.organizationDirectory = enterprise.getOrganizationDirectory();
     }
 
     /**

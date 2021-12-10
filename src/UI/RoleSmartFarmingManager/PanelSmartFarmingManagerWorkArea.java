@@ -79,7 +79,7 @@ public class PanelSmartFarmingManagerWorkArea extends javax.swing.JPanel {
                 .addGroup(pnlLeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblManageUserAcc, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblIconManageUserAcc, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(642, Short.MAX_VALUE))
+                .addContainerGap(649, Short.MAX_VALUE))
             .addGroup(pnlLeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(pnlLeftLayout.createSequentialGroup()
                     .addGap(112, 112, 112)

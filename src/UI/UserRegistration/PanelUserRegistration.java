@@ -204,7 +204,7 @@ public class PanelUserRegistration extends javax.swing.JPanel {
         }
         if (!system.checkValidPassword(password))
         return;
-        if (!system.checkUniqueUser(username))
+        if (!system.checkUniqueUsername(username))
         return;
         if (!this.system.validateEmailFormat(emailAddress))
         return;
