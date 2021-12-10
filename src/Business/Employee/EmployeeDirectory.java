@@ -6,6 +6,7 @@ package Business.Employee;
 
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -23,7 +24,8 @@ public class EmployeeDirectory {
         return employeeList;
     }
     
-    public Employee createEmployee(String name){
+    public Employee createEmployee(String name)
+    {
         Employee employee = new Employee();
         employee.setName(name);
         employeeList.add(employee);

@@ -115,16 +115,25 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="MANAGE ORGANIZATION"/>
           </Properties>
+          <Events>
+            <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblManageOrganizationMousePressed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="lblManageUserAcc">
           <Properties>
             <Property name="text" type="java.lang.String" value="MANAGE USER ACCOUNT"/>
           </Properties>
+          <Events>
+            <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblManageUserAccMousePressed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="lblManageRequest">
           <Properties>
             <Property name="text" type="java.lang.String" value="MANAGE USER REQUESTS"/>
           </Properties>
+          <Events>
+            <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblManageRequestMousePressed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
