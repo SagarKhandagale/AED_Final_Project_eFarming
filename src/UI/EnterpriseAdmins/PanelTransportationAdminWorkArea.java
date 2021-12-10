@@ -5,17 +5,37 @@
  */
 package UI.EnterpriseAdmins;
 
+import Business.EcoSystem;
+import Business.Enterprise.Enterprise;
+import Business.Network.Network;
+import Business.Organization.Organization;
+import Business.UserAccount.UserAccount;
+import javax.swing.JPanel;
+
 /**
  *
  * @author sagar
  */
 public class PanelTransportationAdminWorkArea extends javax.swing.JPanel {
 
+    JPanel userProcessContainer;
+    Enterprise enterprise;
+    EcoSystem system;
+    Network network;
+    UserAccount account;
+    Organization organization;
+    
     /**
      * Creates new form PanelTransportationAdminWorkArea
      */
-    public PanelTransportationAdminWorkArea() {
+    public PanelTransportationAdminWorkArea(JPanel upc, UserAccount acc, Organization organization, Enterprise enterprise, Network network, EcoSystem business) {
         initComponents();
+        this.userProcessContainer = upc;
+        this.account = acc;
+        this.system = business;
+        this.network = network;
+        this.enterprise = enterprise;
+        this.organization = organization;
     }
 
     /**

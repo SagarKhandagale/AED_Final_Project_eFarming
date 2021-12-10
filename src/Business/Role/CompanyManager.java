@@ -10,6 +10,7 @@ import Business.Enterprise.Enterprise;
 import Business.Network.Network;
 import Business.Organization.Organization;
 import Business.UserAccount.UserAccount;
+import UI.RoleCompanyManager.PanelCompanyManagerWorkArea;
 import javax.swing.JPanel;
 
 /**
@@ -21,7 +22,7 @@ public class CompanyManager extends Role {
     @Override
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise,Network network, EcoSystem business) {
 
-        return null;
+        return new PanelCompanyManagerWorkArea();
     }
 
     @Override
