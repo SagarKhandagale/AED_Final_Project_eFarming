@@ -5,6 +5,11 @@
  */
 package UI.EnterpriseAdmins;
 
+import Business.Organization.Organization;
+import Business.Organization.OrganizationDirectory;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author sagar
@@ -14,10 +19,38 @@ public class PanelTransportationManageOrganization extends javax.swing.JPanel {
     /**
      * Creates new form PanelTransportationManageOrganization
      */
-    public PanelTransportationManageOrganization() {
+    private final OrganizationDirectory directory;
+    public PanelTransportationManageOrganization(OrganizationDirectory directory) {
         initComponents();
+        this.directory = directory;
+        populateOrgTable();
+        populateOrganizationTypeComboBox();
+    }
+    
+    private void populateOrganizationTypeComboBox() {
+        cmbOrganizationType.removeAllItems();
+        cmbOrganizationType.addItem(Organization.Type.BigMarket.getValue());
+
     }
 
+    public void populateOrgTable() 
+    {
+        DefaultTableModel model = (DefaultTableModel) tblOrganization.getModel();
+
+        model.setRowCount(0);
+
+        for (Organization organization : directory.getOrganizationList()) 
+        {
+            {
+                System.out.println("Inside for organization : " + organization);
+                Object[] row = new Object[2];
+                row[0] = organization.getType().getValue();
+                row[1] = organization.getName();
+                model.addRow(row);
+            }
+
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -45,6 +78,11 @@ public class PanelTransportationManageOrganization extends javax.swing.JPanel {
         cmbOrganizationType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         btnAddOrganization.setText("Add Organization");
+        btnAddOrganization.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddOrganizationActionPerformed(evt);
+            }
+        });
 
         tblOrganization.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -107,6 +145,23 @@ public class PanelTransportationManageOrganization extends javax.swing.JPanel {
                 .addContainerGap(238, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnAddOrganizationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddOrganizationActionPerformed
+        // TODO add your handling code here:
+        Organization.Type type = Organization.Type.valueOf(cmbOrganizationType.getSelectedItem().toString().split(" ")[0]);
+
+        if ("".equals(txtOrganizationName.getText())) 
+        {
+            JOptionPane.showMessageDialog(null, "Enter organization name!");
+        } 
+        else 
+        {
+            Organization organization = directory.createOrganization(type, txtOrganizationName.getText());
+            JOptionPane.showMessageDialog(null, "Organization Successfully Created");
+            txtOrganizationName.setText("");
+            populateOrgTable();
+        }
+    }//GEN-LAST:event_btnAddOrganizationActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
