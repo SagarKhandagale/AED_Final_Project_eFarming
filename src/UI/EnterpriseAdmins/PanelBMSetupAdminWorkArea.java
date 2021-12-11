@@ -104,11 +104,16 @@ public class PanelBMSetupAdminWorkArea extends javax.swing.JPanel {
 
         setPreferredSize(new java.awt.Dimension(1440, 800));
 
+        pnlLeft.setBackground(new java.awt.Color(249, 248, 237));
         pnlLeft.setPreferredSize(new java.awt.Dimension(300, 800));
 
         lblTopHeading.setText("BIG MARKET SETUP ENTERPRISE");
 
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+
+        lblManageOrganization.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblManageOrganization.setText("MANAGE ORGANIZATION");
+        lblManageOrganization.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         lblManageOrganization.setPreferredSize(new java.awt.Dimension(212, 40));
         lblManageOrganization.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -137,9 +142,12 @@ public class PanelBMSetupAdminWorkArea extends javax.swing.JPanel {
                     .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setPreferredSize(new java.awt.Dimension(212, 52));
 
+        lblManageUserAcc.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblManageUserAcc.setText("MANAGE USER ACCOUNT");
+        lblManageUserAcc.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         lblManageUserAcc.setPreferredSize(new java.awt.Dimension(212, 40));
         lblManageUserAcc.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -168,9 +176,13 @@ public class PanelBMSetupAdminWorkArea extends javax.swing.JPanel {
                     .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.setPreferredSize(new java.awt.Dimension(212, 52));
 
+        lblManageRequest.setBackground(new java.awt.Color(255, 255, 255));
+        lblManageRequest.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblManageRequest.setText("MANAGE USER REQUESTS");
+        lblManageRequest.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         lblManageRequest.setPreferredSize(new java.awt.Dimension(212, 40));
         lblManageRequest.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -182,26 +194,27 @@ public class PanelBMSetupAdminWorkArea extends javax.swing.JPanel {
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 212, Short.MAX_VALUE)
             .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel3Layout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(lblManageRequest, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(lblManageRequest, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(19, Short.MAX_VALUE)))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 52, Short.MAX_VALUE)
             .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel3Layout.createSequentialGroup()
-                    .addGap(6, 6, 6)
+                    .addContainerGap()
                     .addComponent(lblManageRequest, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
+        jPanel4.setBackground(new java.awt.Color(249, 248, 237));
         jPanel4.setPreferredSize(new java.awt.Dimension(52, 52));
 
-        lblIconManageOrg.setText("Logo");
+        lblIconManageOrg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImageIcons/icons8-stacked-organizational-chart-highlighted-first-node-30.png"))); // NOI18N
         lblIconManageOrg.setPreferredSize(new java.awt.Dimension(40, 40));
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
@@ -225,9 +238,10 @@ public class PanelBMSetupAdminWorkArea extends javax.swing.JPanel {
                     .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
+        jPanel6.setBackground(new java.awt.Color(249, 248, 237));
         jPanel6.setPreferredSize(new java.awt.Dimension(52, 52));
 
-        lblIconManageUserAcc.setText("Logo");
+        lblIconManageUserAcc.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImageIcons/icons8-pull-request-30.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -250,9 +264,12 @@ public class PanelBMSetupAdminWorkArea extends javax.swing.JPanel {
                     .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
+        jPanel8.setBackground(new java.awt.Color(255, 255, 255));
         jPanel8.setPreferredSize(new java.awt.Dimension(212, 52));
 
+        lblManageEmployee.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblManageEmployee.setText("MANAGE EMPLOYEE");
+        lblManageEmployee.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         lblManageEmployee.setPreferredSize(new java.awt.Dimension(212, 40));
         lblManageEmployee.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -281,8 +298,10 @@ public class PanelBMSetupAdminWorkArea extends javax.swing.JPanel {
                     .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
+        jPanel7.setBackground(new java.awt.Color(249, 248, 237));
         jPanel7.setPreferredSize(new java.awt.Dimension(52, 52));
 
+        lblIconManageEmployee.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImageIcons/empmanagement.png"))); // NOI18N
         lblIconManageEmployee.setText("Logo");
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
@@ -306,9 +325,10 @@ public class PanelBMSetupAdminWorkArea extends javax.swing.JPanel {
                     .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
+        jPanel5.setBackground(new java.awt.Color(249, 248, 237));
         jPanel5.setPreferredSize(new java.awt.Dimension(52, 52));
 
-        lblIconManageRequest.setText("Logo");
+        lblIconManageRequest.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImageIcons/icons8-users-settings-32.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);

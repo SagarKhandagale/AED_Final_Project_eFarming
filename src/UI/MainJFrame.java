@@ -140,6 +140,11 @@ public class MainJFrame extends javax.swing.JFrame {
 
         txtPassword.setText("Admin");
         txtPassword.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(255, 229, 180)));
+        txtPassword.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtPasswordActionPerformed(evt);
+            }
+        });
 
         lblLogin.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblLogin.setText("LOGIN");
@@ -361,6 +366,10 @@ public class MainJFrame extends javax.swing.JFrame {
         pnlLeft.setVisible(true);
         pnlRight.setVisible(true);
     }//GEN-LAST:event_jLabel3MousePressed
+
+    private void txtPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPasswordActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPasswordActionPerformed
 
     /**
      * @param args the command line arguments
