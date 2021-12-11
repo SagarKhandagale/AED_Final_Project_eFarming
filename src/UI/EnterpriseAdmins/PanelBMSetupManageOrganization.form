@@ -84,7 +84,7 @@
           <Font name="Lucida Grande" size="24" style="1"/>
         </Property>
         <Property name="horizontalAlignment" type="int" value="0"/>
-        <Property name="text" type="java.lang.String" value="MANAGE BIG MARKET SETUP ENTERPRISE"/>
+        <Property name="text" type="java.lang.String" value="MANAGE BIG MARKET ORGANIZATION"/>
       </Properties>
     </Component>
     <Container class="javax.swing.JScrollPane" name="jScrollPane1">

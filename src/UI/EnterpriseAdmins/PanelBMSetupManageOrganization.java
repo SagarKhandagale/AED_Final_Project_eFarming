@@ -76,7 +76,7 @@ public class PanelBMSetupManageOrganization extends javax.swing.JPanel {
 
         lblTitle.setFont(new java.awt.Font("Lucida Grande", 1, 24)); // NOI18N
         lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblTitle.setText("MANAGE BIG MARKET SETUP ENTERPRISE");
+        lblTitle.setText("MANAGE BIG MARKET ORGANIZATION");
 
         tblOrganization.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {

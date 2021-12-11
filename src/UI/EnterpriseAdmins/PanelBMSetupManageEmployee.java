@@ -79,7 +79,7 @@ public class PanelBMSetupManageEmployee extends javax.swing.JPanel {
 
         lblTitle.setFont(new java.awt.Font("Lucida Grande", 1, 24)); // NOI18N
         lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblTitle.setText("MANAGE BIG MARKET SETUP EMPLOYEE");
+        lblTitle.setText("MANAGE BIG MARKET ORGANIZATION EMPLOYEE");
 
         tblEmployee.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
         tblEmployee.setForeground(new java.awt.Color(25, 56, 82));
