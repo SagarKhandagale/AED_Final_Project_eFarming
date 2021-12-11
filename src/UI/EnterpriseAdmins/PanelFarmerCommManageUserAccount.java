@@ -5,6 +5,10 @@
  */
 package UI.EnterpriseAdmins;
 
+import Business.EcoSystem;
+import Business.Enterprise.Enterprise;
+import Business.Organization.Organization;
+
 /**
  *
  * @author sagar
@@ -14,8 +18,14 @@ public class PanelFarmerCommManageUserAccount extends javax.swing.JPanel {
     /**
      * Creates new form PanelManageFarmerCommManageUserAccount
      */
-    public PanelFarmerCommManageUserAccount() {
+    private final Enterprise enterprise;
+    private final EcoSystem ecosystem;
+    Organization organization;
+    public PanelFarmerCommManageUserAccount(Enterprise enterprise,EcoSystem system,Organization organization) {
         initComponents();
+        this.enterprise = enterprise;
+        this.ecosystem = system;
+        this.organization = organization;
     }
 
     /**

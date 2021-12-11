@@ -5,6 +5,9 @@
  */
 package UI.EnterpriseAdmins;
 
+import Business.Enterprise.Enterprise;
+import Business.Organization.OrganizationDirectory;
+
 /**
  *
  * @author sagar
@@ -14,8 +17,12 @@ public class PanelFarmerCommManageWorkRequest extends javax.swing.JPanel {
     /**
      * Creates new form PanelFarmerCommManageRequests
      */
-    public PanelFarmerCommManageWorkRequest() {
+    private final Enterprise enterprise;
+    private final OrganizationDirectory organizationDirectory;
+    public PanelFarmerCommManageWorkRequest(Enterprise enterprise) {
         initComponents();
+        this.enterprise = enterprise;
+        this.organizationDirectory = enterprise.getOrganizationDirectory();
     }
 
     /**

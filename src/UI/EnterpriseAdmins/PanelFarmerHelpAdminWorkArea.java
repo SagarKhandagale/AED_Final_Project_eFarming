@@ -10,6 +10,7 @@ import Business.Enterprise.Enterprise;
 import Business.Network.Network;
 import Business.Organization.Organization;
 import Business.UserAccount.UserAccount;
+import java.awt.CardLayout;
 import javax.swing.JPanel;
 
 /**
@@ -37,7 +38,29 @@ public class PanelFarmerHelpAdminWorkArea extends javax.swing.JPanel {
         this.enterprise = enterprise;
         this.organization = organization;
     }
-
+    private void manageOrganization() 
+    {
+        PanelBMSetupManageOrganization bnmoj = new PanelBMSetupManageOrganization(enterprise.getOrganizationDirectory());
+        pnlRight.add("PanelBMSetupManageOrganization", bnmoj);
+        CardLayout layout = (CardLayout) pnlRight.getLayout();
+        layout.next(pnlRight);
+    }
+    
+    private void manageUserAccount() 
+    {
+        PanelBMSetupManageUserAccount bnmoj = new PanelBMSetupManageUserAccount(enterprise, system, organization);
+        pnlRight.add("PanelBMSetupManageUserAccount", bnmoj);
+        CardLayout layout = (CardLayout) pnlRight.getLayout();
+        layout.next(pnlRight);
+    }
+    
+    private void manageUserRequests() 
+    {
+        PanelBMSetupManageWorkRequest bnmoj = new PanelBMSetupManageWorkRequest(enterprise);
+        pnlRight.add("PanelBMSetupManageWorkRequest", bnmoj);
+        CardLayout layout = (CardLayout) pnlRight.getLayout();
+        layout.next(pnlRight);
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -66,10 +89,25 @@ public class PanelFarmerHelpAdminWorkArea extends javax.swing.JPanel {
         lblIconManageRequest.setText("Logo");
 
         lblManageOrganization.setText("MANAGE ORGANIZATION");
+        lblManageOrganization.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                lblManageOrganizationKeyPressed(evt);
+            }
+        });
 
         lblManageUserAcc.setText("MANAGE USER ACCOUNT");
+        lblManageUserAcc.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                lblManageUserAccKeyPressed(evt);
+            }
+        });
 
         lblManageRequest.setText("MANAGE USER REQUESTS");
+        lblManageRequest.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                lblManageRequestKeyPressed(evt);
+            }
+        });
 
         javax.swing.GroupLayout pnlLeftLayout = new javax.swing.GroupLayout(pnlLeft);
         pnlLeft.setLayout(pnlLeftLayout);
@@ -142,6 +180,21 @@ public class PanelFarmerHelpAdminWorkArea extends javax.swing.JPanel {
             .addComponent(pnlRight, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void lblManageOrganizationKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_lblManageOrganizationKeyPressed
+        // TODO add your handling code here:
+        manageOrganization();
+    }//GEN-LAST:event_lblManageOrganizationKeyPressed
+
+    private void lblManageUserAccKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_lblManageUserAccKeyPressed
+        // TODO add your handling code here:
+        manageUserAccount();
+    }//GEN-LAST:event_lblManageUserAccKeyPressed
+
+    private void lblManageRequestKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_lblManageRequestKeyPressed
+        // TODO add your handling code here:
+        manageUserRequests();
+    }//GEN-LAST:event_lblManageRequestKeyPressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
