@@ -51,9 +51,9 @@ public class MainJFrame extends javax.swing.JFrame {
         pnlTop = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
         pnlLeft = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
         pnlRight = new javax.swing.JPanel();
         lblUsername = new javax.swing.JLabel();
         txtUsername = new javax.swing.JTextField();
@@ -67,13 +67,14 @@ public class MainJFrame extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        pnlTop.setBackground(new java.awt.Color(145, 199, 136));
+        pnlTop.setBackground(new java.awt.Color(167, 196, 188));
         pnlTop.setPreferredSize(new java.awt.Dimension(1440, 60));
 
-        jLabel2.setFont(new java.awt.Font("Century Schoolbook", 0, 24)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Century Schoolbook", 0, 36)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("We transform the agriculture world");
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImageIcons/logoutbutton_1_3_60x50.jpg"))); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImageIcons/logout.png"))); // NOI18N
         jLabel3.setText("jLabel3");
         jLabel3.setPreferredSize(new java.awt.Dimension(60, 50));
         jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -82,54 +83,48 @@ public class MainJFrame extends javax.swing.JFrame {
             }
         });
 
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImageIcons/back.png"))); // NOI18N
+        jLabel4.setText("jLabel4");
+        jLabel4.setPreferredSize(new java.awt.Dimension(50, 60));
+        jLabel4.setSize(new java.awt.Dimension(50, 60));
+
         javax.swing.GroupLayout pnlTopLayout = new javax.swing.GroupLayout(pnlTop);
         pnlTop.setLayout(pnlTopLayout);
         pnlTopLayout.setHorizontalGroup(
             pnlTopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlTopLayout.createSequentialGroup()
-                .addGap(257, 257, 257)
+                .addGap(30, 30, 30)
+                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 322, Short.MAX_VALUE)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 682, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 369, Short.MAX_VALUE)
+                .addGap(224, 224, 224)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(82, 82, 82))
         );
         pnlTopLayout.setVerticalGroup(
             pnlTopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(pnlTopLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
-            .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
+            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        pnlLeft.setBackground(new java.awt.Color(221, 255, 188));
+        pnlLeft.setBackground(new java.awt.Color(223, 238, 234));
         pnlLeft.setPreferredSize(new java.awt.Dimension(1440, 800));
         pnlLeft.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImageIcons/mainimg711x778.png"))); // NOI18N
-        jLabel1.setText("jLabel1");
-        pnlLeft.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 700, -1));
+        jLabel1.setBackground(new java.awt.Color(223, 238, 234));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImageIcons/bck1.png"))); // NOI18N
+        pnlLeft.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 720, 790));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
+        pnlRight.setBackground(new java.awt.Color(223, 238, 234));
 
-        pnlLeft.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 280, -1, -1));
-
-        pnlRight.setBackground(new java.awt.Color(221, 255, 188));
-
+        lblUsername.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImageIcons/username.png"))); // NOI18N
         lblUsername.setText("U:");
-        lblUsername.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
+        lblUsername.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 0));
 
-        txtUsername.setBackground(new java.awt.Color(41, 50, 80));
-        txtUsername.setForeground(new java.awt.Color(255, 229, 180));
         txtUsername.setText("Admin");
         txtUsername.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(255, 229, 180)));
         txtUsername.addActionListener(new java.awt.event.ActionListener() {
@@ -139,28 +134,25 @@ public class MainJFrame extends javax.swing.JFrame {
         });
 
         lblPassword.setForeground(new java.awt.Color(255, 229, 180));
+        lblPassword.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImageIcons/password.png"))); // NOI18N
         lblPassword.setText("P:");
-        lblPassword.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(255, 229, 180)));
+        lblPassword.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 0));
 
-        txtPassword.setBackground(new java.awt.Color(41, 50, 80));
-        txtPassword.setForeground(new java.awt.Color(255, 229, 180));
         txtPassword.setText("Admin");
         txtPassword.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(255, 229, 180)));
 
-        lblLogin.setForeground(new java.awt.Color(255, 229, 180));
         lblLogin.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblLogin.setText("LOGIN");
-        lblLogin.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(255, 229, 180)));
+        lblLogin.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         lblLogin.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 lblLoginMousePressed(evt);
             }
         });
 
-        lblRegister.setForeground(new java.awt.Color(255, 229, 180));
         lblRegister.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblRegister.setText("REGISTER");
-        lblRegister.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(255, 229, 180)));
+        lblRegister.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         lblRegister.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 lblRegisterMousePressed(evt);
@@ -231,21 +223,21 @@ public class MainJFrame extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(65, Short.MAX_VALUE)
-                .addComponent(userProcessContainer, javax.swing.GroupLayout.PREFERRED_SIZE, 789, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(userProcessContainer, javax.swing.GroupLayout.PREFERRED_SIZE, 741, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addComponent(pnlTop, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 800, Short.MAX_VALUE)))
+                    .addGap(0, 811, Short.MAX_VALUE)))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addContainerGap(55, Short.MAX_VALUE)
-                    .addComponent(pnlLeft, javax.swing.GroupLayout.PREFERRED_SIZE, 800, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(76, Short.MAX_VALUE)
+                    .addComponent(pnlLeft, javax.swing.GroupLayout.PREFERRED_SIZE, 790, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(5, 5, 5)))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addContainerGap(63, Short.MAX_VALUE)
+                    .addContainerGap(74, Short.MAX_VALUE)
                     .addComponent(pnlRight, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addContainerGap()))
         );
@@ -410,7 +402,7 @@ public class MainJFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel lblLogin;
     private javax.swing.JLabel lblPassword;
     private javax.swing.JLabel lblRegister;
