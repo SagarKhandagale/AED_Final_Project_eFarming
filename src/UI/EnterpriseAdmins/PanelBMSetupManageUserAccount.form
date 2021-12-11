@@ -24,18 +24,18 @@
                       <Component id="jScrollPane1" min="-2" pref="800" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="310" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="290" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="lblOrganizationType" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
                           <Component id="lblOrganizationName" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
+                          <Component id="lblEmployee" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
                           <Component id="lblRole" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
                           <Component id="lblUsername" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
                           <Component id="lblPassword" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="cmbOrganizationType" pref="250" max="32767" attributes="0"/>
                           <Component id="cmbOrganizationName" pref="250" max="32767" attributes="0"/>
+                          <Component id="cmbEmployee" pref="250" max="32767" attributes="0"/>
                           <Component id="txtUsername" alignment="0" pref="250" max="32767" attributes="0"/>
                           <Component id="txtPassword" pref="250" max="32767" attributes="0"/>
                           <Component id="cmbRole" alignment="1" pref="250" max="32767" attributes="0"/>
@@ -59,13 +59,13 @@
               <Component id="jScrollPane1" min="-2" pref="250" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="lblOrganizationType" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                  <Component id="cmbOrganizationType" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                  <Component id="lblOrganizationName" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                  <Component id="cmbOrganizationName" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="lblOrganizationName" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                  <Component id="cmbOrganizationName" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                  <Component id="lblEmployee" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                  <Component id="cmbEmployee" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -99,12 +99,12 @@
         <Property name="text" type="java.lang.String" value="MANAGE BIG MARKET ENTERPRISE USERS"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="lblOrganizationName">
+    <Component class="javax.swing.JLabel" name="lblEmployee">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Organization Name:"/>
+        <Property name="text" type="java.lang.String" value="Employee"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="lblOrganizationType">
+    <Component class="javax.swing.JLabel" name="lblOrganizationName">
       <Properties>
         <Property name="text" type="java.lang.String" value="Organization Type:"/>
       </Properties>
@@ -131,7 +131,7 @@
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
       <SubComponents>
-        <Component class="javax.swing.JTable" name="tblOrganization">
+        <Component class="javax.swing.JTable" name="tblUserAccount">
           <Properties>
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
               <Table columnCount="4" rowCount="4">
@@ -172,7 +172,7 @@
         </Component>
       </SubComponents>
     </Container>
-    <Component class="javax.swing.JComboBox" name="cmbOrganizationType">
+    <Component class="javax.swing.JComboBox" name="cmbOrganizationName">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="4">
@@ -183,11 +183,14 @@
           </StringArray>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmbOrganizationNameActionPerformed"/>
+      </Events>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JComboBox" name="cmbOrganizationName">
+    <Component class="javax.swing.JComboBox" name="cmbEmployee">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="4">
@@ -225,6 +228,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Create User Account"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAddUserAccountActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

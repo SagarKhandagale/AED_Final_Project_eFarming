@@ -5,8 +5,17 @@
  */
 package UI.EnterpriseAdmins;
 
+import Business.Employee.Employee;
 import Business.Enterprise.Enterprise;
+import Business.Organization.Organization;
 import Business.Organization.OrganizationDirectory;
+import Business.Role.BigMarketManager;
+import Business.Role.CompanyManager;
+import Business.UserAccount.UserAccount;
+import Business.WorkQueue.UserRegistrationRequest;
+import Business.WorkQueue.WorkRequest;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -25,6 +34,30 @@ public class PanelBMSetupManageWorkRequest extends javax.swing.JPanel {
         initComponents();
         this.enterprise = enterprise;
         this.organizationDirectory = enterprise.getOrganizationDirectory();
+        populateTable();
+    }
+    
+    public void populateTable() {
+        DefaultTableModel model = (DefaultTableModel) tblWorkRequest.getModel();
+
+        model.setRowCount(0);
+
+        for (WorkRequest workRequest : enterprise.getWorkQueue().getWorkRequestList()) 
+        {
+            if (workRequest instanceof UserRegistrationRequest) 
+            {
+                Object[] row = new Object[model.getColumnCount()];
+                row[0] = workRequest;
+                row[1] = ((UserRegistrationRequest) workRequest).getStatus();
+                row[2] = ((UserRegistrationRequest) workRequest).getUserName();
+                row[3] = ((UserRegistrationRequest) workRequest).getFullName();
+                row[4] = ((UserRegistrationRequest) workRequest).getEmailId();
+                row[5] = ((UserRegistrationRequest) workRequest).getCity();
+                row[6] = ((UserRegistrationRequest) workRequest).getOrgType();
+                row[7] = ((UserRegistrationRequest) workRequest).getNetwork();
+                model.addRow(row);
+            }
+        }
     }
 
     /**
@@ -38,15 +71,15 @@ public class PanelBMSetupManageWorkRequest extends javax.swing.JPanel {
 
         lblTitle = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tblOrganization = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        tblWorkRequest = new javax.swing.JTable();
+        btnAccept = new javax.swing.JButton();
+        btnReject = new javax.swing.JButton();
 
         lblTitle.setFont(new java.awt.Font("Lucida Grande", 1, 24)); // NOI18N
         lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblTitle.setText("MANAGE BIG MARKET ENTERPRISE USERS");
+        lblTitle.setText("MANAGE USER REGISTRATION REQUEST");
 
-        tblOrganization.setModel(new javax.swing.table.DefaultTableModel(
+        tblWorkRequest.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null, null},
@@ -57,11 +90,21 @@ public class PanelBMSetupManageWorkRequest extends javax.swing.JPanel {
                 "Request", "Name", "Username", "EmailId", "ContactNo", "Status", "Organization Type", "Network"
             }
         ));
-        jScrollPane1.setViewportView(tblOrganization);
+        jScrollPane1.setViewportView(tblWorkRequest);
 
-        jButton1.setText("Accept");
+        btnAccept.setText("Accept");
+        btnAccept.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAcceptActionPerformed(evt);
+            }
+        });
 
-        jButton2.setText("Reject");
+        btnReject.setText("Reject");
+        btnReject.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRejectActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -78,9 +121,9 @@ public class PanelBMSetupManageWorkRequest extends javax.swing.JPanel {
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addGap(425, 425, 425)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnAccept, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(116, 116, 116)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnReject, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -92,18 +135,60 @@ public class PanelBMSetupManageWorkRequest extends javax.swing.JPanel {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(48, 48, 48)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnAccept, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnReject, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(342, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnAcceptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAcceptActionPerformed
+        
+        int selectedRow = tblWorkRequest.getSelectedRow();
+
+        if (selectedRow >= 0) {
+            UserRegistrationRequest request = (UserRegistrationRequest) tblWorkRequest.getValueAt(selectedRow, 0);
+
+            if (null != request.getOrgType()) switch (request.getOrgType()) 
+            {
+                case BigMarket:
+                {
+                    Organization org = organizationDirectory.createOrganization(request.getOrgType(), request.getOrgName());
+                    Employee emp = org.getEmployeeDirectory().createEmployee(request.getFullName());
+                    UserAccount ua1 = org.getUserAccountDirectory().createUserAccount(request.getUserName(), request.getPassword(), emp, new BigMarketManager());
+                    break;
+                }
+                case Company:
+                {
+                    Organization org = organizationDirectory.createOrganization(request.getOrgType(), request.getOrgName());
+                    Employee emp = org.getEmployeeDirectory().createEmployee(request.getFullName());
+                    UserAccount ua1 = org.getUserAccountDirectory().createUserAccount(request.getUserName(), request.getPassword(), emp, new CompanyManager());
+                    break;
+                }
+                default:
+                    break;
+            }
+
+            request.setStatus("Completed");
+            JOptionPane.showMessageDialog(null, "User account has been activated successfully");
+            populateTable();
+        }
+        else 
+        {
+            JOptionPane.showMessageDialog(null, "Please select a request to process.");
+            return;
+        }
+    }//GEN-LAST:event_btnAcceptActionPerformed
+
+    private void btnRejectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRejectActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnRejectActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton btnAccept;
+    private javax.swing.JButton btnReject;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblTitle;
-    private javax.swing.JTable tblOrganization;
+    private javax.swing.JTable tblWorkRequest;
     // End of variables declaration//GEN-END:variables
 }
