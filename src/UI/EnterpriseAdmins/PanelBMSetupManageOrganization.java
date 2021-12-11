@@ -72,6 +72,8 @@ public class PanelBMSetupManageOrganization extends javax.swing.JPanel {
         cmbOrganizationType = new javax.swing.JComboBox<>();
         btnAddOrganization = new javax.swing.JButton();
 
+        setPreferredSize(new java.awt.Dimension(1140, 800));
+
         lblTitle.setFont(new java.awt.Font("Lucida Grande", 1, 24)); // NOI18N
         lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTitle.setText("MANAGE BIG MARKET SETUP ENTERPRISE");
