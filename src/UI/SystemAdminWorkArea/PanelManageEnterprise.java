@@ -90,6 +90,8 @@ public class PanelManageEnterprise extends javax.swing.JPanel {
         lblEnterpriseType = new javax.swing.JLabel();
         cmbEnterpriseType = new javax.swing.JComboBox<>();
 
+        setBackground(new java.awt.Color(223, 238, 234));
+
         tblenterprise.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},

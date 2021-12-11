@@ -120,6 +120,8 @@ public class PanelManageEnterpriseAdmin extends javax.swing.JPanel {
         lblUsername = new javax.swing.JLabel();
         txtUsername = new javax.swing.JTextField();
 
+        setBackground(new java.awt.Color(223, 238, 234));
+
         jLabel1.setText("Manage Enterprise Admin");
 
         lblNetwork.setText("Network :");

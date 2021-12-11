@@ -57,6 +57,8 @@ public class PanelManageNetwork extends javax.swing.JPanel {
         txtState = new javax.swing.JTextField();
         btnSaveNetwork = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(223, 238, 234));
+
         lblTitle.setText("Manage Network");
 
         tblNetwork.setModel(new javax.swing.table.DefaultTableModel(
