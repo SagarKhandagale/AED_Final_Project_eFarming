@@ -10,6 +10,8 @@ import Business.Enterprise.Enterprise;
 import Business.Network.Network;
 import Business.Organization.Organization;
 import Business.UserAccount.UserAccount;
+import UI.EnterpriseAdmins.PanelTransportationAdminWorkArea;
+import UI.RoleTransporter.PanelTransporterWorkArea;
 import javax.swing.JPanel;
 
 /**
@@ -21,7 +23,7 @@ public class Transporter extends Role {
     @Override
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise,Network network, EcoSystem business) {
 
-        return null;
+        return new PanelTransporterWorkArea();
     }
 
     @Override

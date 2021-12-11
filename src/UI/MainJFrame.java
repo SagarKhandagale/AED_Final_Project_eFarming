@@ -13,13 +13,13 @@ import Business.Organization.Organization;
 import Business.UserAccount.UserAccount;
 import UI.UserRegistration.PanelUserRegistration;
 import java.awt.CardLayout;
+import static java.time.Clock.system;
 import javax.swing.JOptionPane;
-
 /**
  *
  * @author sagar
  */
-public class MainFrame extends javax.swing.JFrame {
+public class MainJFrame extends javax.swing.JFrame {
 
     private EcoSystem system;
     private DB4OUtil dB4OUtil = DB4OUtil.getInstance();
@@ -28,7 +28,10 @@ public class MainFrame extends javax.swing.JFrame {
     Organization organization;
     Network network;
     
-    public MainFrame() {
+    /**
+     * Creates new form MainJFrame
+     */
+    public MainJFrame() {
         initComponents();
         userProcessContainer.setVisible(false);
         system = dB4OUtil.retrieveSystem();
@@ -44,54 +47,90 @@ public class MainFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        userProcessContainer = new javax.swing.JPanel();
+        jButton1 = new javax.swing.JButton();
+        pnlTop = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
         pnlLeft = new javax.swing.JPanel();
-        jLabel5 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
         pnlRight = new javax.swing.JPanel();
         lblUsername = new javax.swing.JLabel();
-        lblPassword = new javax.swing.JLabel();
         txtUsername = new javax.swing.JTextField();
+        lblPassword = new javax.swing.JLabel();
         txtPassword = new javax.swing.JPasswordField();
         lblLogin = new javax.swing.JLabel();
         lblRegister = new javax.swing.JLabel();
+        userProcessContainer = new javax.swing.JPanel();
+
+        jButton1.setText("jButton1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        userProcessContainer.setLayout(new java.awt.CardLayout());
+        pnlTop.setBackground(new java.awt.Color(145, 199, 136));
+        pnlTop.setPreferredSize(new java.awt.Dimension(1440, 60));
 
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImageIcons/background1_1_730x850.jpeg"))); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Century Schoolbook", 0, 24)); // NOI18N
+        jLabel2.setText("We transform the agriculture world");
 
-        javax.swing.GroupLayout pnlLeftLayout = new javax.swing.GroupLayout(pnlLeft);
-        pnlLeft.setLayout(pnlLeftLayout);
-        pnlLeftLayout.setHorizontalGroup(
-            pnlLeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 732, Short.MAX_VALUE)
-        );
-        pnlLeftLayout.setVerticalGroup(
-            pnlLeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-
-        pnlRight.setBackground(new java.awt.Color(41, 50, 80));
-        pnlRight.addMouseListener(new java.awt.event.MouseAdapter() {
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImageIcons/logoutbutton_1_3_60x50.jpg"))); // NOI18N
+        jLabel3.setText("jLabel3");
+        jLabel3.setPreferredSize(new java.awt.Dimension(60, 50));
+        jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                pnlRightMousePressed(evt);
+                jLabel3MousePressed(evt);
             }
         });
 
-        lblUsername.setForeground(new java.awt.Color(255, 229, 180));
-        lblUsername.setText("U:");
-        lblUsername.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(255, 229, 180)));
-        lblUsername.setSize(new java.awt.Dimension(100, 40));
+        javax.swing.GroupLayout pnlTopLayout = new javax.swing.GroupLayout(pnlTop);
+        pnlTop.setLayout(pnlTopLayout);
+        pnlTopLayout.setHorizontalGroup(
+            pnlTopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlTopLayout.createSequentialGroup()
+                .addGap(257, 257, 257)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 682, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 369, Short.MAX_VALUE)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(82, 82, 82))
+        );
+        pnlTopLayout.setVerticalGroup(
+            pnlTopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlTopLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+            .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
+        );
 
-        lblPassword.setForeground(new java.awt.Color(255, 229, 180));
-        lblPassword.setText("P:");
-        lblPassword.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(255, 229, 180)));
-        lblPassword.setSize(new java.awt.Dimension(100, 40));
+        pnlLeft.setBackground(new java.awt.Color(221, 255, 188));
+        pnlLeft.setPreferredSize(new java.awt.Dimension(1440, 800));
+        pnlLeft.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImageIcons/mainimg711x778.png"))); // NOI18N
+        jLabel1.setText("jLabel1");
+        pnlLeft.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 700, -1));
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+
+        pnlLeft.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 280, -1, -1));
+
+        pnlRight.setBackground(new java.awt.Color(221, 255, 188));
+
+        lblUsername.setText("U:");
+        lblUsername.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
 
         txtUsername.setBackground(new java.awt.Color(41, 50, 80));
         txtUsername.setForeground(new java.awt.Color(255, 229, 180));
-        txtUsername.setText("jTextField2");
+        txtUsername.setText("Admin");
         txtUsername.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(255, 229, 180)));
         txtUsername.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -99,16 +138,19 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
 
+        lblPassword.setForeground(new java.awt.Color(255, 229, 180));
+        lblPassword.setText("P:");
+        lblPassword.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(255, 229, 180)));
+
         txtPassword.setBackground(new java.awt.Color(41, 50, 80));
         txtPassword.setForeground(new java.awt.Color(255, 229, 180));
-        txtPassword.setText("jPasswordField1");
+        txtPassword.setText("Admin");
         txtPassword.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(255, 229, 180)));
 
         lblLogin.setForeground(new java.awt.Color(255, 229, 180));
         lblLogin.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblLogin.setText("LOGIN");
         lblLogin.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(255, 229, 180)));
-        lblLogin.setSize(new java.awt.Dimension(100, 40));
         lblLogin.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 lblLoginMousePressed(evt);
@@ -119,7 +161,6 @@ public class MainFrame extends javax.swing.JFrame {
         lblRegister.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblRegister.setText("REGISTER");
         lblRegister.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(255, 229, 180)));
-        lblRegister.setSize(new java.awt.Dimension(100, 40));
         lblRegister.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 lblRegisterMousePressed(evt);
@@ -149,7 +190,7 @@ public class MainFrame extends javax.swing.JFrame {
         pnlRightLayout.setVerticalGroup(
             pnlRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlRightLayout.createSequentialGroup()
-                .addGap(277, 277, 277)
+                .addGap(274, 274, 274)
                 .addGroup(pnlRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -161,55 +202,62 @@ public class MainFrame extends javax.swing.JFrame {
                 .addComponent(lblLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(lblRegister, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(399, Short.MAX_VALUE))
+                .addContainerGap(343, Short.MAX_VALUE))
         );
+
+        userProcessContainer.setPreferredSize(new java.awt.Dimension(1440, 800));
+        userProcessContainer.setLayout(new java.awt.CardLayout());
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(userProcessContainer, javax.swing.GroupLayout.DEFAULT_SIZE, 1452, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(userProcessContainer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
-                    .addComponent(pnlLeft, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(pnlTop, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addComponent(pnlLeft, javax.swing.GroupLayout.PREFERRED_SIZE, 720, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 720, Short.MAX_VALUE)))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addGap(0, 732, Short.MAX_VALUE)
+                    .addGap(0, 720, Short.MAX_VALUE)
                     .addComponent(pnlRight, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(userProcessContainer, javax.swing.GroupLayout.DEFAULT_SIZE, 850, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(65, Short.MAX_VALUE)
+                .addComponent(userProcessContainer, javax.swing.GroupLayout.PREFERRED_SIZE, 789, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(pnlLeft, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createSequentialGroup()
+                    .addComponent(pnlTop, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 800, Short.MAX_VALUE)))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(pnlRight, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addContainerGap(55, Short.MAX_VALUE)
+                    .addComponent(pnlLeft, javax.swing.GroupLayout.PREFERRED_SIZE, 800, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(5, 5, 5)))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addContainerGap(63, Short.MAX_VALUE)
+                    .addComponent(pnlRight, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap()))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void lblRegisterMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblRegisterMousePressed
-
-        PanelUserRegistration panel = new PanelUserRegistration(userProcessContainer, system);
-        userProcessContainer.add("UserRegistrationPanel", panel);
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        layout.next(userProcessContainer);
-        userProcessContainer.setVisible(true);
-        pnlRight.setVisible(false);
-        pnlLeft.setVisible(false);
-    }//GEN-LAST:event_lblRegisterMousePressed
 
     private void txtUsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsernameActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtUsernameActionPerformed
 
     private void lblLoginMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblLoginMousePressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_lblLoginMousePressed
-
-    private void pnlRightMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlRightMousePressed
         
         String userName = txtUsername.getText();
         char[] passwordCharArray = txtPassword.getPassword();
@@ -222,6 +270,7 @@ public class MainFrame extends javax.swing.JFrame {
         else 
         {
             userAccount = system.getUserAccountDirectory().authenticateUser(userName, password);
+            System.out.println("UserAccount : " + userAccount);
             this.enterprise = null;
             this.organization = null;
             this.network = null;
@@ -274,6 +323,7 @@ public class MainFrame extends javax.swing.JFrame {
             } 
             else 
             {
+                System.out.println("Inside 2nd Else");
                 pnlRight.setVisible(false);
                 userProcessContainer.setVisible(true);
                 txtUsername.setText("");
@@ -281,15 +331,17 @@ public class MainFrame extends javax.swing.JFrame {
                 goToNewPanel(userAccount);
             }
         }
-    }//GEN-LAST:event_pnlRightMousePressed
+    }//GEN-LAST:event_lblLoginMousePressed
 
     private void goToNewPanel(UserAccount userAccount) 
     {
         if (userAccount != null && userAccount.getRole() != null)
         {
+            System.out.println("Inside goToNewPanel userAccount " + userAccount + " userAccount.getRole() " + userAccount.getRole());
             String greetings = "Welcome";
 
             greetings = greetings + " " + userAccount.getUsername();
+            System.out.println("userAccount.getRole()" + userAccount.getRole());
             userProcessContainer.add("workArea", userAccount.getRole().createWorkArea(userProcessContainer, userAccount, this.organization, this.enterprise, this.network, system));
 
             CardLayout layout = (CardLayout) userProcessContainer.getLayout();
@@ -298,6 +350,26 @@ public class MainFrame extends javax.swing.JFrame {
 
     }
     
+    private void lblRegisterMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblRegisterMousePressed
+
+        PanelUserRegistration panel = new PanelUserRegistration(userProcessContainer, system);
+        userProcessContainer.add("UserRegistrationPanel", panel);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
+        userProcessContainer.setVisible(true);
+        pnlRight.setVisible(false);
+        pnlLeft.setVisible(false);
+    }//GEN-LAST:event_lblRegisterMousePressed
+
+    private void jLabel3MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MousePressed
+        
+        userProcessContainer.removeAll();
+        dB4OUtil.storeSystem(system);
+        userProcessContainer.setVisible(false);
+        pnlLeft.setVisible(true);
+        pnlRight.setVisible(true);
+    }//GEN-LAST:event_jLabel3MousePressed
+
     /**
      * @param args the command line arguments
      */
@@ -315,32 +387,37 @@ public class MainFrame extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(MainFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MainJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(MainFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MainJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(MainFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MainJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(MainFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MainJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new MainFrame().setVisible(true);
+                new MainJFrame().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel5;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblLogin;
     private javax.swing.JLabel lblPassword;
     private javax.swing.JLabel lblRegister;
     private javax.swing.JLabel lblUsername;
     private javax.swing.JPanel pnlLeft;
     private javax.swing.JPanel pnlRight;
+    private javax.swing.JPanel pnlTop;
     private javax.swing.JPasswordField txtPassword;
     private javax.swing.JTextField txtUsername;
     private javax.swing.JPanel userProcessContainer;

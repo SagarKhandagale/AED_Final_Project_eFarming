@@ -10,6 +10,7 @@ import Business.Role.Role;
 import Business.UserAccount.UserAccountDirectory;
 import Business.WorkQueue.WorkQueue;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -29,17 +30,13 @@ public abstract class Organization {
     public enum Type {
         Admin("Admin Organization"),
         Farmer("Farmer Organization"),
-        ShopOwner("Farming Shop Organization"),
+        FarmingShopOwner("FarmingShopOwner Organization"),
         Transporter("Transporter Organization"),
-        BigMarketManager("Big Market Organization"),
-        CompanyManager("Company Organization"),
-        NgoOfficer("NGO Organization"),
-        WeatherForecastManager("Weather Forecast Organization"),
-        SmartFarmingManager("Smart Farming Organization");
-//        Goverment("Goverment Organization"),
-//        Photographer("Photographer Organization"),
-//        Buyer("Buyer Organization"),
-//        Seller("Seller Organization");
+        BigMarket("BigMarket Organization"),
+        Company("Company Organization"),
+        NGO("NGO Organization"),
+        WeatherForecast("WeatherForecast Organization"),
+        SmartFarming("SmartFarming Organization");
 
         private String value;
 

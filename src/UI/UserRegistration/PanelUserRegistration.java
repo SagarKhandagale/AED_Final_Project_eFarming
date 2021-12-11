@@ -10,15 +10,17 @@ import Business.Employee.Employee;
 import Business.Enterprise.Enterprise;
 import Business.Network.Network;
 import Business.Organization.Organization;
+import Business.Organization.Organization.Type;
 import Business.Role.Farmer;
 import Business.UserAccount.UserAccount;
 import Business.WorkQueue.UserRegistrationRequest;
 import Business.WorkQueue.WorkQueue;
-import UI.MainFrame;
+import UI.MainJFrame;
 import java.awt.CardLayout;
 import java.awt.PopupMenu;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+
 
 /**
  *
@@ -29,7 +31,7 @@ public class PanelUserRegistration extends javax.swing.JPanel {
     private EcoSystem system;
     private boolean flag = false;
     JPanel userProcessContainer;
-            
+    
     public PanelUserRegistration(JPanel userProcessContainer, EcoSystem system) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
@@ -41,13 +43,29 @@ public class PanelUserRegistration extends javax.swing.JPanel {
     public void fillCmbOrganization()
     {
         cmbOrganization.addItem(Organization.Type.Farmer.getValue());
-        cmbOrganization.addItem(Organization.Type.ShopOwner.getValue());
+        cmbOrganization.addItem(Organization.Type.FarmingShopOwner.getValue());
         cmbOrganization.addItem(Organization.Type.Transporter.getValue());
-        cmbOrganization.addItem(Organization.Type.BigMarketManager.getValue());
-        cmbOrganization.addItem(Organization.Type.CompanyManager.getValue());
-        cmbOrganization.addItem(Organization.Type.NgoOfficer.getValue());
-        cmbOrganization.addItem(Organization.Type.WeatherForecastManager.getValue());
-        cmbOrganization.addItem(Organization.Type.SmartFarmingManager.getValue());
+        cmbOrganization.addItem(Organization.Type.BigMarket.getValue());
+        cmbOrganization.addItem(Organization.Type.Company.getValue());
+        cmbOrganization.addItem(Organization.Type.NGO.getValue());
+        
+        String orgType = cmbOrganization.getSelectedItem().toString();
+        String Role = "";
+        
+        if(orgType.equals("Farmer Organization"))
+            Role = "Farmer";
+        else if(orgType.equals("ShopOwner Organization"))
+            Role = "Shop Owner";
+        else if(orgType.equals("Transporter Organization"))
+            Role = "Transporter";
+        else if(orgType.equals("BigMarket Organization"))
+            Role = "Big Market Manager";
+        else if(orgType.equals("Company Organization"))
+            Role = "Company Manager";
+        else if(orgType.equals("NGO Organization"))
+            Role = "NGO Officer";
+        
+        lblDisplayRole.setText("Role : " + Role);
     }
     
     public void fillCmbStateNetwork()
@@ -67,89 +85,25 @@ public class PanelUserRegistration extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        lblOrganization = new javax.swing.JLabel();
-        lblUsername = new javax.swing.JLabel();
-        lblPassword = new javax.swing.JLabel();
-        lblName = new javax.swing.JLabel();
-        lblContactNo = new javax.swing.JLabel();
-        lblEmailId = new javax.swing.JLabel();
-        lblAddLine = new javax.swing.JLabel();
-        lblCity = new javax.swing.JLabel();
+        btnRegister = new javax.swing.JButton();
         lblState = new javax.swing.JLabel();
-        lblZipCode = new javax.swing.JLabel();
+        cmbStateNetwork = new javax.swing.JComboBox<>();
         lblDisplayRole = new javax.swing.JLabel();
         cmbOrganization = new javax.swing.JComboBox<>();
+        jLabel1 = new javax.swing.JLabel();
         txtUsername = new javax.swing.JTextField();
+        lblOrganization = new javax.swing.JLabel();
         txtName = new javax.swing.JTextField();
+        lblUsername = new javax.swing.JLabel();
         txtContactNo = new javax.swing.JTextField();
+        lblPassword = new javax.swing.JLabel();
         txtEmailId = new javax.swing.JTextField();
-        txtAddLine = new javax.swing.JTextField();
+        lblName = new javax.swing.JLabel();
         txtCity = new javax.swing.JTextField();
+        lblContactNo = new javax.swing.JLabel();
         txtPassword = new javax.swing.JPasswordField();
-        txtZipCode = new javax.swing.JTextField();
-        jLabel11 = new javax.swing.JLabel();
-        btnRegister = new javax.swing.JButton();
-        cmbStateNetwork = new javax.swing.JComboBox<>();
-        btnRegister1 = new javax.swing.JButton();
-
-        setBackground(new java.awt.Color(255, 255, 255));
-        setPreferredSize(new java.awt.Dimension(1440, 850));
-
-        jLabel1.setFont(new java.awt.Font("Lucida Grande", 1, 24)); // NOI18N
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("NEW USER REGISTRATION");
-
-        lblOrganization.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
-        lblOrganization.setText("Organization:");
-
-        lblUsername.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
-        lblUsername.setText("Username:");
-
-        lblPassword.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
-        lblPassword.setText("Password:");
-
-        lblName.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
-        lblName.setText("Full Legal Name:");
-
-        lblContactNo.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
-        lblContactNo.setText("Contact No:");
-
-        lblEmailId.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
-        lblEmailId.setText("Email Id:");
-
-        lblAddLine.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
-        lblAddLine.setText("Address Line:");
-
-        lblCity.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
-        lblCity.setText("City:");
-
-        lblState.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
-        lblState.setText("State:");
-
-        lblZipCode.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
-        lblZipCode.setText("Zip Code:");
-
-        lblDisplayRole.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
-
-        txtUsername.setText("SagarK");
-
-        txtName.setText("Sagar K");
-
-        txtContactNo.setText("1234567890");
-
-        txtEmailId.setText("sk@gmail.com");
-
-        txtAddLine.setText("235 Park Drive");
-
-        txtCity.setText("Boston");
-
-        txtPassword.setText("SagarK");
-
-        txtZipCode.setText("02215");
-
-        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImageIcons/MicrosoftTeams-image_110x850.png"))); // NOI18N
-        jLabel11.setText("jLabel11");
+        lblEmailId = new javax.swing.JLabel();
+        lblCity = new javax.swing.JLabel();
 
         btnRegister.setText("REGISTER");
         btnRegister.addActionListener(new java.awt.event.ActionListener() {
@@ -158,88 +112,120 @@ public class PanelUserRegistration extends javax.swing.JPanel {
             }
         });
 
+        lblState.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
+        lblState.setText("State:");
+
         cmbStateNetwork.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        btnRegister1.setText("LOGIN PAGE");
-        btnRegister1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRegister1ActionPerformed(evt);
+        lblDisplayRole.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
+
+        cmbOrganization.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cmbOrganizationItemStateChanged(evt);
             }
         });
+
+        jLabel1.setFont(new java.awt.Font("Lucida Grande", 1, 24)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("NEW USER REGISTRATION");
+
+        txtUsername.setText("SagarK");
+
+        lblOrganization.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
+        lblOrganization.setText("Organization Type:");
+
+        txtName.setText("Sagar K");
+
+        lblUsername.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
+        lblUsername.setText("Username:");
+
+        txtContactNo.setText("1234567890");
+
+        lblPassword.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
+        lblPassword.setText("Password:");
+
+        txtEmailId.setText("sk@gmail.com");
+
+        lblName.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
+        lblName.setText("Organization Name:");
+
+        txtCity.setText("Boston");
+
+        lblContactNo.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
+        lblContactNo.setText("Contact No:");
+
+        txtPassword.setText("SagarK");
+
+        lblEmailId.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
+        lblEmailId.setText("Email Id:");
+
+        lblCity.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
+        lblCity.setText("City:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(400, 400, 400)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(27, 27, 27)
-                            .addComponent(jLabel1))
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(lblOrganization, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(18, 18, 18)
-                            .addComponent(cmbOrganization, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(lblDisplayRole, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(lblUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(18, 18, 18)
-                            .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(lblPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(18, 18, 18)
-                            .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(lblName, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(18, 18, 18)
-                            .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(lblContactNo, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(18, 18, 18)
-                            .addComponent(txtContactNo, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(lblEmailId, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(18, 18, 18)
-                            .addComponent(txtEmailId, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(lblAddLine, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(18, 18, 18)
-                            .addComponent(txtAddLine, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(lblCity, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(18, 18, 18)
-                            .addComponent(txtCity, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(lblZipCode, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(18, 18, 18)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(txtZipCode, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(btnRegister, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(btnRegister1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(lblState, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(cmbStateNetwork, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(362, Short.MAX_VALUE))
+                .addGap(448, 448, 448)
+                .addComponent(jLabel1))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(421, 421, 421)
+                .addComponent(lblOrganization, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(cmbOrganization, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(12, 12, 12)
+                .addComponent(lblDisplayRole, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(421, 421, 421)
+                .addComponent(lblUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(421, 421, 421)
+                .addComponent(lblPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(421, 421, 421)
+                .addComponent(lblName, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(421, 421, 421)
+                .addComponent(lblContactNo, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(txtContactNo, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(421, 421, 421)
+                .addComponent(lblEmailId, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(txtEmailId, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(421, 421, 421)
+                .addComponent(lblCity, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(txtCity, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(421, 421, 421)
+                .addComponent(lblState, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(cmbStateNetwork, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(589, 589, 589)
+                .addComponent(btnRegister, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
-
-        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {cmbOrganization, txtCity, txtContactNo, txtEmailId, txtName, txtPassword, txtUsername});
-
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(43, 43, 43)
+                .addGap(50, 50, 50)
                 .addComponent(jLabel1)
-                .addGap(61, 61, 61)
+                .addGap(59, 59, 59)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblOrganization, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(2, 2, 2)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(cmbOrganization, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblDisplayRole, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(20, 20, 20)
@@ -274,61 +260,47 @@ public class PanelUserRegistration extends javax.swing.JPanel {
                         .addComponent(txtEmailId, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(20, 20, 20)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblAddLine, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(1, 1, 1)
-                        .addComponent(txtAddLine, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(20, 20, 20)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblCity, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(1, 1, 1)
                         .addComponent(txtCity, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(20, 20, 20)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblState, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cmbStateNetwork, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(19, 19, 19)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblZipCode, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtZipCode, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(50, 50, 50)
-                .addComponent(btnRegister, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnRegister1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addComponent(jLabel11, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(2, 2, 2)
+                        .addComponent(cmbStateNetwork, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(20, 20, 20)
+                .addComponent(btnRegister, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
-
-        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {cmbOrganization, txtAddLine, txtCity, txtContactNo, txtEmailId, txtName, txtPassword, txtUsername});
-
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterActionPerformed
-        
+
         Network network = (Network) cmbStateNetwork.getSelectedItem();
-        Organization.Type type = (Organization.Type) cmbOrganization.getSelectedItem();
-        
+        Type type = Type.valueOf(cmbOrganization.getSelectedItem().toString().split(" ")[0]);
+        System.out.println("Check" + type);
+        JOptionPane.showMessageDialog(null, "Check" + type);
         String emailAddress = txtEmailId.getText();
         String username = txtUsername.getText();
         String name = txtName.getText();
         String password = txtPassword.getText();
         String phone = txtContactNo.getText();
         String city = txtCity.getText();
-        
-        if (network == null || type == null || name.isEmpty() || username.isEmpty() || password.isEmpty() || emailAddress.isEmpty() || city.isEmpty() || phone.isEmpty()) 
+
+        if (network == null || type == null || name.isEmpty() || username.isEmpty() || password.isEmpty() || emailAddress.isEmpty() || city.isEmpty() || phone.isEmpty())
         {
             JOptionPane.showMessageDialog(null, "All of the above the fields are required for registration!!", "Error!", JOptionPane.ERROR_MESSAGE);
             return;
         }
         if (!system.checkValidPassword(password))
-            return;
-        if (!system.checkUniqueUser(username)) 
-            return;
+        return;
+        if (!system.checkUniqueUsername(username))
+        return;
         if (!this.system.validateEmailFormat(emailAddress))
-            return;
+        return;
         if (!this.system.validatePhoneFormat(phone))
-            return;
+        return;
 
         for (Network n : system.getNetworkList()) {
             for (Enterprise e : n.getEnterpriseDirectory().getEnterpriseList()) {
@@ -344,7 +316,7 @@ public class PanelUserRegistration extends javax.swing.JPanel {
                 }
             }
         }
-        
+
         for (Network n : system.getNetworkList()) {
             for (Enterprise e : n.getEnterpriseDirectory().getEnterpriseList()) {
                 for (Organization o : e.getOrganizationDirectory().getOrganizationList()) {
@@ -360,13 +332,13 @@ public class PanelUserRegistration extends javax.swing.JPanel {
                 }
             }
         }
-        
-        if (Organization.Type.Farmer == type) 
+
+        if (Organization.Type.Farmer == type)
         {
             flag = true;
-            for (Enterprise enterprise : network.getEnterpriseDirectory().getEnterpriseList()) 
+            for (Enterprise enterprise : network.getEnterpriseDirectory().getEnterpriseList())
             {
-                if (enterprise.getEnterpriseType() == Enterprise.EnterpriseType.FarmerCommunity) 
+                if (enterprise.getEnterpriseType() == Enterprise.EnterpriseType.FarmerCommunity)
                 {
                     Organization org = enterprise.getOrganizationDirectory().createOrganization(type, name);
                     Employee emp = org.getEmployeeDirectory().createEmployee(name);
@@ -377,8 +349,8 @@ public class PanelUserRegistration extends javax.swing.JPanel {
                     String bodyMsg = "Hello " + username + ", \n Thank you for registering with us. Your account is activated. Happy Farming!";
                 }
             }
-        } 
-        else 
+        }
+        else
         {
             UserRegistrationRequest registrationRequest = new UserRegistrationRequest();
             registrationRequest.setFullName(name);
@@ -391,13 +363,13 @@ public class PanelUserRegistration extends javax.swing.JPanel {
             registrationRequest.setStatus("Requested");
             registrationRequest.setContactNo(phone);
 
-            for (Enterprise enterprise : network.getEnterpriseDirectory().getEnterpriseList()) 
+            for (Enterprise enterprise : network.getEnterpriseDirectory().getEnterpriseList())
             {
-                for (Organization org : enterprise.getOrganizationDirectory().getOrganizationList()) 
+                for (Organization org : enterprise.getOrganizationDirectory().getOrganizationList())
                 {
-                    if (org.getType() == type) 
+                    if (org.getType() == type)
                     {
-                        if (enterprise.getWorkQueue() == null) 
+                        if (enterprise.getWorkQueue() == null)
                         {
                             enterprise.setWorkQueue(new WorkQueue());
                         }
@@ -410,13 +382,13 @@ public class PanelUserRegistration extends javax.swing.JPanel {
                 }
             }
         }
-        if (flag) 
+        if (flag)
         {
             String bodyMsg = "Hello " + username + ", \n Thank you for registering with us. Your account will be activated within 48 hours. We will keep you posted here.";
             // We need to implement SMS and Email here
             JOptionPane.showMessageDialog(null, "You have been registered succesfully!");
-        } 
-        else 
+        }
+        else
         {
             JOptionPane.showMessageDialog(null, "Sorry! No such Organization is created by the enterprise");
         }
@@ -429,26 +401,33 @@ public class PanelUserRegistration extends javax.swing.JPanel {
         btnRegister.setEnabled(true);
     }//GEN-LAST:event_btnRegisterActionPerformed
 
-    private void btnRegister1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegister1ActionPerformed
+    private void cmbOrganizationItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbOrganizationItemStateChanged
+        // TODO add your handling code here:
+        String orgType = cmbOrganization.getSelectedItem().toString();
+        String Role = "";
         
-        MainFrame mf = new MainFrame();
-        userProcessContainer.add("UserRegistrationPanel", mf);
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        layout.next(userProcessContainer);
-        userProcessContainer.setVisible(false);
-//        pnlRight.setVisible(false);
-//        pnlLeft.setVisible(false);
-    }//GEN-LAST:event_btnRegister1ActionPerformed
+        if(orgType.equals("Farmer Organization"))
+            Role = "Farmer";
+        else if(orgType.equals("ShopOwner Organization"))
+            Role = "Shop Owner";
+        else if(orgType.equals("Transporter Organization"))
+            Role = "Transporter";
+        else if(orgType.equals("BigMarket Organization"))
+            Role = "Big Market Manager";
+        else if(orgType.equals("Company Organization"))
+            Role = "Company Manager";
+        else if(orgType.equals("NGO Organization"))
+            Role = "NGO Officer";
+
+        lblDisplayRole.setText("Role : " + Role);
+    }//GEN-LAST:event_cmbOrganizationItemStateChanged
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnRegister;
-    private javax.swing.JButton btnRegister1;
     private javax.swing.JComboBox<String> cmbOrganization;
     private javax.swing.JComboBox<String> cmbStateNetwork;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel lblAddLine;
     private javax.swing.JLabel lblCity;
     private javax.swing.JLabel lblContactNo;
     private javax.swing.JLabel lblDisplayRole;
@@ -458,14 +437,11 @@ public class PanelUserRegistration extends javax.swing.JPanel {
     private javax.swing.JLabel lblPassword;
     private javax.swing.JLabel lblState;
     private javax.swing.JLabel lblUsername;
-    private javax.swing.JLabel lblZipCode;
-    private javax.swing.JTextField txtAddLine;
     private javax.swing.JTextField txtCity;
     private javax.swing.JTextField txtContactNo;
     private javax.swing.JTextField txtEmailId;
     private javax.swing.JTextField txtName;
     private javax.swing.JPasswordField txtPassword;
     private javax.swing.JTextField txtUsername;
-    private javax.swing.JTextField txtZipCode;
     // End of variables declaration//GEN-END:variables
 }

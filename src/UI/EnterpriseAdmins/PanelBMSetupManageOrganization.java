@@ -5,6 +5,11 @@
  */
 package UI.EnterpriseAdmins;
 
+import Business.Organization.Organization;
+import Business.Organization.OrganizationDirectory;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author sagar
@@ -14,8 +19,39 @@ public class PanelBMSetupManageOrganization extends javax.swing.JPanel {
     /**
      * Creates new form PanelBMSetupManageOrganization
      */
-    public PanelBMSetupManageOrganization() {
+    
+    private final OrganizationDirectory directory;
+    
+    public PanelBMSetupManageOrganization(OrganizationDirectory directory) {
         initComponents();
+        this.directory = directory;
+        populateOrgTable();
+        populateOrganizationTypeComboBox();
+    }
+    
+    private void populateOrganizationTypeComboBox() {
+        cmbOrganizationType.removeAllItems();
+        cmbOrganizationType.addItem(Organization.Type.BigMarket.getValue());
+
+    }
+
+    public void populateOrgTable() 
+    {
+        DefaultTableModel model = (DefaultTableModel) tblOrganization.getModel();
+
+        model.setRowCount(0);
+
+        for (Organization organization : directory.getOrganizationList()) 
+        {
+            {
+                System.out.println("Inside for organization : " + organization);
+                Object[] row = new Object[2];
+                row[0] = organization.getType().getValue();
+                row[1] = organization.getName();
+                model.addRow(row);
+            }
+
+        }
     }
 
     /**
@@ -60,6 +96,11 @@ public class PanelBMSetupManageOrganization extends javax.swing.JPanel {
         cmbOrganizationType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         btnAddOrganization.setText("Add Organization");
+        btnAddOrganization.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddOrganizationActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -108,6 +149,24 @@ public class PanelBMSetupManageOrganization extends javax.swing.JPanel {
                 .addContainerGap(180, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnAddOrganizationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddOrganizationActionPerformed
+        
+//        Organization.Type type = (Organization.Type) cmbOrganizationType.getSelectedItem();
+        Organization.Type type = Organization.Type.valueOf(cmbOrganizationType.getSelectedItem().toString().split(" ")[0]);
+
+        if ("".equals(txtOrganizationName.getText())) 
+        {
+            JOptionPane.showMessageDialog(null, "Enter organization name!");
+        } 
+        else 
+        {
+            Organization organization = directory.createOrganization(type, txtOrganizationName.getText());
+            JOptionPane.showMessageDialog(null, "Organization Successfully Created");
+            txtOrganizationName.setText("");
+            populateOrgTable();
+        }
+    }//GEN-LAST:event_btnAddOrganizationActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

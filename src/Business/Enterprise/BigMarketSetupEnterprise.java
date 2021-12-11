@@ -5,10 +5,26 @@
  */
 package Business.Enterprise;
 
+import Business.Role.BigMarketAdmin;
+import Business.Role.Role;
+import java.util.ArrayList;
+
 /**
  *
  * @author sagar
  */
-public class BigMarketSetupEnterprise {
+public class BigMarketSetupEnterprise  extends Enterprise {
+
+    public BigMarketSetupEnterprise(String name) {
+        super(name, Enterprise.EnterpriseType.BigMarketSetup);
+    }
+
+    @Override
+    public ArrayList<Role> getSupportedRole() 
+    {
+        roles = new ArrayList<Role>();
+        roles.add(new BigMarketAdmin());
+        return roles;
+    }
     
 }

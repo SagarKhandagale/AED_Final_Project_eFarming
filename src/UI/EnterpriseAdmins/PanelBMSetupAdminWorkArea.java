@@ -5,7 +5,14 @@
  */
 package UI.EnterpriseAdmins;
 
+import Business.EcoSystem;
+import Business.Enterprise.Enterprise;
+import Business.Network.Network;
+import Business.Organization.Organization;
+import Business.UserAccount.UserAccount;
 import UI.RoleBigMarketManager.*;
+import java.awt.CardLayout;
+import javax.swing.JPanel;
 
 /**
  *
@@ -13,11 +20,49 @@ import UI.RoleBigMarketManager.*;
  */
 public class PanelBMSetupAdminWorkArea extends javax.swing.JPanel {
 
+    JPanel userProcessContainer;
+    Enterprise enterprise;
+    EcoSystem system;
+    Network network;
+    UserAccount account;
+    Organization organization;
+    
     /**
      * Creates new form PanelBigMarketManagerWorkArea
      */
-    public PanelBMSetupAdminWorkArea() {
+    public PanelBMSetupAdminWorkArea(JPanel upc, UserAccount acc, Organization organization, Enterprise enterprise, Network network, EcoSystem business) {
         initComponents();
+        this.userProcessContainer = upc;
+        this.account = acc;
+        this.system = business;
+        this.network = network;
+        this.enterprise = enterprise;
+        this.organization = organization;
+        manageOrganization();
+    }
+    
+    private void manageOrganization() 
+    {
+        PanelBMSetupManageOrganization bnmoj = new PanelBMSetupManageOrganization(enterprise.getOrganizationDirectory());
+        pnlRight.add("PanelBMSetupManageOrganization", bnmoj);
+        CardLayout layout = (CardLayout) pnlRight.getLayout();
+        layout.next(pnlRight);
+    }
+    
+    private void manageUserAccount() 
+    {
+        PanelBMSetupManageUserAccount bnmoj = new PanelBMSetupManageUserAccount(enterprise, system, organization);
+        pnlRight.add("PanelBMSetupManageUserAccount", bnmoj);
+        CardLayout layout = (CardLayout) pnlRight.getLayout();
+        layout.next(pnlRight);
+    }
+    
+    private void manageUserRequests() 
+    {
+        PanelBMSetupManageWorkRequest bnmoj = new PanelBMSetupManageWorkRequest(enterprise);
+        pnlRight.add("PanelBMSetupManageWorkRequest", bnmoj);
+        CardLayout layout = (CardLayout) pnlRight.getLayout();
+        layout.next(pnlRight);
     }
 
     /**
@@ -48,10 +93,25 @@ public class PanelBMSetupAdminWorkArea extends javax.swing.JPanel {
         lblIconManageRequest.setText("Logo");
 
         lblManageOrganization.setText("MANAGE ORGANIZATION");
+        lblManageOrganization.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                lblManageOrganizationMousePressed(evt);
+            }
+        });
 
         lblManageUserAcc.setText("MANAGE USER ACCOUNT");
+        lblManageUserAcc.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                lblManageUserAccMousePressed(evt);
+            }
+        });
 
         lblManageRequest.setText("MANAGE USER REQUESTS");
+        lblManageRequest.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                lblManageRequestMousePressed(evt);
+            }
+        });
 
         javax.swing.GroupLayout pnlLeftLayout = new javax.swing.GroupLayout(pnlLeft);
         pnlLeft.setLayout(pnlLeftLayout);
@@ -116,6 +176,18 @@ public class PanelBMSetupAdminWorkArea extends javax.swing.JPanel {
             .addComponent(pnlRight, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void lblManageOrganizationMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblManageOrganizationMousePressed
+        manageOrganization();
+    }//GEN-LAST:event_lblManageOrganizationMousePressed
+
+    private void lblManageUserAccMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblManageUserAccMousePressed
+        manageUserAccount();
+    }//GEN-LAST:event_lblManageUserAccMousePressed
+
+    private void lblManageRequestMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblManageRequestMousePressed
+        manageUserRequests();
+    }//GEN-LAST:event_lblManageRequestMousePressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -79,6 +79,13 @@ public class EcoSystem extends Organization{
         this.enterpriseDirectory = enterpriseDirectory;
     }
     
+    public Network createAddNetwork() 
+    {
+        Network network = new Network();
+        networkList.add(network);
+        return network;
+    }
+    
     public boolean checkUniqueNetwork(String networkName) 
     {
         for (Network n : business.getNetworkList()) 
@@ -91,22 +98,22 @@ public class EcoSystem extends Organization{
         return true;
     }
     
-//    public boolean checkIfEnterpriseIsUnique(String entName) 
-//    {
-//        for (Network n : business.getNetworkList()) 
-//        {
-//            for (Enterprise e : n.getEnterpriseDirectory().getEnterpriseList()) 
-//            {
-//                if (e.getName().toLowerCase().equals(entName.toLowerCase())) 
-//                {
-//                    return false;
-//                }
-//            }
-//        }
-//        return true;
-//    }
+    public boolean checkUniqueEnterprise(String entName) 
+    {
+        for (Network n : business.getNetworkList()) 
+        {
+            for (Enterprise e : n.getEnterpriseDirectory().getEnterpriseList()) 
+            {
+                if (e.getName().toLowerCase().equals(entName.toLowerCase())) 
+                {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
 
-    public boolean checkUniqueUser(String userName) 
+    public boolean checkUniqueUsername(String userName) 
     {
         boolean flag = true;
         for (Network n : business.getNetworkList()) 

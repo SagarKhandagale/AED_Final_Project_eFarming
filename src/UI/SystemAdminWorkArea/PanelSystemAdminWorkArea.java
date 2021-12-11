@@ -5,6 +5,12 @@
  */
 package UI.SystemAdminWorkArea;
 
+import Business.DB4OUtil.DB4OUtil;
+import Business.EcoSystem;
+import java.awt.CardLayout;
+import static java.time.Clock.system;
+import javax.swing.JPanel;
+
 /**
  *
  * @author Admin
@@ -14,8 +20,42 @@ public class PanelSystemAdminWorkArea extends javax.swing.JPanel {
     /**
      * Creates new form PanelSystemAdminWorkArea
      */
-    public PanelSystemAdminWorkArea() {
+    JPanel userProcessContainer;
+    EcoSystem ecosystem;
+    DB4OUtil dB4OUtil;
+    
+    public PanelSystemAdminWorkArea(JPanel userProcessContainer,EcoSystem ecosystem) {
         initComponents();
+        this.userProcessContainer = userProcessContainer;        
+        this.ecosystem = ecosystem;
+        manageNetwork();
+    }
+    
+    private void manageNetwork()
+    {
+        System.out.println("Inside manageNetwork");
+        PanelManageNetwork manageNetworkPanel = new PanelManageNetwork(ecosystem);
+        pnlRight.add("PanelManageNetwork",manageNetworkPanel);
+        CardLayout layout = (CardLayout) pnlRight.getLayout();
+        layout.next(pnlRight);
+    }
+    
+    private void manageEnterprise()
+    {
+        System.out.println("Inside manageEnterprise");
+        PanelManageEnterprise manageEnterprise = new PanelManageEnterprise(ecosystem);
+        pnlRight.add("PanelManageEnterprise",manageEnterprise);
+        CardLayout layout = (CardLayout) pnlRight.getLayout();
+        layout.next(pnlRight);
+    }
+    
+    private void manageEnterpriseAdmin()
+    {
+        System.out.println("Inside manageEnterpriseAdmin");
+        PanelManageEnterpriseAdmin manageEnterpriseAdmin = new PanelManageEnterpriseAdmin(ecosystem);
+        pnlRight.add("PanelManageEnterpriseAdmin",manageEnterpriseAdmin);
+        CardLayout layout = (CardLayout) pnlRight.getLayout();
+        layout.next(pnlRight);
     }
 
     /**
@@ -34,17 +74,33 @@ public class PanelSystemAdminWorkArea extends javax.swing.JPanel {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
+        btnLogout = new javax.swing.JButton();
         pnlRight = new javax.swing.JPanel();
 
-        setPreferredSize(new java.awt.Dimension(1440, 850));
+        setPreferredSize(new java.awt.Dimension(1440, 800));
 
-        pnlLeft.setPreferredSize(new java.awt.Dimension(300, 850));
+        pnlLeft.setPreferredSize(new java.awt.Dimension(300, 860));
 
         jLabel1.setText("MANAGE ENTERPRISE");
+        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jLabel1MousePressed(evt);
+            }
+        });
 
-        jLabel2.setText("MANAGE ENTERPRISE Admin");
+        jLabel2.setText("MANAGE ENTERPRISE ADMIN");
+        jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jLabel2MousePressed(evt);
+            }
+        });
 
         jLabel3.setText("MANAGE NETWORK");
+        jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jLabel3MousePressed(evt);
+            }
+        });
 
         jLabel4.setText("Logo");
 
@@ -52,21 +108,33 @@ public class PanelSystemAdminWorkArea extends javax.swing.JPanel {
 
         jLabel6.setText("Logo");
 
+        btnLogout.setText("Logout");
+        btnLogout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLogoutActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout pnlLeftLayout = new javax.swing.GroupLayout(pnlLeft);
         pnlLeft.setLayout(pnlLeftLayout);
         pnlLeftLayout.setHorizontalGroup(
             pnlLeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlLeftLayout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addGroup(pnlLeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(pnlLeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(pnlLeftLayout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addGroup(pnlLeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(pnlLeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(pnlLeftLayout.createSequentialGroup()
+                        .addGap(51, 51, 51)
+                        .addComponent(btnLogout)))
                 .addGap(35, 35, 35))
         );
         pnlLeftLayout.setVerticalGroup(
@@ -84,19 +152,13 @@ public class PanelSystemAdminWorkArea extends javax.swing.JPanel {
                 .addGroup(pnlLeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(622, Short.MAX_VALUE))
+                .addGap(49, 49, 49)
+                .addComponent(btnLogout)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout pnlRightLayout = new javax.swing.GroupLayout(pnlRight);
-        pnlRight.setLayout(pnlRightLayout);
-        pnlRightLayout.setHorizontalGroup(
-            pnlRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1140, Short.MAX_VALUE)
-        );
-        pnlRightLayout.setVerticalGroup(
-            pnlRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 850, Short.MAX_VALUE)
-        );
+        pnlRight.setPreferredSize(new java.awt.Dimension(1140, 800));
+        pnlRight.setLayout(new java.awt.CardLayout());
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -105,17 +167,39 @@ public class PanelSystemAdminWorkArea extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(pnlLeft, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(pnlRight, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(pnlRight, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnlLeft, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(pnlRight, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(pnlRight, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(pnlLeft, javax.swing.GroupLayout.DEFAULT_SIZE, 800, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jLabel3MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MousePressed
+        manageNetwork();
+    }//GEN-LAST:event_jLabel3MousePressed
+
+    private void jLabel1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MousePressed
+        manageEnterprise();
+    }//GEN-LAST:event_jLabel1MousePressed
+
+    private void jLabel2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MousePressed
+        manageEnterpriseAdmin();
+    }//GEN-LAST:event_jLabel2MousePressed
+
+    private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
+        userProcessContainer.removeAll();
+        dB4OUtil.storeSystem(ecosystem);
+        userProcessContainer.setVisible(false);
+    }//GEN-LAST:event_btnLogoutActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnLogout;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
