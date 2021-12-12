@@ -16,7 +16,7 @@ public class WeatherForecastOrganization extends Organization {
 
     public WeatherForecastOrganization(String name) 
     {
-        super(name);
+        super(name, "Weather Forecast Organization");
     }
 
     @Override

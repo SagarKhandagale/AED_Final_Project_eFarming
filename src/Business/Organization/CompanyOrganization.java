@@ -18,7 +18,7 @@ public class CompanyOrganization extends Organization {
 
     public CompanyOrganization(String name) 
     {
-        super(name);
+        super(name, "Company Organization");
     }
 
     @Override

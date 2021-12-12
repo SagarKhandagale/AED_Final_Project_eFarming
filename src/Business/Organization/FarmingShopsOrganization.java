@@ -16,7 +16,7 @@ public class FarmingShopsOrganization extends Organization {
 
     public FarmingShopsOrganization(String name) 
     {
-        super(name);
+        super(name, "Farming Shop Organization");
     }
 
     @Override

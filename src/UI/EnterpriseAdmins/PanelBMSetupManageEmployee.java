@@ -115,7 +115,6 @@ public class PanelBMSetupManageEmployee extends javax.swing.JPanel {
         lblOrganization.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(167, 196, 188)));
         lblOrganization.setPreferredSize(new java.awt.Dimension(100, 30));
 
-        cmbOrgEmp.setBackground(new java.awt.Color(255, 255, 255));
         cmbOrgEmp.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
         cmbOrgEmp.setForeground(new java.awt.Color(25, 56, 82));
         cmbOrgEmp.addActionListener(new java.awt.event.ActionListener() {
@@ -131,6 +130,7 @@ public class PanelBMSetupManageEmployee extends javax.swing.JPanel {
 
         txtEmpName.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
         txtEmpName.setForeground(new java.awt.Color(25, 56, 82));
+        txtEmpName.setText("BMOE");
         txtEmpName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtEmpNameActionPerformed(evt);

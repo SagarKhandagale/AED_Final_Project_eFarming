@@ -16,7 +16,7 @@ public class NgoOrganization extends Organization {
 
     public NgoOrganization(String name) 
     {
-        super(name);
+        super(name, "NGO Organization");
     }
 
     @Override
