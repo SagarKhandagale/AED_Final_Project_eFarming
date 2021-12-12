@@ -9,6 +9,7 @@ import Business.EcoSystem;
 import Business.Employee.Employee;
 import Business.Enterprise.Enterprise;
 import Business.Organization.Organization;
+import Business.Organization.OrganizationDirectory;
 import Business.Role.Role;
 import Business.UserAccount.UserAccount;
 import javax.swing.JOptionPane;
@@ -27,20 +28,27 @@ public class PanelBMSetupManageUserAccount extends javax.swing.JPanel {
     private final Enterprise enterprise;
     private final EcoSystem ecosystem;
     Organization organization;
+    private final OrganizationDirectory organizationDirectory;
     
-    public PanelBMSetupManageUserAccount(Enterprise enterprise, EcoSystem system, Organization organization) {
+    public PanelBMSetupManageUserAccount(Enterprise enterprise, EcoSystem system, Organization organization, OrganizationDirectory organizationDirectory) {
         initComponents();
         this.enterprise = enterprise;
         this.ecosystem = system;
         this.organization = organization;
-        populateCmbOrganizationType();
+        this.organizationDirectory = organizationDirectory;
+        System.out.println("Above populateCmbOrganizationName");
+        populateCmbOrganizationName();
         populateTable();
     }
     
-    public void populateCmbOrganizationType() {
+    public void populateCmbOrganizationName() 
+    {
+        System.out.println("Inside populateCmbOrganizationName");
         cmbOrganizationName.removeAllItems();
-        for (Organization org : enterprise.getOrganizationDirectory().getOrganizationList()) 
+        System.out.println("getOrganizationList : " + organizationDirectory.getOrganizationList());
+        for (Organization org : organizationDirectory.getOrganizationList()) 
         {
+            System.out.println("org.getName() : " + org.getName());
             cmbOrganizationName.addItem(org.getName());
         }
     }
@@ -54,17 +62,19 @@ public class PanelBMSetupManageUserAccount extends javax.swing.JPanel {
         {
             for (UserAccount ua : org.getUserAccountDirectory().getUserAccountList()) 
             {
-                Object row[] = new Object[2];
-                row[0] = ua;
-                row[1] = ua.getRole();
+                Object row[] = new Object[4];
+                row[0] = org.getOrgType();
+                row[1] = org.getName();
+                row[2] = ua;
+                row[3] = ua.getRole();
                 ((DefaultTableModel) tblUserAccount.getModel()).addRow(row);
             }
         }
     }
 
-    public void populateEmployeeComboBox(Organization organization) {
+    public void populateCmbEmployee(Organization organization) {
         cmbEmployee.removeAllItems();
-
+        System.out.println("populateCmbEmployee");
         for (Employee employee : organization.getEmployeeDirectory().getEmployeeList()) {
             cmbEmployee.addItem(employee.toString());
         }
@@ -72,6 +82,7 @@ public class PanelBMSetupManageUserAccount extends javax.swing.JPanel {
 
     private void populateCmbRole(Organization organization) {
         cmbRole.removeAllItems();
+        System.out.println("Inside populateCmbRole");
         for (Role role : organization.getSupportedRole()) 
         {
             cmbRole.addItem(role.toString());
@@ -133,18 +144,25 @@ public class PanelBMSetupManageUserAccount extends javax.swing.JPanel {
         ));
         jScrollPane1.setViewportView(tblUserAccount);
 
-        cmbOrganizationName.setBackground(new java.awt.Color(255, 255, 255));
         cmbOrganizationName.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cmbOrganizationName.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cmbOrganizationNameItemStateChanged(evt);
+            }
+        });
+        cmbOrganizationName.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                cmbOrganizationNameMousePressed(evt);
+            }
+        });
         cmbOrganizationName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmbOrganizationNameActionPerformed(evt);
             }
         });
 
-        cmbEmployee.setBackground(new java.awt.Color(255, 255, 255));
         cmbEmployee.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        cmbRole.setBackground(new java.awt.Color(255, 255, 255));
         cmbRole.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         btnAddUserAccount.setText("Create User Account");
@@ -244,13 +262,7 @@ public class PanelBMSetupManageUserAccount extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void cmbOrganizationNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbOrganizationNameActionPerformed
-        Organization org = (Organization) cmbOrganizationName.getSelectedItem();
         
-        if (org != null) 
-        {
-//            populateEmployeeComboBox(org);
-            populateCmbRole(org);
-        }
     }//GEN-LAST:event_cmbOrganizationNameActionPerformed
 
     private void btnAddUserAccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddUserAccountActionPerformed
@@ -268,15 +280,81 @@ public class PanelBMSetupManageUserAccount extends javax.swing.JPanel {
         if (!ecosystem.checkUniqueUsername(username)) {
             return;
         }
-        Organization org = (Organization) cmbOrganizationName.getSelectedItem();
-        Employee employee = (Employee) cmbEmployee.getSelectedItem();
-        Role role = (Role) cmbRole.getSelectedItem();
+        String orgn = null;
+        if(!cmbOrganizationName.getSelectedItem().toString().equals(null))
+        {
+            System.out.println("cmbOrganizationName Not null");
+            orgn = cmbOrganizationName.getSelectedItem().toString();
+            System.out.println("cmbOrganizationName orgn : " + orgn);
+        }
+            
+        
+        Organization org = null;
+        for(Organization o : organizationDirectory.getOrganizationList())
+        {
+            if(o.getName().equals(orgn))
+            {
+            System.out.println("o: " + o);
+                org = o;
+            }
+        }
+        
+        String emp = cmbEmployee.getSelectedItem().toString();
+        Employee employee = null;
+//        System.out.println("getEmployeeList" + org.getEmployeeDirectory().getEmployeeList());
+        for(Employee e : org.getEmployeeDirectory().getEmployeeList())
+        {
+            if(e.getName().equals(emp))
+                employee = e;
+        }
+        
+        String roleName = cmbRole.getSelectedItem().toString();
+        Role role = null;
+        for(Role r : org.getSupportedRole())
+        {
+            if(r.toString().equals(roleName))
+                role = r;
+        }
+        
+//        Role role = (Role) cmbRole.getSelectedItem();
         org.getUserAccountDirectory().createUserAccount(username, password, employee, role);
         populateTable();
         txtUsername.setText("");
         txtPassword.setText("");
         JOptionPane.showMessageDialog(null, "User created successfully");
     }//GEN-LAST:event_btnAddUserAccountActionPerformed
+
+    private void cmbOrganizationNameItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbOrganizationNameItemStateChanged
+
+    }//GEN-LAST:event_cmbOrganizationNameItemStateChanged
+
+    private void cmbOrganizationNameMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cmbOrganizationNameMousePressed
+//        System.out.println("cmbOrganizationNameMousePressed");
+        String orgn = null;
+        if(!cmbOrganizationName.getSelectedItem().toString().equals(null))
+        {
+//            System.out.println("cmbOrganizationName Not null");
+            orgn = cmbOrganizationName.getSelectedItem().toString();
+//            System.out.println("cmbOrganizationName orgn : " + orgn);
+        }
+            
+        
+        Organization org = null;
+        for(Organization o : organizationDirectory.getOrganizationList())
+        {
+            if(o.getName().equals(orgn))
+            {
+//            System.out.println("o: " + o);
+                org = o;
+            }
+        }
+        
+        if (org != null) 
+        {
+            populateCmbEmployee(org);
+            populateCmbRole(org);
+        }
+    }//GEN-LAST:event_cmbOrganizationNameMousePressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

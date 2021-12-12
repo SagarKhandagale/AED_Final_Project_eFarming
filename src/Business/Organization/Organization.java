@@ -25,6 +25,7 @@ public abstract class Organization {
     private int organizationID;
     private static int counter = 0;
     public ArrayList<Role> roles;
+    private String orgType;
     private Type type;
 
     public enum Type {
@@ -54,6 +55,14 @@ public abstract class Organization {
         }
     }
 
+    public String getOrgType() {
+        return orgType;
+    }
+
+    public void setOrgType(String orgType) {
+        this.orgType = orgType;
+    }
+
     public Type getType() {
         return type;
     }
@@ -62,13 +71,14 @@ public abstract class Organization {
         this.type = type;
     }
 
-    public Organization(String name) {
+    public Organization(String name, String orgType) {
         this.name = name;
         workQueue = new WorkQueue();
         employeeDirectory = new EmployeeDirectory();
         userAccountDirectory = new UserAccountDirectory();
         organizationID = counter;
         roles = new ArrayList<>();
+        this.orgType = orgType;
         ++counter;
     }
 

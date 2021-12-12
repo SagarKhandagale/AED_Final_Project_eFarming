@@ -26,12 +26,13 @@ public class PanelBMSetupManageOrganization extends javax.swing.JPanel {
         initComponents();
         this.directory = directory;
         populateOrgTable();
-        populateOrganizationTypeComboBox();
+        populateCmbOrganizationType();
     }
     
-    private void populateOrganizationTypeComboBox() {
+    private void populateCmbOrganizationType() {
         cmbOrganizationType.removeAllItems();
         cmbOrganizationType.addItem(Organization.Type.BigMarket.getValue());
+        cmbOrganizationType.addItem(Organization.Type.Company.getValue());
 
     }
 
@@ -44,9 +45,11 @@ public class PanelBMSetupManageOrganization extends javax.swing.JPanel {
         for (Organization organization : directory.getOrganizationList()) 
         {
             {
+//                Organization.Type type = Organization.Type.valueOf(cmbOrganizationType.getSelectedItem().toString().split(" ")[0]);
+
                 System.out.println("Inside for organization : " + organization.getType());
                 Object[] row = new Object[2];
-                row[0] = organization.getType();
+                row[0] = organization.getOrgType();
                 row[1] = organization.getName();
                 model.addRow(row);
             }
@@ -94,6 +97,8 @@ public class PanelBMSetupManageOrganization extends javax.swing.JPanel {
 
         lblOrganizationName.setText("Organization Name:");
         lblOrganizationName.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(167, 196, 188)));
+
+        txtOrganizationName.setText("BMO");
 
         cmbOrganizationType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 

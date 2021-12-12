@@ -17,7 +17,7 @@ public class BigMarketOrganization extends Organization {
 
     public BigMarketOrganization(String name) 
     {
-        super(name);
+        super(name, "Big Market Organization");
     }
 
     @Override

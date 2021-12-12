@@ -107,6 +107,7 @@ public class PanelUserRegistration extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(223, 238, 234));
+        setPreferredSize(new java.awt.Dimension(1440, 800));
 
         btnRegister.setBackground(new java.awt.Color(255, 255, 255));
         btnRegister.setText("REGISTER");
@@ -120,12 +121,10 @@ public class PanelUserRegistration extends javax.swing.JPanel {
         lblState.setText("State:");
         lblState.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(167, 196, 188)));
 
-        cmbStateNetwork.setBackground(new java.awt.Color(255, 255, 255));
         cmbStateNetwork.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         lblDisplayRole.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
 
-        cmbOrganization.setBackground(new java.awt.Color(255, 255, 255));
         cmbOrganization.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 cmbOrganizationItemStateChanged(evt);
@@ -138,7 +137,7 @@ public class PanelUserRegistration extends javax.swing.JPanel {
         lblOrganization.setText("Organization Type:");
         lblOrganization.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(167, 196, 188)));
 
-        txtName.setText("Sagar K");
+        txtName.setText("BMO");
 
         lblUsername.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
         lblUsername.setText("Username:");
@@ -162,7 +161,7 @@ public class PanelUserRegistration extends javax.swing.JPanel {
         lblContactNo.setText("Contact No:");
         lblContactNo.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(167, 196, 188)));
 
-        txtPassword.setText("SagarK");
+        txtPassword.setText("Admin@123");
 
         lblEmailId.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
         lblEmailId.setText("Email Id:");
@@ -186,7 +185,7 @@ public class PanelUserRegistration extends javax.swing.JPanel {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(12, 12, 12)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(12, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -243,16 +242,16 @@ public class PanelUserRegistration extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(lblDisplayRole, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(491, 491, 491)
+                        .addGap(448, 448, 448)
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(17, Short.MAX_VALUE))
+                .addContainerGap(478, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(11, Short.MAX_VALUE)
+                .addGap(100, 100, 100)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
+                .addGap(50, 50, 50)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(lblDisplayRole, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -313,10 +312,19 @@ public class PanelUserRegistration extends javax.swing.JPanel {
 
     private void btnRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterActionPerformed
 
-        Network network = (Network) cmbStateNetwork.getSelectedItem();
+        String nw = cmbStateNetwork.getSelectedItem().toString();
+        
+        Network network = null;
+        
+        for(Network n: system.getNetworkList()) 
+        {
+            if (n.getNetworkName().equals(nw)) 
+            {
+                network = n;
+            }
+        }
         Type type = Type.valueOf(cmbOrganization.getSelectedItem().toString().split(" ")[0]);
-        System.out.println("Check" + type);
-        JOptionPane.showMessageDialog(null, "Check" + type);
+        System.out.println("Check : " + type);
         String emailAddress = txtEmailId.getText();
         String username = txtUsername.getText();
         String name = txtName.getText();
@@ -389,7 +397,7 @@ public class PanelUserRegistration extends javax.swing.JPanel {
         else
         {
             UserRegistrationRequest registrationRequest = new UserRegistrationRequest();
-            registrationRequest.setFullName(name);
+            registrationRequest.setOrgName(name);
             registrationRequest.setUserName(username);
             registrationRequest.setPassword(password);
             registrationRequest.setEmailId(emailAddress);
@@ -403,7 +411,8 @@ public class PanelUserRegistration extends javax.swing.JPanel {
             {
                 for (Organization org : enterprise.getOrganizationDirectory().getOrganizationList())
                 {
-                    if (org.getType() == type)
+                    System.out.println("Inside Userregistration Org : " + org);
+                    if (org.getName().equals(name))
                     {
                         if (enterprise.getWorkQueue() == null)
                         {

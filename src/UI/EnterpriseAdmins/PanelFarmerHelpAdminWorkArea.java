@@ -54,7 +54,7 @@ public class PanelFarmerHelpAdminWorkArea extends javax.swing.JPanel {
     
     private void manageUserAccount() 
     {
-        PanelBMSetupManageUserAccount bnmoj = new PanelBMSetupManageUserAccount(enterprise, system, organization);
+        PanelBMSetupManageUserAccount bnmoj = new PanelBMSetupManageUserAccount(enterprise, system, organization, enterprise.getOrganizationDirectory());
         pnlRight.add("PanelBMSetupManageUserAccount", bnmoj);
         CardLayout layout = (CardLayout) pnlRight.getLayout();
         layout.next(pnlRight);

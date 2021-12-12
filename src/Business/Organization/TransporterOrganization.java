@@ -16,7 +16,7 @@ public class TransporterOrganization extends Organization {
 
     public TransporterOrganization(String name) 
     {
-        super(name);
+        super(name, "Transporter Organization");
     }
 
     @Override

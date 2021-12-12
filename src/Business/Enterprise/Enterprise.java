@@ -19,7 +19,7 @@ public abstract class Enterprise extends Organization {
     private Organization organization;
     
     public Enterprise(String name, EnterpriseType type) {
-        super(name);
+        super(name, "");
         this.enterpriseType = type;
         organizationDirectory = new OrganizationDirectory();
     }
