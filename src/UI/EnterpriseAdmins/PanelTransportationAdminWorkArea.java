@@ -42,8 +42,8 @@ public class PanelTransportationAdminWorkArea extends javax.swing.JPanel {
     
     private void manageOrganization() 
     {
-        PanelBMSetupManageOrganization bnmoj = new PanelBMSetupManageOrganization(enterprise.getOrganizationDirectory());
-        pnlRight.add("PanelBMSetupManageOrganization", bnmoj);
+        PanelTransportationManageOrganization bnmoj = new PanelTransportationManageOrganization(enterprise.getOrganizationDirectory());
+        pnlRight.add("PanelTransportationManageOrganization", bnmoj);
         CardLayout layout = (CardLayout) pnlRight.getLayout();
         layout.next(pnlRight);
     }
@@ -58,16 +58,16 @@ public class PanelTransportationAdminWorkArea extends javax.swing.JPanel {
     
     private void manageUserAccount() 
     {
-        PanelBMSetupManageUserAccount bnmoj = new PanelBMSetupManageUserAccount(enterprise, system, organization, enterprise.getOrganizationDirectory());
-        pnlRight.add("PanelBMSetupManageUserAccount", bnmoj);
+        PanelTransportationManageUserAccount bnmoj = new PanelTransportationManageUserAccount(enterprise, system, organization, enterprise.getOrganizationDirectory());
+        pnlRight.add("PanelTransportationManageUserAccount", bnmoj);
         CardLayout layout = (CardLayout) pnlRight.getLayout();
         layout.next(pnlRight);
     }
     
     private void manageUserRequests() 
     {
-        PanelBMSetupManageWorkRequest bnmoj = new PanelBMSetupManageWorkRequest(enterprise);
-        pnlRight.add("PanelBMSetupManageWorkRequest", bnmoj);
+        PanelTransportationManageWorkRequest bnmoj = new PanelTransportationManageWorkRequest(enterprise);
+        pnlRight.add("PanelTransportationManageWorkRequest", bnmoj);
         CardLayout layout = (CardLayout) pnlRight.getLayout();
         layout.next(pnlRight);
     }
