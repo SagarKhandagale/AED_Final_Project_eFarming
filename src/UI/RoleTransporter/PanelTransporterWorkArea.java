@@ -5,19 +5,53 @@
  */
 package UI.RoleTransporter;
 
+import Business.EcoSystem;
+import Business.Enterprise.Enterprise;
+import Business.Network.Network;
+import Business.Organization.Organization;
+import Business.UserAccount.UserAccount;
+import UI.RoleNgoOfficer.PanelManageFarmerHelpRequests;
+import UI.RoleNgoOfficer.PanelNgoOfficerManageProfile;
+import java.awt.CardLayout;
+import javax.swing.JPanel;
+
 /**
  *
  * @author sagar
  */
 public class PanelTransporterWorkArea extends javax.swing.JPanel {
-
+    JPanel userProcessContainer;
+    Enterprise enterprise;
+    EcoSystem system;
+    Network network;
+    UserAccount account;
+    Organization organization;
     /**
      * Creates new form PanelTransporterWorkArea
      */
-    public PanelTransporterWorkArea() {
+    public PanelTransporterWorkArea(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, Network network, EcoSystem business) {
         initComponents();
+        this.userProcessContainer = userProcessContainer;
+        this.account = account;
+        this.system = business;
+        this.network = network;
+        this.enterprise = enterprise;
+        this.organization = organization;
     }
-
+    private void manageUserProfile() 
+    {
+        PanelTransporterManageProfile profile = new PanelTransporterManageProfile(pnlRight, system, enterprise, account);
+        pnlRight.add("PanelTransporterManageProfile",profile);
+        CardLayout layout = (CardLayout) pnlRight.getLayout();
+        layout.next(pnlRight);
+    }
+    private void manageTransportRequest() 
+    {
+        PanelManageTransportRequests orders = new PanelManageTransportRequests(pnlRight, system, enterprise, account);
+        pnlRight.add("PanelManageTransportRequests",orders);
+        CardLayout layout = (CardLayout) pnlRight.getLayout();
+        layout.next(pnlRight);
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -35,7 +69,7 @@ public class PanelTransporterWorkArea extends javax.swing.JPanel {
         jPanel1 = new javax.swing.JPanel();
         lblManageOrganization = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        lblManageUserAcc = new javax.swing.JLabel();
+        lblManageTransportReq = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         pnlRight = new javax.swing.JPanel();
 
@@ -80,6 +114,11 @@ public class PanelTransporterWorkArea extends javax.swing.JPanel {
         lblManageOrganization.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblManageOrganization.setText("MANAGE USER PROFILE");
         lblManageOrganization.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        lblManageOrganization.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                lblManageOrganizationMousePressed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -105,28 +144,33 @@ public class PanelTransporterWorkArea extends javax.swing.JPanel {
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setPreferredSize(new java.awt.Dimension(212, 52));
 
-        lblManageUserAcc.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblManageUserAcc.setText("MANAGE WORK REQUEST");
-        lblManageUserAcc.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        lblManageTransportReq.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblManageTransportReq.setText("MANAGE TRANSPORT REQUESTS");
+        lblManageTransportReq.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        lblManageTransportReq.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                lblManageTransportReqMousePressed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 212, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel2Layout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(lblManageUserAcc, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblManageTransportReq, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addContainerGap(9, Short.MAX_VALUE)))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 52, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel2Layout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(lblManageUserAcc, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblManageTransportReq, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
@@ -190,6 +234,16 @@ public class PanelTransporterWorkArea extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void lblManageOrganizationMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblManageOrganizationMousePressed
+        // TODO add your handling code here:
+        manageUserProfile();
+    }//GEN-LAST:event_lblManageOrganizationMousePressed
+
+    private void lblManageTransportReqMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblManageTransportReqMousePressed
+        // TODO add your handling code here:
+        manageTransportRequest();
+    }//GEN-LAST:event_lblManageTransportReqMousePressed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel3;
@@ -199,7 +253,7 @@ public class PanelTransporterWorkArea extends javax.swing.JPanel {
     private javax.swing.JLabel lblIconManageOrg;
     private javax.swing.JLabel lblIconManageUserAcc;
     private javax.swing.JLabel lblManageOrganization;
-    private javax.swing.JLabel lblManageUserAcc;
+    private javax.swing.JLabel lblManageTransportReq;
     private javax.swing.JLabel lblTitle4;
     private javax.swing.JPanel pnlLeft;
     private javax.swing.JPanel pnlRight;

@@ -23,7 +23,7 @@ public class Transporter extends Role {
     @Override
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise,Network network, EcoSystem business) {
 
-        return new PanelTransporterWorkArea();
+        return new PanelTransporterWorkArea(userProcessContainer, account, organization, enterprise, network, business);
     }
 
     @Override

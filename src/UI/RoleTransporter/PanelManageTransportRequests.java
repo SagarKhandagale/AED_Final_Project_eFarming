@@ -5,17 +5,29 @@
  */
 package UI.RoleTransporter;
 
+import Business.EcoSystem;
+import Business.Enterprise.Enterprise;
+import Business.UserAccount.UserAccount;
+import javax.swing.JPanel;
+
 /**
  *
  * @author Kunjir
  */
 public class PanelManageTransportRequests extends javax.swing.JPanel {
-
+    private JPanel userProcessContainer;
+    private EcoSystem system;
+    private UserAccount userAccount;
+    private Enterprise enterprise;
     /**
      * Creates new form PanelManageTransportRequests
      */
-    public PanelManageTransportRequests() {
+    public PanelManageTransportRequests(JPanel userProcess, EcoSystem system, Enterprise enterprise, UserAccount userAccount) {
         initComponents();
+        this.userProcessContainer = userProcess;
+        this.system = system;
+        this.enterprise = enterprise;
+        this.userAccount = userAccount;
     }
 
     /**
