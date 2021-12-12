@@ -29,7 +29,9 @@ public class PanelFarmerHelpManageOrganization extends javax.swing.JPanel {
     
     private void populateOrganizationTypeComboBox() {
         cmbOrganizationType.removeAllItems();
-        cmbOrganizationType.addItem(Organization.Type.BigMarket.getValue());
+        cmbOrganizationType.addItem(Organization.Type.NGO.getValue());
+        cmbOrganizationType.addItem(Organization.Type.WeatherForecast.getValue());
+        cmbOrganizationType.addItem(Organization.Type.SmartFarming.getValue());
 
     }
 

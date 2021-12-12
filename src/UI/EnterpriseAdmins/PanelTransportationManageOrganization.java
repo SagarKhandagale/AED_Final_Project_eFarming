@@ -29,7 +29,7 @@ public class PanelTransportationManageOrganization extends javax.swing.JPanel {
     
     private void populateOrganizationTypeComboBox() {
         cmbOrganizationType.removeAllItems();
-        cmbOrganizationType.addItem(Organization.Type.BigMarket.getValue());
+        cmbOrganizationType.addItem(Organization.Type.Transporter.getValue());
 
     }
 
