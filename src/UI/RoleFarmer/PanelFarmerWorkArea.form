@@ -114,7 +114,7 @@
         </Component>
         <Component class="javax.swing.JLabel" name="lblManageUserAcc">
           <Properties>
-            <Property name="text" type="java.lang.String" value="MANAGE WORK REQUEST"/>
+            <Property name="text" type="java.lang.String" value="ORDER FROM SHOPS"/>
           </Properties>
         </Component>
       </SubComponents>
