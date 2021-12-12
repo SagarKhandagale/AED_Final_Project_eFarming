@@ -45,7 +45,7 @@ public class PanelFarmerWorkArea extends javax.swing.JPanel {
 
         lblManageOrganization.setText("MANAGE USER PROFILE");
 
-        lblManageUserAcc.setText("MANAGE WORK REQUEST");
+        lblManageUserAcc.setText("ORDER FROM SHOPS");
 
         javax.swing.GroupLayout pnlLeftLayout = new javax.swing.GroupLayout(pnlLeft);
         pnlLeft.setLayout(pnlLeftLayout);
