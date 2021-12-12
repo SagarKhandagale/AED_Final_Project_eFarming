@@ -5,17 +5,31 @@
  */
 package UI.RoleNgoOfficer;
 
+import Business.EcoSystem;
+import Business.Enterprise.Enterprise;
+import Business.UserAccount.UserAccount;
+import javax.swing.JPanel;
+
 /**
  *
  * @author Kunjir
  */
 public class PanelManageFarmerHelpRequests extends javax.swing.JPanel {
-
+    
+    private JPanel userProcessContainer;
+    private EcoSystem system;
+    private UserAccount userAccount;
+    private Enterprise enterprise;
     /**
      * Creates new form ManageFarmerHelpRequests
      */
-    public PanelManageFarmerHelpRequests() {
+    public PanelManageFarmerHelpRequests(JPanel userProcess, EcoSystem system, Enterprise enterprise, UserAccount userAccount) {
         initComponents();
+        this.userProcessContainer = userProcess;
+        this.system = system;
+        this.enterprise = enterprise;
+        this.userAccount = userAccount;
+        //populateRequestTable();
     }
 
     /**

@@ -5,6 +5,14 @@
  */
 package UI.RoleShopOwner;
 
+import Business.EcoSystem;
+import Business.Enterprise.Enterprise;
+import Business.Network.Network;
+import Business.Organization.Organization;
+import Business.UserAccount.UserAccount;
+import java.awt.CardLayout;
+import javax.swing.JPanel;
+
 /**
  *
  * @author sagar
@@ -14,9 +22,48 @@ public class PanelShopOwnerWorkArea extends javax.swing.JPanel {
     /**
      * Creates new form PanelShopOwnerWorkArea
      */
-    public PanelShopOwnerWorkArea() {
+    
+    JPanel userProcessContainer;
+    Enterprise enterprise;
+    EcoSystem system;
+    Network network;
+    UserAccount account;
+    Organization organization;
+    
+    public PanelShopOwnerWorkArea(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, Network network, EcoSystem business) {
         initComponents();
+        this.userProcessContainer = userProcessContainer;
+        this.account = account;
+        this.system = business;
+        this.network = network;
+        this.enterprise = enterprise;
+        this.organization = organization;
     }
+    
+    private void manageUserProfile() 
+    {
+        PanelShopOwnerManageProfile profile = new PanelShopOwnerManageProfile(pnlRight, system, enterprise, account);
+        pnlRight.add("PanelShopOwnerManageProfile",profile);
+        CardLayout layout = (CardLayout) pnlRight.getLayout();
+        layout.next(pnlRight);
+    }
+    
+    private void manageItems() 
+    {
+        PanelManageItems items = new PanelManageItems(pnlRight, system, enterprise, account);
+        pnlRight.add("PanelManageItems",items);
+        CardLayout layout = (CardLayout) pnlRight.getLayout();
+        layout.next(pnlRight);
+    }
+    
+    private void manageOrders() 
+    {
+        PanelManageOrders orders = new PanelManageOrders(pnlRight, system, enterprise, account);
+        pnlRight.add("PanelManageOrders",orders);
+        CardLayout layout = (CardLayout) pnlRight.getLayout();
+        layout.next(pnlRight);
+    }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -31,8 +78,10 @@ public class PanelShopOwnerWorkArea extends javax.swing.JPanel {
         lblTopHeading = new javax.swing.JLabel();
         lblIconManageOrg = new javax.swing.JLabel();
         lblIconManageUserAcc = new javax.swing.JLabel();
-        lblManageOrganization = new javax.swing.JLabel();
-        lblManageUserAcc = new javax.swing.JLabel();
+        lblManageUserProfile = new javax.swing.JLabel();
+        lblManageItems = new javax.swing.JLabel();
+        lblManageOrders = new javax.swing.JLabel();
+        lblIconManageUserAcc1 = new javax.swing.JLabel();
         pnlRight = new javax.swing.JPanel();
 
         lblTopHeading.setText("SHOP OWNER ORGANIZATION ");
@@ -41,9 +90,28 @@ public class PanelShopOwnerWorkArea extends javax.swing.JPanel {
 
         lblIconManageUserAcc.setText("Logo");
 
-        lblManageOrganization.setText("MANAGE USER PROFILE");
+        lblManageUserProfile.setText("MANAGE USER PROFILE");
+        lblManageUserProfile.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                lblManageUserProfileMousePressed(evt);
+            }
+        });
 
-        lblManageUserAcc.setText("MANAGE WORK REQUEST");
+        lblManageItems.setText("MANAGE ITEMS");
+        lblManageItems.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                lblManageItemsMousePressed(evt);
+            }
+        });
+
+        lblManageOrders.setText("MANAGE ORDERS");
+        lblManageOrders.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                lblManageOrdersMousePressed(evt);
+            }
+        });
+
+        lblIconManageUserAcc1.setText("Logo");
 
         javax.swing.GroupLayout pnlLeftLayout = new javax.swing.GroupLayout(pnlLeft);
         pnlLeft.setLayout(pnlLeftLayout);
@@ -56,11 +124,16 @@ public class PanelShopOwnerWorkArea extends javax.swing.JPanel {
             .addGroup(pnlLeftLayout.createSequentialGroup()
                 .addGap(28, 28, 28)
                 .addGroup(pnlLeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblManageOrganization, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlLeftLayout.createSequentialGroup()
-                        .addComponent(lblIconManageUserAcc, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(pnlLeftLayout.createSequentialGroup()
+                        .addComponent(lblIconManageUserAcc1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblManageUserAcc, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(lblManageOrders, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(pnlLeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(lblManageUserProfile, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlLeftLayout.createSequentialGroup()
+                            .addComponent(lblIconManageUserAcc, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(lblManageItems, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(pnlLeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(pnlLeftLayout.createSequentialGroup()
@@ -74,12 +147,16 @@ public class PanelShopOwnerWorkArea extends javax.swing.JPanel {
                 .addGap(50, 50, 50)
                 .addComponent(lblTopHeading)
                 .addGap(45, 45, 45)
-                .addComponent(lblManageOrganization, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lblManageUserProfile, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20)
                 .addGroup(pnlLeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblManageUserAcc, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblManageItems, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblIconManageUserAcc, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(642, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(pnlLeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblManageOrders, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblIconManageUserAcc1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(584, Short.MAX_VALUE))
             .addGroup(pnlLeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(pnlLeftLayout.createSequentialGroup()
                     .addGap(112, 112, 112)
@@ -105,12 +182,26 @@ public class PanelShopOwnerWorkArea extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void lblManageUserProfileMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblManageUserProfileMousePressed
+        manageUserProfile();
+    }//GEN-LAST:event_lblManageUserProfileMousePressed
+
+    private void lblManageItemsMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblManageItemsMousePressed
+        manageItems();
+    }//GEN-LAST:event_lblManageItemsMousePressed
+
+    private void lblManageOrdersMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblManageOrdersMousePressed
+        manageOrders();
+    }//GEN-LAST:event_lblManageOrdersMousePressed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel lblIconManageOrg;
     private javax.swing.JLabel lblIconManageUserAcc;
-    private javax.swing.JLabel lblManageOrganization;
-    private javax.swing.JLabel lblManageUserAcc;
+    private javax.swing.JLabel lblIconManageUserAcc1;
+    private javax.swing.JLabel lblManageItems;
+    private javax.swing.JLabel lblManageOrders;
+    private javax.swing.JLabel lblManageUserProfile;
     private javax.swing.JLabel lblTopHeading;
     private javax.swing.JPanel pnlLeft;
     private javax.swing.JPanel pnlRight;
