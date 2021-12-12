@@ -66,6 +66,7 @@ public class MainJFrame extends javax.swing.JFrame {
         jButton1.setText("jButton1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         pnlTop.setBackground(new java.awt.Color(167, 196, 188));
         pnlTop.setPreferredSize(new java.awt.Dimension(1440, 60));

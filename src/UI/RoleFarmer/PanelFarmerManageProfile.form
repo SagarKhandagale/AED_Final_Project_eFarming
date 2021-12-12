@@ -66,45 +66,45 @@
                       <EmptySpace min="-2" pref="100" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="lblName8" min="-2" pref="150" max="-2" attributes="0"/>
+                              <Component id="lblEmailId" min="-2" pref="150" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jTextField9" min="-2" pref="200" max="-2" attributes="0"/>
+                              <Component id="txtEmailId" min="-2" pref="200" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="lblName7" min="-2" pref="150" max="-2" attributes="0"/>
+                              <Component id="lblFullName" min="-2" pref="150" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jTextField8" min="-2" pref="200" max="-2" attributes="0"/>
+                              <Component id="txtFullName" min="-2" pref="200" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="lblName9" min="-2" pref="150" max="-2" attributes="0"/>
+                              <Component id="lblContactNo" min="-2" pref="150" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jButton1" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
-                                  <Component id="jTextField10" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
+                                  <Component id="btnSave" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
+                                  <Component id="txtContactNo" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
                       <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="lblName13" min="-2" pref="150" max="-2" attributes="0"/>
+                              <Component id="lblZipCode" min="-2" pref="150" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jTextField14" min="-2" pref="200" max="-2" attributes="0"/>
+                              <Component id="txtZipCode" min="-2" pref="200" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="lblName12" min="-2" pref="150" max="-2" attributes="0"/>
+                              <Component id="lblState" min="-2" pref="150" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jTextField13" min="-2" pref="200" max="-2" attributes="0"/>
+                              <Component id="txtState" min="-2" pref="200" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="lblName11" min="-2" pref="150" max="-2" attributes="0"/>
+                              <Component id="lblCity" min="-2" pref="150" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jTextField12" min="-2" pref="200" max="-2" attributes="0"/>
+                              <Component id="txtCity" min="-2" pref="200" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
-                              <Component id="lblName10" min="-2" pref="150" max="-2" attributes="0"/>
+                              <Component id="lblAddressLine" min="-2" pref="150" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jTextField11" min="-2" pref="200" max="-2" attributes="0"/>
+                              <Component id="txtAddressLine" min="-2" pref="200" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace pref="149" max="32767" attributes="0"/>
@@ -114,107 +114,110 @@
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="lblName10" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                                  <Component id="jTextField11" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                                  <Component id="lblAddressLine" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                                  <Component id="txtAddressLine" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="lblName11" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                                  <Component id="jTextField12" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                                  <Component id="lblCity" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                                  <Component id="txtCity" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="lblName12" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                                  <Component id="jTextField13" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                                  <Component id="lblState" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                                  <Component id="txtState" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="lblName13" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                                  <Component id="jTextField14" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                                  <Component id="lblZipCode" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                                  <Component id="txtZipCode" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="lblName7" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                                  <Component id="jTextField8" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                                  <Component id="lblFullName" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                                  <Component id="txtFullName" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="lblName8" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                                  <Component id="jTextField9" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                                  <Component id="lblEmailId" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                                  <Component id="txtEmailId" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="lblName9" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                                  <Component id="jTextField10" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                                  <Component id="lblContactNo" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                                  <Component id="txtContactNo" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
                       <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
-                      <Component id="jButton1" min="-2" pref="30" max="-2" attributes="0"/>
-                      <EmptySpace pref="337" max="32767" attributes="0"/>
+                      <Component id="btnSave" min="-2" pref="30" max="-2" attributes="0"/>
+                      <EmptySpace pref="335" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JButton" name="jButton1">
+            <Component class="javax.swing.JButton" name="btnSave">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Save"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSaveActionPerformed"/>
+              </Events>
             </Component>
-            <Component class="javax.swing.JLabel" name="lblName7">
+            <Component class="javax.swing.JLabel" name="lblFullName">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Full Legal Name:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField8">
+            <Component class="javax.swing.JTextField" name="txtFullName">
             </Component>
-            <Component class="javax.swing.JLabel" name="lblName8">
+            <Component class="javax.swing.JLabel" name="lblEmailId">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Email Id:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField9">
+            <Component class="javax.swing.JTextField" name="txtEmailId">
             </Component>
-            <Component class="javax.swing.JLabel" name="lblName9">
+            <Component class="javax.swing.JLabel" name="lblContactNo">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Contact No:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField10">
+            <Component class="javax.swing.JTextField" name="txtContactNo">
             </Component>
-            <Component class="javax.swing.JLabel" name="lblName10">
+            <Component class="javax.swing.JLabel" name="lblAddressLine">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Address Line:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField11">
+            <Component class="javax.swing.JTextField" name="txtAddressLine">
             </Component>
-            <Component class="javax.swing.JLabel" name="lblName11">
+            <Component class="javax.swing.JLabel" name="lblCity">
               <Properties>
                 <Property name="text" type="java.lang.String" value="City:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField12">
+            <Component class="javax.swing.JTextField" name="txtCity">
             </Component>
-            <Component class="javax.swing.JLabel" name="lblName12">
+            <Component class="javax.swing.JLabel" name="lblState">
               <Properties>
                 <Property name="text" type="java.lang.String" value="State:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField13">
+            <Component class="javax.swing.JTextField" name="txtState">
             </Component>
-            <Component class="javax.swing.JLabel" name="lblName13">
+            <Component class="javax.swing.JLabel" name="lblZipCode">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Zip Code:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField14">
+            <Component class="javax.swing.JTextField" name="txtZipCode">
             </Component>
           </SubComponents>
         </Container>
@@ -230,141 +233,143 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace pref="362" max="32767" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="213" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="lblName1" min="-2" pref="150" max="-2" attributes="0"/>
+                              <Component id="lblEmailId1" min="-2" pref="150" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jTextField2" min="-2" pref="200" max="-2" attributes="0"/>
+                              <Component id="txtEmailId1" min="-2" pref="200" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="lblName" min="-2" pref="150" max="-2" attributes="0"/>
+                              <Component id="lblFullName1" min="-2" pref="150" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jTextField1" min="-2" pref="200" max="-2" attributes="0"/>
+                              <Component id="txtFullName1" min="-2" pref="200" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="lblName2" min="-2" pref="150" max="-2" attributes="0"/>
+                              <Component id="lblContactNo1" min="-2" pref="150" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jTextField3" min="-2" pref="200" max="-2" attributes="0"/>
+                              <Component id="txtContactNo1" min="-2" pref="200" max="-2" attributes="0"/>
                           </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="lblName6" min="-2" pref="150" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jTextField7" min="-2" pref="200" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="lblName5" min="-2" pref="150" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jTextField6" min="-2" pref="200" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="lblName4" min="-2" pref="150" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jTextField5" min="-2" pref="200" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="1" attributes="0">
-                              <Component id="lblName3" min="-2" pref="150" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jTextField4" min="-2" pref="200" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="lblZipCode1" min="-2" pref="150" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="txtZipCode1" min="-2" pref="200" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="lblState1" min="-2" pref="150" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="txtState1" min="-2" pref="200" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="lblCity1" min="-2" pref="150" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="txtCity1" min="-2" pref="200" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="1" attributes="0">
+                                  <Component id="lblAddressLine1" min="-2" pref="150" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="txtAddressLine1" min="-2" pref="200" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
                       </Group>
-                      <EmptySpace min="-2" pref="305" max="-2" attributes="0"/>
+                      <EmptySpace pref="454" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="76" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="lblName" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                          <Component id="jTextField1" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                          <Component id="lblFullName1" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                          <Component id="txtFullName1" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="lblName1" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                          <Component id="jTextField2" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                          <Component id="lblEmailId1" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                          <Component id="txtEmailId1" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="lblName2" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                          <Component id="jTextField3" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                          <Component id="lblContactNo1" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                          <Component id="txtContactNo1" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="lblName3" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                          <Component id="jTextField4" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                          <Component id="lblAddressLine1" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                          <Component id="txtAddressLine1" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="lblName4" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                          <Component id="jTextField5" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                          <Component id="lblCity1" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                          <Component id="txtCity1" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="lblName5" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                          <Component id="jTextField6" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                          <Component id="lblState1" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                          <Component id="txtState1" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="lblName6" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                          <Component id="jTextField7" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                          <Component id="lblZipCode1" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                          <Component id="txtZipCode1" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="257" max="32767" attributes="0"/>
+                      <EmptySpace pref="242" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JLabel" name="lblName">
+            <Component class="javax.swing.JLabel" name="lblFullName1">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Full Legal Name:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField1">
+            <Component class="javax.swing.JTextField" name="txtFullName1">
             </Component>
-            <Component class="javax.swing.JLabel" name="lblName1">
+            <Component class="javax.swing.JLabel" name="lblEmailId1">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Email Id:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField2">
+            <Component class="javax.swing.JTextField" name="txtEmailId1">
             </Component>
-            <Component class="javax.swing.JLabel" name="lblName2">
+            <Component class="javax.swing.JLabel" name="lblContactNo1">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Contact No:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField3">
+            <Component class="javax.swing.JTextField" name="txtContactNo1">
             </Component>
-            <Component class="javax.swing.JLabel" name="lblName3">
+            <Component class="javax.swing.JLabel" name="lblAddressLine1">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Address Line:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField4">
+            <Component class="javax.swing.JTextField" name="txtAddressLine1">
             </Component>
-            <Component class="javax.swing.JLabel" name="lblName4">
+            <Component class="javax.swing.JLabel" name="lblCity1">
               <Properties>
                 <Property name="text" type="java.lang.String" value="City:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField5">
+            <Component class="javax.swing.JTextField" name="txtCity1">
             </Component>
-            <Component class="javax.swing.JLabel" name="lblName5">
+            <Component class="javax.swing.JLabel" name="lblState1">
               <Properties>
                 <Property name="text" type="java.lang.String" value="State:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField6">
+            <Component class="javax.swing.JTextField" name="txtState1">
             </Component>
-            <Component class="javax.swing.JLabel" name="lblName6">
+            <Component class="javax.swing.JLabel" name="lblZipCode1">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Zip Code:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField7">
+            <Component class="javax.swing.JTextField" name="txtZipCode1">
             </Component>
           </SubComponents>
         </Container>
