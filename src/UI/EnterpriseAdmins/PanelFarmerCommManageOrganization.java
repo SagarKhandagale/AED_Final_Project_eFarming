@@ -30,8 +30,8 @@ public class PanelFarmerCommManageOrganization extends javax.swing.JPanel {
     
     private void populateOrganizationTypeComboBox() {
         cmbOrganizationType.removeAllItems();
-        cmbOrganizationType.addItem(Organization.Type.BigMarket.getValue());
-
+        cmbOrganizationType.addItem(Organization.Type.Farmer.getValue());
+        cmbOrganizationType.addItem(Organization.Type.FarmingShopOwner.getValue());
     }
 
     public void populateOrgTable() 
