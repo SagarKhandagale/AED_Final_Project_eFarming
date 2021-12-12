@@ -20,14 +20,13 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author Admin
+ * @author sagar
  */
 public class PanelManageEnterpriseAdmin extends javax.swing.JPanel {
 
     /**
      * Creates new form PanelManageEnterpriseAdmin
      */
-    
     private final EcoSystem system;
     
     public PanelManageEnterpriseAdmin(EcoSystem system) {
@@ -96,6 +95,7 @@ public class PanelManageEnterpriseAdmin extends javax.swing.JPanel {
         }
     }
 
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -105,57 +105,23 @@ public class PanelManageEnterpriseAdmin extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        btnEnterpriseAdmin = new javax.swing.JButton();
+        lblPassword = new javax.swing.JLabel();
+        txtPassword = new javax.swing.JPasswordField();
         lblNetwork = new javax.swing.JLabel();
+        lblUsername = new javax.swing.JLabel();
         cmbNetwork = new javax.swing.JComboBox<>();
+        txtUsername = new javax.swing.JTextField();
         lblEnterpriseType = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
         cmbEnterprise = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblEnterpriseAdmin = new javax.swing.JTable();
         lblEntAdminName = new javax.swing.JLabel();
         txtName = new javax.swing.JTextField();
-        btnEnterpriseAdmin = new javax.swing.JButton();
-        lblPassword = new javax.swing.JLabel();
-        txtPassword = new javax.swing.JPasswordField();
-        lblUsername = new javax.swing.JLabel();
-        txtUsername = new javax.swing.JTextField();
-        jPanel2 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(223, 238, 234));
-        setPreferredSize(new java.awt.Dimension(1140, 800));
-
-        lblNetwork.setText("Network :");
-        lblNetwork.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(167, 196, 188)));
-
-        cmbNetwork.setBackground(new java.awt.Color(255, 255, 255));
-        cmbNetwork.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        cmbNetwork.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmbNetworkActionPerformed(evt);
-            }
-        });
-
-        lblEnterpriseType.setText("Enterprise:");
-        lblEnterpriseType.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(167, 196, 188)));
-
-        cmbEnterprise.setBackground(new java.awt.Color(255, 255, 255));
-        cmbEnterprise.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        tblEnterpriseAdmin.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
-            },
-            new String [] {
-                "Enterprise Name", "Network", "Username"
-            }
-        ));
-        jScrollPane1.setViewportView(tblEnterpriseAdmin);
-
-        lblEntAdminName.setText("Enter Name:");
-        lblEntAdminName.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(167, 196, 188)));
 
         btnEnterpriseAdmin.setBackground(new java.awt.Color(255, 255, 255));
         btnEnterpriseAdmin.setText("Create Enterprise Admin");
@@ -168,14 +134,28 @@ public class PanelManageEnterpriseAdmin extends javax.swing.JPanel {
         lblPassword.setText("Password:");
         lblPassword.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(167, 196, 188)));
 
+        lblNetwork.setText("Network :");
+        lblNetwork.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(167, 196, 188)));
+
         lblUsername.setText("Username:");
         lblUsername.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(167, 196, 188)));
+
+        cmbNetwork.setBackground(new java.awt.Color(255, 255, 255));
+        cmbNetwork.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cmbNetwork.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbNetworkActionPerformed(evt);
+            }
+        });
 
         txtUsername.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtUsernameActionPerformed(evt);
             }
         });
+
+        lblEnterpriseType.setText("Enterprise:");
+        lblEnterpriseType.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(167, 196, 188)));
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setSize(new java.awt.Dimension(228, 38));
@@ -200,6 +180,25 @@ public class PanelManageEnterpriseAdmin extends javax.swing.JPanel {
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
+
+        cmbEnterprise.setBackground(new java.awt.Color(255, 255, 255));
+        cmbEnterprise.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        tblEnterpriseAdmin.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
+            },
+            new String [] {
+                "Enterprise Name", "Network", "Username"
+            }
+        ));
+        jScrollPane1.setViewportView(tblEnterpriseAdmin);
+
+        lblEntAdminName.setText("Enter Name:");
+        lblEntAdminName.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(167, 196, 188)));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -231,7 +230,7 @@ public class PanelManageEnterpriseAdmin extends javax.swing.JPanel {
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(111, 111, 111)
                                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(0, 136, Short.MAX_VALUE))
+                                        .addGap(0, 0, Short.MAX_VALUE))
                                     .addGroup(layout.createSequentialGroup()
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(cmbNetwork, javax.swing.GroupLayout.PREFERRED_SIZE, 402, javax.swing.GroupLayout.PREFERRED_SIZE))))
@@ -245,9 +244,6 @@ public class PanelManageEnterpriseAdmin extends javax.swing.JPanel {
                                     .addComponent(txtUsername))))))
                 .addGap(396, 396, 396))
         );
-
-        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {cmbEnterprise, cmbNetwork});
-
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
@@ -282,13 +278,13 @@ public class PanelManageEnterpriseAdmin extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnEnterpriseAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnterpriseAdminActionPerformed
-        
+
         Enterprise enterprise = null;
         String ent  = cmbEnterprise.getSelectedItem().toString();
         System.out.println("getEnterpriseList : " + Arrays.toString(system.getEnterpriseDirectory().getEnterpriseList().toArray()));
-        for (Network network : system.getNetworkList()) 
+        for (Network network : system.getNetworkList())
         {
-            for (Enterprise et : network.getEnterpriseDirectory().getEnterpriseList()) 
+            for (Enterprise et : network.getEnterpriseDirectory().getEnterpriseList())
             {
                 if(et.getName().equals(ent))
                 {
@@ -296,47 +292,47 @@ public class PanelManageEnterpriseAdmin extends javax.swing.JPanel {
                 }
             }
         }
-        
+
         String username = txtUsername.getText();
         String password = String.valueOf(txtPassword.getPassword());
         String name = txtName.getText();
-        
-        if (username.isEmpty() || password.isEmpty() || name.isEmpty() || cmbEnterprise.getSelectedItem() == null || cmbNetwork.getSelectedItem() == null) 
+
+        if (username.isEmpty() || password.isEmpty() || name.isEmpty() || cmbEnterprise.getSelectedItem() == null || cmbNetwork.getSelectedItem() == null)
         {
             JOptionPane.showMessageDialog(null, "Please enter all fields", "Warning", JOptionPane.WARNING_MESSAGE);
             return;
         }
-        
+
         if (!system.validatePasswordFormat(password))
-            return;
+        return;
         if (!system.checkUniqueUsername(username))
-            return;
+        return;
 
         JOptionPane.showMessageDialog(null, "enterprise " + enterprise);
         Employee employee = enterprise.getEmployeeDirectory().createEmployee(name);
         UserAccount account = null;
-        
-        if (null != enterprise.getEnterpriseType()) 
-        {   
-            switch (enterprise.getEnterpriseType()) 
+
+        if (null != enterprise.getEnterpriseType())
+        {
+            switch (enterprise.getEnterpriseType())
             {
                 case FarmerCommunity:
-                    account = enterprise.getUserAccountDirectory().createUserAccount(username, password, employee, new FarmerCommAdmin());
-                    break;
+                account = enterprise.getUserAccountDirectory().createUserAccount(username, password, employee, new FarmerCommAdmin());
+                break;
                 case Transportation:
-                    account = enterprise.getUserAccountDirectory().createUserAccount(username, password, employee, new TransporterAdmin());
-                    break;
+                account = enterprise.getUserAccountDirectory().createUserAccount(username, password, employee, new TransporterAdmin());
+                break;
                 case BigMarketSetup:
-                    account = enterprise.getUserAccountDirectory().createUserAccount(username, password, employee, new BigMarketAdmin());
-                    break;
+                account = enterprise.getUserAccountDirectory().createUserAccount(username, password, employee, new BigMarketAdmin());
+                break;
                 case FarmerHelp:
-                    account = enterprise.getUserAccountDirectory().createUserAccount(username, password, employee, new FarmerHelpAdmin());
-                    break;
+                account = enterprise.getUserAccountDirectory().createUserAccount(username, password, employee, new FarmerHelpAdmin());
+                break;
                 default:
-                    break;
+                break;
             }
         }
-        
+
         txtUsername.setText("");
         txtPassword.setText("");
         txtName.setText("");
@@ -345,7 +341,7 @@ public class PanelManageEnterpriseAdmin extends javax.swing.JPanel {
     }//GEN-LAST:event_btnEnterpriseAdminActionPerformed
 
     private void cmbNetworkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbNetworkActionPerformed
-        
+
     }//GEN-LAST:event_cmbNetworkActionPerformed
 
     private void txtUsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsernameActionPerformed
