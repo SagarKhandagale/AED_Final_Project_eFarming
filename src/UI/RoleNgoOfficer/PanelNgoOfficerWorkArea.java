@@ -46,7 +46,7 @@ public class PanelNgoOfficerWorkArea extends javax.swing.JPanel {
         CardLayout layout = (CardLayout) pnlRight.getLayout();
         layout.next(pnlRight);
     }
-    private void manageOrders() 
+    private void manageFarmerHelpRequest() 
     {
         PanelManageFarmerHelpRequests orders = new PanelManageFarmerHelpRequests(pnlRight, system, enterprise, account);
         pnlRight.add("PanelManageFarmerHelpRequests",orders);
@@ -82,6 +82,11 @@ public class PanelNgoOfficerWorkArea extends javax.swing.JPanel {
         });
 
         lblManageFarmerHelp.setText("MANAGE FARMER HELP REQUEST");
+        lblManageFarmerHelp.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                lblManageFarmerHelpMousePressed(evt);
+            }
+        });
 
         lbl2.setText("Logo");
 
@@ -149,6 +154,11 @@ public class PanelNgoOfficerWorkArea extends javax.swing.JPanel {
         // TODO add your handling code here:
         manageUserProfile();
     }//GEN-LAST:event_lblManageOrganizationMousePressed
+
+    private void lblManageFarmerHelpMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblManageFarmerHelpMousePressed
+        // TODO add your handling code here:
+        manageFarmerHelpRequest();
+    }//GEN-LAST:event_lblManageFarmerHelpMousePressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
