@@ -38,8 +38,8 @@ public class PanelFarmerHelpAdminWorkArea extends javax.swing.JPanel {
     
     private void manageOrganization() 
     {
-        PanelBMSetupManageOrganization bnmoj = new PanelBMSetupManageOrganization(enterprise.getOrganizationDirectory());
-        pnlRight.add("PanelBMSetupManageOrganization", bnmoj);
+        PanelFarmerHelpManageOrganization bnmoj = new PanelFarmerHelpManageOrganization(enterprise.getOrganizationDirectory());
+        pnlRight.add("PanelFarmerHelpManageOrganization", bnmoj);
         CardLayout layout = (CardLayout) pnlRight.getLayout();
         layout.next(pnlRight);
     }
@@ -54,16 +54,16 @@ public class PanelFarmerHelpAdminWorkArea extends javax.swing.JPanel {
     
     private void manageUserAccount() 
     {
-        PanelBMSetupManageUserAccount bnmoj = new PanelBMSetupManageUserAccount(enterprise, system, organization, enterprise.getOrganizationDirectory());
-        pnlRight.add("PanelBMSetupManageUserAccount", bnmoj);
+        PanelFarmerHelpManageUserAccount bnmoj = new PanelFarmerHelpManageUserAccount(enterprise, system, organization, enterprise.getOrganizationDirectory());
+        pnlRight.add("PanelFarmerHelpManageUserAccount", bnmoj);
         CardLayout layout = (CardLayout) pnlRight.getLayout();
         layout.next(pnlRight);
     }
     
     private void manageUserRequests() 
     {
-        PanelBMSetupManageWorkRequest bnmoj = new PanelBMSetupManageWorkRequest(enterprise);
-        pnlRight.add("PanelBMSetupManageWorkRequest", bnmoj);
+        PanelFarmerHelpManageWorkRequest bnmoj = new PanelFarmerHelpManageWorkRequest(enterprise);
+        pnlRight.add("PanelFarmerHelpManageWorkRequest", bnmoj);
         CardLayout layout = (CardLayout) pnlRight.getLayout();
         layout.next(pnlRight);
     }
