@@ -125,7 +125,7 @@
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.MatteColorBorderInfo">
             <MatteColorBorder>
-              <Color PropertyName="color" blue="ea" green="ee" red="df" type="rgb"/>
+              <Color PropertyName="color" blue="bc" green="c4" red="a7" type="rgb"/>
             </MatteColorBorder>
           </Border>
         </Property>
@@ -162,7 +162,7 @@
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.MatteColorBorderInfo">
             <MatteColorBorder>
-              <Color PropertyName="color" blue="ea" green="ee" red="df" type="rgb"/>
+              <Color PropertyName="color" blue="bc" green="c4" red="a7" type="rgb"/>
             </MatteColorBorder>
           </Border>
         </Property>

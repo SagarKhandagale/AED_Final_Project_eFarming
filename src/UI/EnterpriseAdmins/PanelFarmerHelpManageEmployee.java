@@ -113,7 +113,7 @@ public class PanelFarmerHelpManageEmployee extends javax.swing.JPanel {
         lblOrganization.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
         lblOrganization.setForeground(new java.awt.Color(25, 56, 82));
         lblOrganization.setText("Organization");
-        lblOrganization.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(223, 238, 234)));
+        lblOrganization.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(167, 196, 188)));
         lblOrganization.setPreferredSize(new java.awt.Dimension(100, 30));
 
         cmbOrgEmp.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
@@ -123,7 +123,7 @@ public class PanelFarmerHelpManageEmployee extends javax.swing.JPanel {
         lblEmpName.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
         lblEmpName.setForeground(new java.awt.Color(25, 56, 82));
         lblEmpName.setText("Name");
-        lblEmpName.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(223, 238, 234)));
+        lblEmpName.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(167, 196, 188)));
 
         txtEmpName.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
         txtEmpName.setForeground(new java.awt.Color(25, 56, 82));
