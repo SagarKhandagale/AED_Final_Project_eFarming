@@ -268,4 +268,16 @@ public class EcoSystem extends Organization{
             return true;
         }
     }
+
+    public boolean checkNull(String strNum) 
+    {
+        if (strNum.trim().isEmpty()) 
+        {
+            return true;
+        } 
+        else 
+        {
+            return false;
+        }
+    }
 }
