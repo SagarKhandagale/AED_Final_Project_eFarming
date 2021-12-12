@@ -6,8 +6,14 @@
 package UI.EnterpriseAdmins;
 
 import Business.EcoSystem;
+import Business.Employee.Employee;
 import Business.Enterprise.Enterprise;
 import Business.Organization.Organization;
+import Business.Organization.OrganizationDirectory;
+import Business.Role.Role;
+import Business.UserAccount.UserAccount;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -21,13 +27,65 @@ public class PanelFarmerCommManageUserAccount extends javax.swing.JPanel {
     private final Enterprise enterprise;
     private final EcoSystem ecosystem;
     Organization organization;
-    public PanelFarmerCommManageUserAccount(Enterprise enterprise,EcoSystem system,Organization organization) {
+    private final OrganizationDirectory organizationDirectory;
+    public PanelFarmerCommManageUserAccount(Enterprise enterprise,EcoSystem system,Organization organization,OrganizationDirectory organizationDirectory) {
         initComponents();
         this.enterprise = enterprise;
         this.ecosystem = system;
         this.organization = organization;
+        this.organizationDirectory = organizationDirectory;
+        System.out.println("Above populateCmbOrganizationName");
+        populateCmbOrganizationName();
+        populateTable();
+    }
+    
+    public void populateCmbOrganizationName() 
+    {
+        System.out.println("Inside populateCmbOrganizationName");
+        cmbEmployee.removeAllItems();
+        System.out.println("getOrganizationList : " + organizationDirectory.getOrganizationList());
+        for (Organization org : organizationDirectory.getOrganizationList()) 
+        {
+            System.out.println("org.getName() : " + org.getName());
+            cmbEmployee.addItem(org.getName());
+        }
     }
 
+    public void populateTable() {
+        DefaultTableModel model = (DefaultTableModel) tblUserAccount.getModel();
+
+        model.setRowCount(0);
+
+        for (Organization org : enterprise.getOrganizationDirectory().getOrganizationList()) 
+        {
+            for (UserAccount ua : org.getUserAccountDirectory().getUserAccountList()) 
+            {
+                Object row[] = new Object[4];
+                row[0] = org.getOrgType();
+                row[1] = org.getName();
+                row[2] = ua;
+                row[3] = ua.getRole();
+                ((DefaultTableModel) tblUserAccount.getModel()).addRow(row);
+            }
+        }
+    }
+
+    public void populateCmbEmployee(Organization organization) {
+        cmbEmployee.removeAllItems();
+        System.out.println("populateCmbEmployee");
+        for (Employee employee : organization.getEmployeeDirectory().getEmployeeList()) {
+            cmbEmployee.addItem(employee.toString());
+        }
+    }
+
+    private void populateCmbRole(Organization organization) {
+        cmbRole.removeAllItems();
+        System.out.println("Inside populateCmbRole");
+        for (Role role : organization.getSupportedRole()) 
+        {
+            cmbRole.addItem(role.toString());
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -41,9 +99,9 @@ public class PanelFarmerCommManageUserAccount extends javax.swing.JPanel {
         lblUsername = new javax.swing.JLabel();
         lblPassword = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tblOrganization = new javax.swing.JTable();
-        cmbOrganizationType = new javax.swing.JComboBox<>();
+        tblUserAccount = new javax.swing.JTable();
         cmbOrganizationName = new javax.swing.JComboBox<>();
+        cmbEmployee = new javax.swing.JComboBox<>();
         cmbRole = new javax.swing.JComboBox<>();
         txtUsername = new javax.swing.JTextField();
         lblOrganizationName = new javax.swing.JLabel();
@@ -64,7 +122,7 @@ public class PanelFarmerCommManageUserAccount extends javax.swing.JPanel {
         lblPassword.setText("Password:");
         lblPassword.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(167, 196, 188)));
 
-        tblOrganization.setModel(new javax.swing.table.DefaultTableModel(
+        tblUserAccount.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -75,15 +133,17 @@ public class PanelFarmerCommManageUserAccount extends javax.swing.JPanel {
                 "Organization Type", "Organization Name", "Username", "Role"
             }
         ));
-        jScrollPane1.setViewportView(tblOrganization);
+        jScrollPane1.setViewportView(tblUserAccount);
 
-        cmbOrganizationType.setBackground(new java.awt.Color(255, 255, 255));
-        cmbOrganizationType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        cmbOrganizationName.setBackground(new java.awt.Color(255, 255, 255));
         cmbOrganizationName.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cmbOrganizationName.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                cmbOrganizationNameMousePressed(evt);
+            }
+        });
 
-        cmbRole.setBackground(new java.awt.Color(255, 255, 255));
+        cmbEmployee.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
         cmbRole.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         lblOrganizationName.setText("Organization Name:");
@@ -148,8 +208,8 @@ public class PanelFarmerCommManageUserAccount extends javax.swing.JPanel {
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(btnAddUserAccount)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(cmbOrganizationType, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(cmbOrganizationName, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(cmbEmployee, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(txtUsername)
                                     .addComponent(txtPassword)
                                     .addComponent(cmbRole, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -163,11 +223,11 @@ public class PanelFarmerCommManageUserAccount extends javax.swing.JPanel {
                 .addGap(36, 36, 36)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblOrganizationType, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cmbOrganizationType, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cmbOrganizationName, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(15, 15, 15)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblOrganizationName, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cmbOrganizationName, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cmbEmployee, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(15, 15, 15)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblRole, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -190,13 +250,96 @@ public class PanelFarmerCommManageUserAccount extends javax.swing.JPanel {
 
     private void btnAddUserAccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddUserAccountActionPerformed
         // TODO add your handling code here:
+        String username = txtUsername.getText();
+        String password = txtPassword.getText();
+        if ("".equals(username) || "".equals(password)|| cmbEmployee.getSelectedItem() == null || cmbEmployee.getSelectedItem() == null || cmbRole.getSelectedItem() == null) 
+        {
+            JOptionPane.showMessageDialog(null, "Please enter all required fields!");
+            return;
+        }
+        if (!ecosystem.validatePasswordFormat(password)) {
+            return;
+        }
+        if (!ecosystem.checkUniqueUsername(username)) {
+            return;
+        }
+        String orgn = null;
+        if(!cmbEmployee.getSelectedItem().toString().equals(null))
+        {
+            System.out.println("cmbOrganizationName Not null");
+            orgn = cmbEmployee.getSelectedItem().toString();
+            System.out.println("cmbOrganizationName orgn : " + orgn);
+        }
+            
+        
+        Organization org = null;
+        for(Organization o : organizationDirectory.getOrganizationList())
+        {
+            if(o.getName().equals(orgn))
+            {
+            System.out.println("o: " + o);
+                org = o;
+            }
+        }
+        
+        String emp = cmbEmployee.getSelectedItem().toString();
+        Employee employee = null;
+//        System.out.println("getEmployeeList" + org.getEmployeeDirectory().getEmployeeList());
+        for(Employee e : org.getEmployeeDirectory().getEmployeeList())
+        {
+            if(e.getName().equals(emp))
+                employee = e;
+        }
+        
+        String roleName = cmbRole.getSelectedItem().toString();
+        Role role = null;
+        for(Role r : org.getSupportedRole())
+        {
+            if(r.toString().equals(roleName))
+                role = r;
+        }
+        
+//        Role role = (Role) cmbRole.getSelectedItem();
+        org.getUserAccountDirectory().createUserAccount(username, password, employee, role);
+        populateTable();
+        txtUsername.setText("");
+        txtPassword.setText("");
+        JOptionPane.showMessageDialog(null, "User created successfully");
     }//GEN-LAST:event_btnAddUserAccountActionPerformed
+
+    private void cmbOrganizationNameMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cmbOrganizationNameMousePressed
+        // TODO add your handling code here:
+        String orgn = null;
+        if(!cmbEmployee.getSelectedItem().toString().equals(null))
+        {
+//            System.out.println("cmbOrganizationName Not null");
+            orgn = cmbEmployee.getSelectedItem().toString();
+//            System.out.println("cmbOrganizationName orgn : " + orgn);
+        }
+            
+        
+        Organization org = null;
+        for(Organization o : organizationDirectory.getOrganizationList())
+        {
+            if(o.getName().equals(orgn))
+            {
+//            System.out.println("o: " + o);
+                org = o;
+            }
+        }
+        
+        if (org != null) 
+        {
+            populateCmbEmployee(org);
+            populateCmbRole(org);
+        }
+    }//GEN-LAST:event_cmbOrganizationNameMousePressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAddUserAccount;
+    private javax.swing.JComboBox<String> cmbEmployee;
     private javax.swing.JComboBox<String> cmbOrganizationName;
-    private javax.swing.JComboBox<String> cmbOrganizationType;
     private javax.swing.JComboBox<String> cmbRole;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
@@ -206,7 +349,7 @@ public class PanelFarmerCommManageUserAccount extends javax.swing.JPanel {
     private javax.swing.JLabel lblRole;
     private javax.swing.JLabel lblTitle1;
     private javax.swing.JLabel lblUsername;
-    private javax.swing.JTable tblOrganization;
+    private javax.swing.JTable tblUserAccount;
     private javax.swing.JPasswordField txtPassword;
     private javax.swing.JTextField txtUsername;
     // End of variables declaration//GEN-END:variables
