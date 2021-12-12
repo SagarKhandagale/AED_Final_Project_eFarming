@@ -5,19 +5,54 @@
  */
 package UI.RoleNgoOfficer;
 
+import Business.EcoSystem;
+import Business.Enterprise.Enterprise;
+import Business.Network.Network;
+import Business.Organization.Organization;
+import Business.UserAccount.UserAccount;
+import UI.RoleShopOwner.PanelManageOrders;
+import UI.RoleShopOwner.PanelShopOwnerManageProfile;
+import java.awt.CardLayout;
+import javax.swing.JPanel;
+
 /**
  *
  * @author sagar
  */
 public class PanelNgoOfficerWorkArea extends javax.swing.JPanel {
-
+    
+    JPanel userProcessContainer;
+    Enterprise enterprise;
+    EcoSystem system;
+    Network network;
+    UserAccount account;
+    Organization organization;
     /**
      * Creates new form PanelNgoOfficerWorkArea
      */
-    public PanelNgoOfficerWorkArea() {
+    public PanelNgoOfficerWorkArea(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, Network network, EcoSystem business) {
         initComponents();
+        this.userProcessContainer = userProcessContainer;
+        this.account = account;
+        this.system = business;
+        this.network = network;
+        this.enterprise = enterprise;
+        this.organization = organization;
     }
-
+    private void manageUserProfile() 
+    {
+        PanelNgoOfficerManageProfile profile = new PanelNgoOfficerManageProfile(pnlRight, system, enterprise, account);
+        pnlRight.add("PanelShopOwnerManageProfile",profile);
+        CardLayout layout = (CardLayout) pnlRight.getLayout();
+        layout.next(pnlRight);
+    }
+    private void manageOrders() 
+    {
+        PanelManageFarmerHelpRequests orders = new PanelManageFarmerHelpRequests(pnlRight, system, enterprise, account);
+        pnlRight.add("PanelManageFarmerHelpRequests",orders);
+        CardLayout layout = (CardLayout) pnlRight.getLayout();
+        layout.next(pnlRight);
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -30,20 +65,25 @@ public class PanelNgoOfficerWorkArea extends javax.swing.JPanel {
         pnlLeft = new javax.swing.JPanel();
         lblTopHeading = new javax.swing.JLabel();
         lblIconManageOrg = new javax.swing.JLabel();
-        lblIconManageUserAcc = new javax.swing.JLabel();
         lblManageOrganization = new javax.swing.JLabel();
-        lblManageUserAcc = new javax.swing.JLabel();
+        lblManageFarmerHelp = new javax.swing.JLabel();
+        lbl2 = new javax.swing.JLabel();
         pnlRight = new javax.swing.JPanel();
 
         lblTopHeading.setText("NGO ORGANIZATION ");
 
         lblIconManageOrg.setText("Logo");
 
-        lblIconManageUserAcc.setText("Logo");
-
         lblManageOrganization.setText("MANAGE USER PROFILE");
+        lblManageOrganization.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                lblManageOrganizationMousePressed(evt);
+            }
+        });
 
-        lblManageUserAcc.setText("MANAGE WORK REQUEST");
+        lblManageFarmerHelp.setText("MANAGE FARMER HELP REQUEST");
+
+        lbl2.setText("Logo");
 
         javax.swing.GroupLayout pnlLeftLayout = new javax.swing.GroupLayout(pnlLeft);
         pnlLeft.setLayout(pnlLeftLayout);
@@ -54,14 +94,13 @@ public class PanelNgoOfficerWorkArea extends javax.swing.JPanel {
                 .addComponent(lblTopHeading)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(pnlLeftLayout.createSequentialGroup()
-                .addGap(28, 28, 28)
-                .addGroup(pnlLeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblManageOrganization, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlLeftLayout.createSequentialGroup()
-                        .addComponent(lblIconManageUserAcc, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblManageUserAcc, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(22, 22, 22)
+                .addComponent(lbl2, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(pnlLeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lblManageOrganization, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblManageFarmerHelp, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 11, Short.MAX_VALUE))
             .addGroup(pnlLeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(pnlLeftLayout.createSequentialGroup()
                     .addGap(30, 30, 30)
@@ -75,11 +114,11 @@ public class PanelNgoOfficerWorkArea extends javax.swing.JPanel {
                 .addComponent(lblTopHeading)
                 .addGap(45, 45, 45)
                 .addComponent(lblManageOrganization, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20)
-                .addGroup(pnlLeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblManageUserAcc, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblIconManageUserAcc, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(642, Short.MAX_VALUE))
+                .addGap(30, 30, 30)
+                .addGroup(pnlLeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(lbl2, javax.swing.GroupLayout.DEFAULT_SIZE, 33, Short.MAX_VALUE)
+                    .addComponent(lblManageFarmerHelp, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(639, Short.MAX_VALUE))
             .addGroup(pnlLeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(pnlLeftLayout.createSequentialGroup()
                     .addGap(112, 112, 112)
@@ -104,13 +143,19 @@ public class PanelNgoOfficerWorkArea extends javax.swing.JPanel {
             .addComponent(pnlRight, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
+    
+    
+    private void lblManageOrganizationMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblManageOrganizationMousePressed
+        // TODO add your handling code here:
+        manageUserProfile();
+    }//GEN-LAST:event_lblManageOrganizationMousePressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel lbl2;
     private javax.swing.JLabel lblIconManageOrg;
-    private javax.swing.JLabel lblIconManageUserAcc;
+    private javax.swing.JLabel lblManageFarmerHelp;
     private javax.swing.JLabel lblManageOrganization;
-    private javax.swing.JLabel lblManageUserAcc;
     private javax.swing.JLabel lblTopHeading;
     private javax.swing.JPanel pnlLeft;
     private javax.swing.JPanel pnlRight;
