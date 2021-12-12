@@ -9,13 +9,12 @@ import Business.EcoSystem;
 import Business.Enterprise.Enterprise;
 import Business.Enterprise.Enterprise.EnterpriseType;
 import Business.Network.Network;
-import Business.Organization.Organization.Type;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author Admin
+ * @author sagar
  */
 public class PanelManageEnterprise extends javax.swing.JPanel {
 
@@ -69,7 +68,7 @@ public class PanelManageEnterprise extends javax.swing.JPanel {
         }
 
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -79,6 +78,9 @@ public class PanelManageEnterprise extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        cmbEnterpriseType = new javax.swing.JComboBox<>();
+        jPanel1 = new javax.swing.JPanel();
+        lblTitle = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblenterprise = new javax.swing.JTable();
         lblEnterpriseName = new javax.swing.JLabel();
@@ -87,12 +89,33 @@ public class PanelManageEnterprise extends javax.swing.JPanel {
         lblNetwork = new javax.swing.JLabel();
         cmbNetwork = new javax.swing.JComboBox<>();
         lblEnterpriseType = new javax.swing.JLabel();
-        cmbEnterpriseType = new javax.swing.JComboBox<>();
-        jPanel1 = new javax.swing.JPanel();
-        lblTitle = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(223, 238, 234));
-        setPreferredSize(new java.awt.Dimension(1140, 800));
+
+        cmbEnterpriseType.setBackground(new java.awt.Color(255, 255, 255));
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+
+        lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblTitle.setText("Manage Enterprise");
+        lblTitle.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(10, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
 
         tblenterprise.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -132,31 +155,6 @@ public class PanelManageEnterprise extends javax.swing.JPanel {
         lblEnterpriseType.setText("Enterprise Type:");
         lblEnterpriseType.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(167, 196, 188)));
 
-        cmbEnterpriseType.setBackground(new java.awt.Color(255, 255, 255));
-
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-
-        lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblTitle.setText("Manage Enterprise");
-        lblTitle.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lblTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(10, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lblTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -181,7 +179,7 @@ public class PanelManageEnterprise extends javax.swing.JPanel {
                                     .addComponent(lblEnterpriseType, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addGap(80, 80, 80)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(cmbNetwork, 0, 344, Short.MAX_VALUE)
+                                    .addComponent(cmbNetwork, 0, 308, Short.MAX_VALUE)
                                     .addComponent(txtEnterpriseName)
                                     .addComponent(cmbEnterpriseType, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
                 .addGap(300, 300, 300))
@@ -209,29 +207,29 @@ public class PanelManageEnterprise extends javax.swing.JPanel {
                 .addComponent(btnSaveEnterprise)
                 .addGap(65, 65, 65)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(268, Short.MAX_VALUE))
+                .addContainerGap(199, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSaveEnterpriseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveEnterpriseActionPerformed
-        
+
         String network = cmbNetwork.getSelectedItem().toString();
-        
+
         Network nw = null;
-        
-        for(Network n: system.getNetworkList()) 
+
+        for(Network n: system.getNetworkList())
         {
-            if (n.getNetworkName().equals(network)) 
+            if (n.getNetworkName().equals(network))
             {
                 nw = n;
             }
         }
-        
+
         EnterpriseType type = EnterpriseType.valueOf(cmbEnterpriseType.getSelectedItem().toString().split(" ")[0]);
-        
+
         String name = txtEnterpriseName.getText();
 
-        if (nw == null || type == null || name.isEmpty()) 
+        if (nw == null || type == null || name.isEmpty())
         {
             JOptionPane.showMessageDialog(null, "Please Enter All Fields to Continue!");
             return;
@@ -242,12 +240,11 @@ public class PanelManageEnterprise extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "Enterprise created sucessfully!");
             txtEnterpriseName.setText("");
             populateTable();
-        } 
-        else 
+        }
+        else
         {
             JOptionPane.showMessageDialog(null, "Enterprise name already exists in system!", "Warning", JOptionPane.ERROR_MESSAGE);
         }
-
     }//GEN-LAST:event_btnSaveEnterpriseActionPerformed
 
     private void cmbNetworkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbNetworkActionPerformed

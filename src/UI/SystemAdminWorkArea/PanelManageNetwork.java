@@ -12,14 +12,13 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author Admin
+ * @author sagar
  */
 public class PanelManageNetwork extends javax.swing.JPanel {
 
     /**
      * Creates new form PanelManageNetwork
      */
-    
     private final EcoSystem system;
     
     public PanelManageNetwork(EcoSystem system) {
@@ -50,16 +49,33 @@ public class PanelManageNetwork extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        txtState = new javax.swing.JTextField();
+        lblState = new javax.swing.JLabel();
+        btnSaveNetwork = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblNetwork = new javax.swing.JTable();
-        lblState = new javax.swing.JLabel();
-        txtState = new javax.swing.JTextField();
-        btnSaveNetwork = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         lblTitle = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(223, 238, 234));
-        setPreferredSize(new java.awt.Dimension(1140, 800));
+
+        txtState.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(255, 229, 180)));
+        txtState.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtStateActionPerformed(evt);
+            }
+        });
+
+        lblState.setText("Enter State Name:");
+        lblState.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(167, 196, 188)));
+
+        btnSaveNetwork.setBackground(new java.awt.Color(255, 255, 255));
+        btnSaveNetwork.setText("Save Network");
+        btnSaveNetwork.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSaveNetworkActionPerformed(evt);
+            }
+        });
 
         tblNetwork.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         tblNetwork.setModel(new javax.swing.table.DefaultTableModel(
@@ -74,24 +90,6 @@ public class PanelManageNetwork extends javax.swing.JPanel {
             }
         ));
         jScrollPane1.setViewportView(tblNetwork);
-
-        lblState.setText("Enter State Name:");
-        lblState.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(167, 196, 188)));
-
-        txtState.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(255, 229, 180)));
-        txtState.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtStateActionPerformed(evt);
-            }
-        });
-
-        btnSaveNetwork.setBackground(new java.awt.Color(255, 255, 255));
-        btnSaveNetwork.setText("Save Network");
-        btnSaveNetwork.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSaveNetworkActionPerformed(evt);
-            }
-        });
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -131,7 +129,7 @@ public class PanelManageNetwork extends javax.swing.JPanel {
                             .addComponent(lblState, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(51, 51, 51)
                             .addComponent(txtState, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(145, Short.MAX_VALUE))
+                .addContainerGap(196, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -148,35 +146,35 @@ public class PanelManageNetwork extends javax.swing.JPanel {
                 .addComponent(btnSaveNetwork)
                 .addGap(41, 41, 41)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(288, Short.MAX_VALUE))
+                .addContainerGap(229, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void txtStateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtStateActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtStateActionPerformed
+
     private void btnSaveNetworkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveNetworkActionPerformed
-        
+
         String stateName = txtState.getText().trim();
-        if (stateName.isEmpty()) 
+        if (stateName.isEmpty())
         {
             JOptionPane.showMessageDialog(null, "Please Enter Network Name!");
             return;
         }
-        if (system.checkUniqueNetwork(stateName)) 
+        if (system.checkUniqueNetwork(stateName))
         {
             Network network = system.createAddNetwork();
             network.setNetworkName(stateName);
             JOptionPane.showMessageDialog(null, "Network Created Successfully");
             txtState.setText("");
-        } 
-        else 
+        }
+        else
         {
             JOptionPane.showMessageDialog(null, "Network Already Exists");
         }
         populateTblNetwork();
     }//GEN-LAST:event_btnSaveNetworkActionPerformed
-
-    private void txtStateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtStateActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtStateActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
