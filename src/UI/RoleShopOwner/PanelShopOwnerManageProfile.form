@@ -162,17 +162,28 @@
             </DimensionLayout>
           </Layout>
           <SubComponents>
+<<<<<<< HEAD
             <Component class="javax.swing.JLabel" name="lblEmailId">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Email Id:"/>
               </Properties>
             </Component>
+=======
+>>>>>>> Rituja
             <Component class="javax.swing.JLabel" name="lblFullName">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Full Legal Name:"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="txtFullName">
+<<<<<<< HEAD
+=======
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblEmailId">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Email Id:"/>
+              </Properties>
+>>>>>>> Rituja
             </Component>
             <Component class="javax.swing.JTextField" name="txtEmailId">
             </Component>
@@ -189,14 +200,22 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="txtAddressLine">
+<<<<<<< HEAD
+=======
+            </Component>
+            <Component class="javax.swing.JTextField" name="txtCity">
+>>>>>>> Rituja
             </Component>
             <Component class="javax.swing.JLabel" name="lblCity">
               <Properties>
                 <Property name="text" type="java.lang.String" value="City:"/>
               </Properties>
             </Component>
+<<<<<<< HEAD
             <Component class="javax.swing.JTextField" name="txtCity">
             </Component>
+=======
+>>>>>>> Rituja
             <Component class="javax.swing.JLabel" name="lblState">
               <Properties>
                 <Property name="text" type="java.lang.String" value="State:"/>

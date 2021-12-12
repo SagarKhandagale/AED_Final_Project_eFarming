@@ -66,6 +66,14 @@ public class PanelNgoOfficerManageProfile extends javax.swing.JPanel {
         txtCity = new javax.swing.JTextField();
         lblContactNo = new javax.swing.JLabel();
         txtContactNo = new javax.swing.JTextField();
+        lblEmailId = new javax.swing.JLabel();
+        txtEmailId = new javax.swing.JTextField();
+        lblContactNo = new javax.swing.JLabel();
+        txtContactNo = new javax.swing.JTextField();
+        lblAddressLine = new javax.swing.JLabel();
+        txtAddressLine = new javax.swing.JTextField();
+        txtCity = new javax.swing.JTextField();
+        lblCity = new javax.swing.JLabel();
         lblState = new javax.swing.JLabel();
         txtState = new javax.swing.JTextField();
         lblZipCode = new javax.swing.JLabel();
@@ -100,6 +108,14 @@ public class PanelNgoOfficerManageProfile extends javax.swing.JPanel {
         lblCity.setText("City:");
 
         lblContactNo.setText("Contact No:");
+
+        lblEmailId.setText("Email Id:");
+
+        lblContactNo.setText("Contact No:");
+
+        lblAddressLine.setText("Address Line:");
+
+        lblCity.setText("City:");
 
         lblState.setText("State:");
 

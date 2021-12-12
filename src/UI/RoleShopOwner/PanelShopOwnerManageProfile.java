@@ -60,6 +60,9 @@ public class PanelShopOwnerManageProfile extends javax.swing.JPanel {
         lblEmailId = new javax.swing.JLabel();
         lblFullName = new javax.swing.JLabel();
         txtFullName = new javax.swing.JTextField();
+        lblFullName = new javax.swing.JLabel();
+        txtFullName = new javax.swing.JTextField();
+        lblEmailId = new javax.swing.JLabel();
         txtEmailId = new javax.swing.JTextField();
         lblContactNo = new javax.swing.JLabel();
         txtContactNo = new javax.swing.JTextField();
@@ -67,6 +70,8 @@ public class PanelShopOwnerManageProfile extends javax.swing.JPanel {
         txtAddressLine = new javax.swing.JTextField();
         lblCity = new javax.swing.JLabel();
         txtCity = new javax.swing.JTextField();
+        txtCity = new javax.swing.JTextField();
+        lblCity = new javax.swing.JLabel();
         lblState = new javax.swing.JLabel();
         txtState = new javax.swing.JTextField();
         lblZipCode = new javax.swing.JLabel();
@@ -92,9 +97,9 @@ public class PanelShopOwnerManageProfile extends javax.swing.JPanel {
         lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTitle.setText("MANAGE SHOP OWNER USER PROFILE");
 
-        lblEmailId.setText("Email Id:");
-
         lblFullName.setText("Full Legal Name:");
+
+        lblEmailId.setText("Email Id:");
 
         lblContactNo.setText("Contact No:");
 
@@ -217,6 +222,7 @@ public class PanelShopOwnerManageProfile extends javax.swing.JPanel {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(lblEmailId1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+
                         .addGap(18, 18, 18)
                         .addComponent(txtEmailId1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
@@ -306,8 +312,8 @@ public class PanelShopOwnerManageProfile extends javax.swing.JPanel {
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
 
         if(system.checkNull(txtFullName.getText()) || system.checkNull(txtCity.getText())
-           || system.checkNull(txtZipCode.getText()) || system.checkNull(txtAddressLine.getText())
-           || system.checkNull(txtEmailId.getText()) || system.checkNull(txtContactNo.getText()) || system.checkNull(txtState.getText())){
+            || system.checkNull(txtZipCode.getText()) || system.checkNull(txtAddressLine.getText())
+            || system.checkNull(txtEmailId.getText()) || system.checkNull(txtContactNo.getText()) || system.checkNull(txtState.getText())){
             JOptionPane.showMessageDialog(null, "Please enter all fields!");
             return;
         }
@@ -331,7 +337,7 @@ public class PanelShopOwnerManageProfile extends javax.swing.JPanel {
         userAccount.setPhoneNo(Long.parseLong(txtContactNo.getText()));
         userAccount.setState(txtState.getText());
         JOptionPane.showMessageDialog(null, "Profile Updated Successfully!");
-        
+
         viewProfile();
     }//GEN-LAST:event_btnSaveActionPerformed
 

@@ -189,14 +189,22 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="txtAddressLine">
+<<<<<<< HEAD
+=======
+            </Component>
+            <Component class="javax.swing.JTextField" name="txtCity">
+>>>>>>> Rituja
             </Component>
             <Component class="javax.swing.JLabel" name="lblCity">
               <Properties>
                 <Property name="text" type="java.lang.String" value="City:"/>
               </Properties>
             </Component>
+<<<<<<< HEAD
             <Component class="javax.swing.JTextField" name="txtCity">
             </Component>
+=======
+>>>>>>> Rituja
             <Component class="javax.swing.JLabel" name="lblState">
               <Properties>
                 <Property name="text" type="java.lang.String" value="State:"/>
@@ -238,6 +246,7 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="lblEmailId1" min="-2" pref="150" max="-2" attributes="0"/>
+<<<<<<< HEAD
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="txtEmailId1" min="-2" pref="200" max="-2" attributes="0"/>
                           </Group>
@@ -251,6 +260,21 @@
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="txtContactNo1" min="-2" pref="200" max="-2" attributes="0"/>
                           </Group>
+=======
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="txtEmailId1" min="-2" pref="200" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="lblFullName1" min="-2" pref="150" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="txtFullName1" min="-2" pref="200" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="lblContactNo1" min="-2" pref="150" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="txtContactNo1" min="-2" pref="200" max="-2" attributes="0"/>
+                          </Group>
+>>>>>>> Rituja
                           <Group type="103" alignment="0" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="lblZipCode1" min="-2" pref="150" max="-2" attributes="0"/>

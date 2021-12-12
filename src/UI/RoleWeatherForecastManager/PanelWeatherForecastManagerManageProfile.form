@@ -169,34 +169,59 @@
             </Component>
             <Component class="javax.swing.JTextField" name="txtFullName">
             </Component>
+<<<<<<< HEAD
             <Component class="javax.swing.JLabel" name="lblAddressLine">
+=======
+            <Component class="javax.swing.JLabel" name="lblEmailId">
+>>>>>>> Rituja
               <Properties>
                 <Property name="text" type="java.lang.String" value="Address Line:"/>
               </Properties>
             </Component>
+<<<<<<< HEAD
             <Component class="javax.swing.JTextField" name="txtAddressLine">
             </Component>
             <Component class="javax.swing.JLabel" name="lblEmailId">
+=======
+            <Component class="javax.swing.JTextField" name="txtEmailId">
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblContactNo">
+>>>>>>> Rituja
               <Properties>
                 <Property name="text" type="java.lang.String" value="Email Id:"/>
               </Properties>
             </Component>
+<<<<<<< HEAD
             <Component class="javax.swing.JTextField" name="txtEmailId">
             </Component>
             <Component class="javax.swing.JLabel" name="lblContactNo">
+=======
+            <Component class="javax.swing.JTextField" name="txtContactNo">
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblAddressLine">
+>>>>>>> Rituja
               <Properties>
                 <Property name="text" type="java.lang.String" value="Contact No:"/>
               </Properties>
             </Component>
+<<<<<<< HEAD
             <Component class="javax.swing.JTextField" name="txtContactNo">
+=======
+            <Component class="javax.swing.JTextField" name="txtAddressLine">
+            </Component>
+            <Component class="javax.swing.JTextField" name="txtCity">
+>>>>>>> Rituja
             </Component>
             <Component class="javax.swing.JLabel" name="lblCity">
               <Properties>
                 <Property name="text" type="java.lang.String" value="City:"/>
               </Properties>
             </Component>
+<<<<<<< HEAD
             <Component class="javax.swing.JTextField" name="txtCity">
             </Component>
+=======
+>>>>>>> Rituja
             <Component class="javax.swing.JLabel" name="lblState">
               <Properties>
                 <Property name="text" type="java.lang.String" value="State:"/>
