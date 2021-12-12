@@ -42,9 +42,11 @@ public class PanelTransportationManageOrganization extends javax.swing.JPanel {
         for (Organization organization : directory.getOrganizationList()) 
         {
             {
-                System.out.println("Inside for organization : " + organization);
+//                Organization.Type type = Organization.Type.valueOf(cmbOrganizationType.getSelectedItem().toString().split(" ")[0]);
+
+                System.out.println("Inside for organization : " + organization.getType());
                 Object[] row = new Object[2];
-                row[0] = organization.getType().getValue();
+                row[0] = organization.getOrgType();
                 row[1] = organization.getName();
                 model.addRow(row);
             }

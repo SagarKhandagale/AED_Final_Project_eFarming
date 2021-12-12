@@ -122,7 +122,7 @@ public class PanelBMSetupManageUserAccount extends javax.swing.JPanel {
         lblEmployee.setText("Employee");
         lblEmployee.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(167, 196, 188)));
 
-        lblOrganizationName.setText("Organization Type:");
+        lblOrganizationName.setText("Organization Name:");
         lblOrganizationName.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(167, 196, 188)));
 
         lblRole.setText("Role:");
@@ -147,7 +147,6 @@ public class PanelBMSetupManageUserAccount extends javax.swing.JPanel {
         ));
         jScrollPane1.setViewportView(tblUserAccount);
 
-        cmbOrganizationName.setBackground(new java.awt.Color(255, 255, 255));
         cmbOrganizationName.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         cmbOrganizationName.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
@@ -165,10 +164,8 @@ public class PanelBMSetupManageUserAccount extends javax.swing.JPanel {
             }
         });
 
-        cmbEmployee.setBackground(new java.awt.Color(255, 255, 255));
         cmbEmployee.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        cmbRole.setBackground(new java.awt.Color(255, 255, 255));
         cmbRole.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         btnAddUserAccount.setText("Create User Account");
@@ -397,18 +394,9 @@ public class PanelBMSetupManageUserAccount extends javax.swing.JPanel {
     private javax.swing.JComboBox<String> cmbEmployee;
     private javax.swing.JComboBox<String> cmbOrganizationName;
     private javax.swing.JComboBox<String> cmbRole;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblEmployee;

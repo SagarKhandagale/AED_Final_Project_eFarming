@@ -256,7 +256,7 @@ public class PanelTransportationManageUserAccount extends javax.swing.JPanel {
         // TODO add your handling code here:
         String username = txtUsername.getText();
         String password = txtPassword.getText();
-        if ("".equals(username) || "".equals(password)|| cmbEmployee.getSelectedItem() == null || cmbEmployee.getSelectedItem() == null || cmbRole.getSelectedItem() == null) 
+        if ("".equals(username) || "".equals(password)|| cmbOrganizationName.getSelectedItem() == null || cmbEmployee.getSelectedItem() == null || cmbRole.getSelectedItem() == null) 
         {
             JOptionPane.showMessageDialog(null, "Please enter all required fields!");
             return;
@@ -268,10 +268,10 @@ public class PanelTransportationManageUserAccount extends javax.swing.JPanel {
             return;
         }
         String orgn = null;
-        if(!cmbEmployee.getSelectedItem().toString().equals(null))
+        if(!cmbOrganizationName.getSelectedItem().toString().equals(null))
         {
             System.out.println("cmbOrganizationName Not null");
-            orgn = cmbEmployee.getSelectedItem().toString();
+            orgn = cmbOrganizationName.getSelectedItem().toString();
             System.out.println("cmbOrganizationName orgn : " + orgn);
         }
             
