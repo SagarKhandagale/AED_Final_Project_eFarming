@@ -45,7 +45,7 @@ public class PanelFarmerCommManageOrganization extends javax.swing.JPanel {
             {
                 System.out.println("Inside for organization : " + organization);
                 Object[] row = new Object[2];
-                row[0] = organization.getType().getValue();
+                row[0] = organization.getOrgType();
                 row[1] = organization.getName();
                 model.addRow(row);
             }

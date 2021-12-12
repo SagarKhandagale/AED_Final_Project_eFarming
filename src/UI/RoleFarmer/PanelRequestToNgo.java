@@ -5,6 +5,11 @@
  */
 package UI.RoleFarmer;
 
+import Business.EcoSystem;
+import Business.Enterprise.Enterprise;
+import Business.UserAccount.UserAccount;
+import javax.swing.JPanel;
+
 /**
  *
  * @author sagar
@@ -14,8 +19,18 @@ public class PanelRequestToNgo extends javax.swing.JPanel {
     /**
      * Creates new form PanelRequestToNgo
      */
-    public PanelRequestToNgo() {
+    
+    private JPanel userProcessContainer;
+    private EcoSystem system;
+    private UserAccount userAccount;
+    private Enterprise enterprise;
+    
+    public PanelRequestToNgo(JPanel userProcess, EcoSystem system, Enterprise enterprise, UserAccount userAccount) {
         initComponents();
+        this.userProcessContainer = userProcess;
+        this.system = system;
+        this.enterprise = enterprise;
+        this.userAccount = userAccount;
     }
 
     /**

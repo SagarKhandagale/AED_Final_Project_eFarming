@@ -5,17 +5,72 @@
  */
 package UI.RoleFarmer;
 
+import Business.EcoSystem;
+import Business.Enterprise.Enterprise;
+import Business.Network.Network;
+import Business.Organization.Organization;
+import Business.UserAccount.UserAccount;
+import java.awt.CardLayout;
+import javax.swing.JPanel;
+
 /**
  *
  * @author sagar
  */
 public class PanelFarmerWorkArea extends javax.swing.JPanel {
 
+    JPanel userProcessContainer;
+    Enterprise enterprise;
+    EcoSystem system;
+    Network network;
+    UserAccount account;
+    Organization organization;
+
     /**
      * Creates new form PanelFarmerWorkArea
      */
-    public PanelFarmerWorkArea() {
+    public PanelFarmerWorkArea(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, Network network, EcoSystem business) {
         initComponents();
+        this.userProcessContainer = userProcessContainer;
+        this.account = account;
+        this.system = business;
+        this.network = network;
+        this.enterprise = enterprise;
+        this.organization = organization;
+//        manageAdvertise();
+
+    }
+    
+    private void manageUserProfile() 
+    {
+        PanelFarmerManageProfile managecleanerJPanel = new PanelFarmerManageProfile(pnlRight, system, enterprise, account);
+        pnlRight.add("PanelFarmerManaeProfile",managecleanerJPanel);
+        CardLayout layout = (CardLayout) pnlRight.getLayout();
+        layout.next(pnlRight);
+    }
+    
+    private void manageOrderFromShop() 
+    {
+        PanelOrderFromShops managecleanerJPanel = new PanelOrderFromShops(pnlRight, system, enterprise, account);
+        pnlRight.add("PanelFarmerManaeProfile",managecleanerJPanel);
+        CardLayout layout = (CardLayout) pnlRight.getLayout();
+        layout.next(pnlRight);
+    }
+    
+    private void listFarmerGoods() 
+    {
+        PanelListFarmGoods managecleanerJPanel = new PanelListFarmGoods(pnlRight, system, enterprise, account);
+        pnlRight.add("PanelFarmerManaeProfile",managecleanerJPanel);
+        CardLayout layout = (CardLayout) pnlRight.getLayout();
+        layout.next(pnlRight);
+    }
+    
+    private void requestToNGO() 
+    {
+        PanelRequestToNgo managecleanerJPanel = new PanelRequestToNgo(pnlRight, system, enterprise, account);
+        pnlRight.add("PanelFarmerManaeProfile",managecleanerJPanel);
+        CardLayout layout = (CardLayout) pnlRight.getLayout();
+        layout.next(pnlRight);
     }
 
     /**
@@ -31,8 +86,12 @@ public class PanelFarmerWorkArea extends javax.swing.JPanel {
         lblTopHeading = new javax.swing.JLabel();
         lblIconManageOrg = new javax.swing.JLabel();
         lblIconManageUserAcc = new javax.swing.JLabel();
-        lblManageOrganization = new javax.swing.JLabel();
-        lblManageUserAcc = new javax.swing.JLabel();
+        lblManageUserProfile = new javax.swing.JLabel();
+        lblManageOrderFromShops = new javax.swing.JLabel();
+        lblIconManageUserAcc1 = new javax.swing.JLabel();
+        lblListFarmerGoods = new javax.swing.JLabel();
+        lblIconManageUserAcc2 = new javax.swing.JLabel();
+        lblRequestToNGO = new javax.swing.JLabel();
         pnlRight = new javax.swing.JPanel();
 
         setPreferredSize(new java.awt.Dimension(1440, 800));
@@ -43,9 +102,37 @@ public class PanelFarmerWorkArea extends javax.swing.JPanel {
 
         lblIconManageUserAcc.setText("Logo");
 
-        lblManageOrganization.setText("MANAGE USER PROFILE");
+        lblManageUserProfile.setText("MANAGE USER PROFILE");
+        lblManageUserProfile.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                lblManageUserProfileMousePressed(evt);
+            }
+        });
 
-        lblManageUserAcc.setText("ORDER FROM SHOPS");
+        lblManageOrderFromShops.setText("ORDER FROM SHOPS");
+        lblManageOrderFromShops.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                lblManageOrderFromShopsMousePressed(evt);
+            }
+        });
+
+        lblIconManageUserAcc1.setText("Logo");
+
+        lblListFarmerGoods.setText("List Farmer Goods");
+        lblListFarmerGoods.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                lblListFarmerGoodsMousePressed(evt);
+            }
+        });
+
+        lblIconManageUserAcc2.setText("Logo");
+
+        lblRequestToNGO.setText("Request To NGO");
+        lblRequestToNGO.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                lblRequestToNGOMousePressed(evt);
+            }
+        });
 
         javax.swing.GroupLayout pnlLeftLayout = new javax.swing.GroupLayout(pnlLeft);
         pnlLeft.setLayout(pnlLeftLayout);
@@ -57,12 +144,20 @@ public class PanelFarmerWorkArea extends javax.swing.JPanel {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(pnlLeftLayout.createSequentialGroup()
                 .addGap(28, 28, 28)
-                .addGroup(pnlLeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblManageOrganization, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlLeftLayout.createSequentialGroup()
+                .addGroup(pnlLeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnlLeftLayout.createSequentialGroup()
+                        .addComponent(lblIconManageUserAcc2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblRequestToNGO, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(pnlLeftLayout.createSequentialGroup()
+                        .addComponent(lblIconManageUserAcc1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblListFarmerGoods, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblManageUserProfile, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(pnlLeftLayout.createSequentialGroup()
                         .addComponent(lblIconManageUserAcc, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblManageUserAcc, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(lblManageOrderFromShops, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(pnlLeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(pnlLeftLayout.createSequentialGroup()
@@ -76,12 +171,20 @@ public class PanelFarmerWorkArea extends javax.swing.JPanel {
                 .addGap(50, 50, 50)
                 .addComponent(lblTopHeading)
                 .addGap(45, 45, 45)
-                .addComponent(lblManageOrganization, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lblManageUserProfile, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20)
                 .addGroup(pnlLeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblManageUserAcc, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblManageOrderFromShops, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblIconManageUserAcc, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(642, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(pnlLeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblListFarmerGoods, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblIconManageUserAcc1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(pnlLeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblRequestToNGO, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblIconManageUserAcc2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(492, Short.MAX_VALUE))
             .addGroup(pnlLeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(pnlLeftLayout.createSequentialGroup()
                     .addGap(112, 112, 112)
@@ -107,12 +210,36 @@ public class PanelFarmerWorkArea extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void lblManageUserProfileMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblManageUserProfileMousePressed
+        // TODO add your handling code here:
+        manageUserProfile();
+    }//GEN-LAST:event_lblManageUserProfileMousePressed
+
+    private void lblManageOrderFromShopsMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblManageOrderFromShopsMousePressed
+        // TODO add your handling code here:
+        manageOrderFromShop();
+    }//GEN-LAST:event_lblManageOrderFromShopsMousePressed
+
+    private void lblListFarmerGoodsMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblListFarmerGoodsMousePressed
+        // TODO add your handling code here:
+        listFarmerGoods();
+    }//GEN-LAST:event_lblListFarmerGoodsMousePressed
+
+    private void lblRequestToNGOMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblRequestToNGOMousePressed
+        // TODO add your handling code here:
+        requestToNGO();
+    }//GEN-LAST:event_lblRequestToNGOMousePressed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel lblIconManageOrg;
     private javax.swing.JLabel lblIconManageUserAcc;
-    private javax.swing.JLabel lblManageOrganization;
-    private javax.swing.JLabel lblManageUserAcc;
+    private javax.swing.JLabel lblIconManageUserAcc1;
+    private javax.swing.JLabel lblIconManageUserAcc2;
+    private javax.swing.JLabel lblListFarmerGoods;
+    private javax.swing.JLabel lblManageOrderFromShops;
+    private javax.swing.JLabel lblManageUserProfile;
+    private javax.swing.JLabel lblRequestToNGO;
     private javax.swing.JLabel lblTopHeading;
     private javax.swing.JPanel pnlLeft;
     private javax.swing.JPanel pnlRight;

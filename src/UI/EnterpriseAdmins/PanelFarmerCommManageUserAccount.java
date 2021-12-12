@@ -42,12 +42,12 @@ public class PanelFarmerCommManageUserAccount extends javax.swing.JPanel {
     public void populateCmbOrganizationName() 
     {
         System.out.println("Inside populateCmbOrganizationName");
-        cmbEmployee.removeAllItems();
+        cmbOrganizationName.removeAllItems();
         System.out.println("getOrganizationList : " + organizationDirectory.getOrganizationList());
         for (Organization org : organizationDirectory.getOrganizationList()) 
         {
             System.out.println("org.getName() : " + org.getName());
-            cmbEmployee.addItem(org.getName());
+            cmbOrganizationName.addItem(org.getName());
         }
     }
 
@@ -149,10 +149,10 @@ public class PanelFarmerCommManageUserAccount extends javax.swing.JPanel {
 
         cmbRole.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        lblOrganizationName.setText("Organization Name:");
+        lblOrganizationName.setText("Employee:");
         lblOrganizationName.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(167, 196, 188)));
 
-        lblOrganizationType.setText("Organization Type:");
+        lblOrganizationType.setText("Organization Name:");
         lblOrganizationType.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(167, 196, 188)));
 
         btnAddUserAccount.setText("Create User Account");
@@ -280,7 +280,7 @@ public class PanelFarmerCommManageUserAccount extends javax.swing.JPanel {
         // TODO add your handling code here:
         String username = txtUsername.getText();
         String password = txtPassword.getText();
-        if ("".equals(username) || "".equals(password)|| cmbEmployee.getSelectedItem() == null || cmbEmployee.getSelectedItem() == null || cmbRole.getSelectedItem() == null) 
+        if ("".equals(username) || "".equals(password)|| cmbOrganizationName.getSelectedItem() == null || cmbEmployee.getSelectedItem() == null || cmbRole.getSelectedItem() == null) 
         {
             JOptionPane.showMessageDialog(null, "Please enter all required fields!");
             return;
@@ -292,10 +292,10 @@ public class PanelFarmerCommManageUserAccount extends javax.swing.JPanel {
             return;
         }
         String orgn = null;
-        if(!cmbEmployee.getSelectedItem().toString().equals(null))
+        if(!cmbOrganizationName.getSelectedItem().toString().equals(null))
         {
             System.out.println("cmbOrganizationName Not null");
-            orgn = cmbEmployee.getSelectedItem().toString();
+            orgn = cmbOrganizationName.getSelectedItem().toString();
             System.out.println("cmbOrganizationName orgn : " + orgn);
         }
             
@@ -340,9 +340,9 @@ public class PanelFarmerCommManageUserAccount extends javax.swing.JPanel {
         String orgn = null;
         if(!cmbEmployee.getSelectedItem().toString().equals(null))
         {
-//            System.out.println("cmbOrganizationName Not null");
-            orgn = cmbEmployee.getSelectedItem().toString();
-//            System.out.println("cmbOrganizationName orgn : " + orgn);
+            System.out.println("cmbOrganizationName Not null");
+            orgn = cmbOrganizationName.getSelectedItem().toString();
+            System.out.println("cmbOrganizationName orgn : " + orgn);
         }
             
         
@@ -351,13 +351,14 @@ public class PanelFarmerCommManageUserAccount extends javax.swing.JPanel {
         {
             if(o.getName().equals(orgn))
             {
-//            System.out.println("o: " + o);
+            System.out.println("o: " + o);
                 org = o;
             }
         }
         
         if (org != null) 
         {
+            System.out.println("org : " + org);
             populateCmbEmployee(org);
             populateCmbRole(org);
         }
