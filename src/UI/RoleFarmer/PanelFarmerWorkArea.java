@@ -35,6 +35,8 @@ public class PanelFarmerWorkArea extends javax.swing.JPanel {
         lblManageUserAcc = new javax.swing.JLabel();
         pnlRight = new javax.swing.JPanel();
 
+        setPreferredSize(new java.awt.Dimension(1440, 800));
+
         lblTopHeading.setText("FARMER ORGANIZATION ");
 
         lblIconManageOrg.setText("Logo");
@@ -96,7 +98,7 @@ public class PanelFarmerWorkArea extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(pnlLeft, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(pnlRight, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(pnlRight, javax.swing.GroupLayout.DEFAULT_SIZE, 1140, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
