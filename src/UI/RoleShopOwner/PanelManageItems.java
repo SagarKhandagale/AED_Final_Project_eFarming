@@ -5,6 +5,11 @@
  */
 package UI.RoleShopOwner;
 
+import Business.EcoSystem;
+import Business.Enterprise.Enterprise;
+import Business.UserAccount.UserAccount;
+import javax.swing.JPanel;
+
 /**
  *
  * @author Admin
@@ -14,8 +19,18 @@ public class PanelManageItems extends javax.swing.JPanel {
     /**
      * Creates new form PanelManageItems
      */
-    public PanelManageItems() {
+    
+    private JPanel userProcessContainer;
+    private EcoSystem system;
+    private UserAccount userAccount;
+    private Enterprise enterprise;
+    
+    public PanelManageItems(JPanel userProcess, EcoSystem system, Enterprise enterprise, UserAccount userAccount) {
         initComponents();
+        this.userProcessContainer = userProcess;
+        this.system = system;
+        this.enterprise = enterprise;
+        this.userAccount = userAccount;
     }
 
     /**
