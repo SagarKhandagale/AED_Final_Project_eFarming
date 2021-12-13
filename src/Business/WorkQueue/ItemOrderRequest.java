@@ -21,9 +21,18 @@ public class ItemOrderRequest extends WorkRequest {
     private Enterprise enterprise;
     private Organization.Type orgType;
     private String requestID;
+    private UserAccount farmer;
     private ShopItems shopItems;
     int min = 100;
     int max = 999;
+
+    public UserAccount getFarmer() {
+        return farmer;
+    }
+
+    public void setFarmer(UserAccount farmer) {
+        this.farmer = farmer;
+    }
 
     public Network getNetwork() {
         return network;

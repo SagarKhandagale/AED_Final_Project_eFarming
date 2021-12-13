@@ -8,6 +8,7 @@ import Business.EcoSystem;
 import Business.Enterprise.Enterprise;
 import Business.Network.Network;
 import Business.Organization.Organization;
+import Business.ShopItems.ShopItemDirectory;
 import Business.UserAccount.UserAccount;
 import javax.swing.JPanel;
 

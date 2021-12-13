@@ -10,19 +10,24 @@ import Business.FarmGoods.FarmGoods;
 import Business.Network.Network;
 import Business.Organization.Organization;
 import Business.ShopItems.ShopItems;
+import Business.UserAccount.UserAccount;
 
 /**
  *
  * @author Admin
  */
-public class GoodsTransportRequest {
+public class GoodsTransportRequest extends WorkRequest {
     private Network network;
     private Enterprise enterprise;
     private Organization.Type orgType;
     private String requestID;
+    private UserAccount farmer;
     private FarmGoods farmGoods;
     int min = 100;
     int max = 999;
+
+    public GoodsTransportRequest() {
+    }
 
     public Network getNetwork() {
         return network;

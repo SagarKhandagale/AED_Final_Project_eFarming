@@ -6,7 +6,10 @@
 package Business.Organization;
 
 import Business.Employee.EmployeeDirectory;
+import Business.FarmGoods.FarmGoodsDirectory;
+import Business.NGOHelp.NGOHelpDirectory;
 import Business.Role.Role;
+import Business.ShopItems.ShopItemDirectory;
 import Business.UserAccount.UserAccountDirectory;
 import Business.WorkQueue.WorkQueue;
 import java.util.ArrayList;
@@ -22,6 +25,9 @@ public abstract class Organization {
     private WorkQueue workQueue;
     private EmployeeDirectory employeeDirectory;
     private UserAccountDirectory userAccountDirectory;
+    private ShopItemDirectory shopItemDirectory;
+    private NGOHelpDirectory ngoHelpDirectory;
+    private FarmGoodsDirectory farmGoodsDirectory;
     private int organizationID;
     private static int counter = 0;
     public ArrayList<Role> roles;
@@ -53,6 +59,27 @@ public abstract class Organization {
         public String toString() {
             return value;
         }
+    }
+    
+    public ShopItemDirectory getShopItemDirectory() {
+        if (shopItemDirectory == null) {
+            shopItemDirectory = new ShopItemDirectory();
+        }
+        return shopItemDirectory;
+    }
+    
+    public NGOHelpDirectory getNGOHelpDirectory() {
+        if (ngoHelpDirectory == null) {
+            ngoHelpDirectory = new NGOHelpDirectory();
+        }
+        return ngoHelpDirectory;
+    }
+    
+    public FarmGoodsDirectory getFarmGoodsDirectory() {
+        if (farmGoodsDirectory == null) {
+            farmGoodsDirectory = new FarmGoodsDirectory();
+        }
+        return farmGoodsDirectory; 
     }
 
     public String getOrgType() {
