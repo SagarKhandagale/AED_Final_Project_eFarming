@@ -72,6 +72,14 @@ public class PanelFarmerWorkArea extends javax.swing.JPanel {
         CardLayout layout = (CardLayout) pnlRight.getLayout();
         layout.next(pnlRight);
     }
+    
+    public void requestToTransporter()
+    {
+        PanelRequestTransporter managecleanerJPanel = new PanelRequestTransporter(pnlRight, system, enterprise, account);
+        pnlRight.add("PanelRequestTransporter",managecleanerJPanel);
+        CardLayout layout = (CardLayout) pnlRight.getLayout();
+        layout.next(pnlRight);
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -98,6 +106,9 @@ public class PanelFarmerWorkArea extends javax.swing.JPanel {
         jPanel5 = new javax.swing.JPanel();
         lblRequestToNGO = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        jPanel6 = new javax.swing.JPanel();
+        lblRequestToNGO1 = new javax.swing.JLabel();
+        lblIconManageUserAcc3 = new javax.swing.JLabel();
         pnlRight = new javax.swing.JPanel();
 
         setPreferredSize(new java.awt.Dimension(1440, 800));
@@ -161,7 +172,7 @@ public class PanelFarmerWorkArea extends javax.swing.JPanel {
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 44, Short.MAX_VALUE)
+            .addGap(0, 52, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel1Layout.createSequentialGroup()
                     .addContainerGap()
@@ -187,12 +198,12 @@ public class PanelFarmerWorkArea extends javax.swing.JPanel {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(lblManageOrderFromShops, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(7, Short.MAX_VALUE))
+                .addContainerGap(11, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(9, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(lblManageOrderFromShops, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -249,7 +260,7 @@ public class PanelFarmerWorkArea extends javax.swing.JPanel {
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 52, Short.MAX_VALUE)
+            .addGap(0, 60, Short.MAX_VALUE)
             .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel5Layout.createSequentialGroup()
                     .addContainerGap()
@@ -258,6 +269,40 @@ public class PanelFarmerWorkArea extends javax.swing.JPanel {
         );
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImageIcons/a2.jpeg"))); // NOI18N
+
+        jPanel6.setBackground(new java.awt.Color(255, 255, 255));
+
+        lblRequestToNGO1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblRequestToNGO1.setText("Request To Transporter");
+        lblRequestToNGO1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        lblRequestToNGO1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                lblRequestToNGO1MousePressed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblRequestToNGO1, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(43, 43, 43)))
+        );
+        jPanel6Layout.setVerticalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 60, Short.MAX_VALUE)
+            .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel6Layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(lblRequestToNGO1, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
+                    .addContainerGap()))
+        );
+
+        lblIconManageUserAcc3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImageIcons/icons8-pull-request-30.png"))); // NOI18N
 
         javax.swing.GroupLayout pnlLeftLayout = new javax.swing.GroupLayout(pnlLeft);
         pnlLeft.setLayout(pnlLeftLayout);
@@ -284,7 +329,11 @@ public class PanelFarmerWorkArea extends javax.swing.JPanel {
                             .addGroup(pnlLeftLayout.createSequentialGroup()
                                 .addComponent(lblIconManageUserAcc1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(pnlLeftLayout.createSequentialGroup()
+                                .addComponent(lblIconManageUserAcc3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(35, 35, 35))))
             .addGroup(pnlLeftLayout.createSequentialGroup()
                 .addGroup(pnlLeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -313,7 +362,11 @@ public class PanelFarmerWorkArea extends javax.swing.JPanel {
                 .addGroup(pnlLeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblIconManageUserAcc2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 205, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(pnlLeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblIconManageUserAcc3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 98, Short.MAX_VALUE)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -355,6 +408,11 @@ public class PanelFarmerWorkArea extends javax.swing.JPanel {
         requestToNGO();
     }//GEN-LAST:event_lblRequestToNGOMousePressed
 
+    private void lblRequestToNGO1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblRequestToNGO1MousePressed
+        // TODO add your handling code here:
+        requestToTransporter();
+    }//GEN-LAST:event_lblRequestToNGO1MousePressed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel3;
@@ -363,14 +421,17 @@ public class PanelFarmerWorkArea extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
     private javax.swing.JLabel lblIconManageOrg;
     private javax.swing.JLabel lblIconManageUserAcc;
     private javax.swing.JLabel lblIconManageUserAcc1;
     private javax.swing.JLabel lblIconManageUserAcc2;
+    private javax.swing.JLabel lblIconManageUserAcc3;
     private javax.swing.JLabel lblListFarmerGoods;
     private javax.swing.JLabel lblManageOrderFromShops;
     private javax.swing.JLabel lblManageUserProfile;
     private javax.swing.JLabel lblRequestToNGO;
+    private javax.swing.JLabel lblRequestToNGO1;
     private javax.swing.JLabel lblTitle1;
     private javax.swing.JPanel pnlLeft;
     private javax.swing.JPanel pnlRight;

@@ -27,6 +27,8 @@ public class OrganizationDirectory {
     public Organization createOrganization(Organization.Type type, String name) 
     {
         Organization organization = null;
+                    System.out.println(type.getValue().equals(Organization.Type.Transporter.getValue()));
+
         if (type.getValue().equals(Organization.Type.Farmer.getValue())) 
         {
             organization = new FarmerOrganization(name);
