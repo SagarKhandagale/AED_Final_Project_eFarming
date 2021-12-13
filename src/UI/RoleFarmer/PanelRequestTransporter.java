@@ -94,6 +94,8 @@ public class PanelRequestTransporter extends javax.swing.JPanel {
         jLabel7 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(223, 238, 234));
+
         lblTitle.setFont(new java.awt.Font("Lucida Grande", 1, 24)); // NOI18N
         lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTitle.setText("MANAGE GOODS TRANSPORTER");

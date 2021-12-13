@@ -62,6 +62,8 @@ public class PanelManageWeatherInfo extends javax.swing.JPanel {
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(223, 238, 234));
+
         lbldate.setText("Date :");
         lbldate.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(167, 196, 188)));
 
