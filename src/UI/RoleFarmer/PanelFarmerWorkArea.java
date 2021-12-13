@@ -37,7 +37,7 @@ public class PanelFarmerWorkArea extends javax.swing.JPanel {
         this.network = network;
         this.enterprise = enterprise;
         this.organization = organization;
-//        manageAdvertise();
+        manageUserProfile();
 
     }
     

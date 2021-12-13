@@ -38,6 +38,7 @@ public class PanelSmartFarmingManagerWorkArea extends javax.swing.JPanel {
         this.network = network;
         this.enterprise = enterprise;
         this.organization = organization;
+        manageUserProfile();
     }
     private void manageUserProfile() 
     {
@@ -191,10 +192,7 @@ public class PanelSmartFarmingManagerWorkArea extends javax.swing.JPanel {
                             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 202, Short.MAX_VALUE)
                             .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 202, Short.MAX_VALUE))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(pnlLeftLayout.createSequentialGroup()
-                .addGap(0, 0, 0)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                .addGap(0, 0, 0))
+            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
         );
         pnlLeftLayout.setVerticalGroup(
             pnlLeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -223,12 +221,12 @@ public class PanelSmartFarmingManagerWorkArea extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(pnlLeft, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(pnlRight, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(pnlRight, javax.swing.GroupLayout.DEFAULT_SIZE, 1140, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnlRight, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 858, Short.MAX_VALUE)
-            .addComponent(pnlLeft, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(pnlRight, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 800, Short.MAX_VALUE)
+            .addComponent(pnlLeft, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 

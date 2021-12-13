@@ -42,6 +42,7 @@ public class PanelShopOwnerWorkArea extends javax.swing.JPanel {
         this.enterprise = enterprise;
         this.organization = organization;
         this.shopItemDirectory = shopItemDirectory;
+        manageUserProfile();
     }
     
     private void manageUserProfile() 
@@ -244,7 +245,7 @@ public class PanelShopOwnerWorkArea extends javax.swing.JPanel {
                 .addGroup(pnlLeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblIconManageUserAcc1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(560, Short.MAX_VALUE))
+                .addContainerGap(509, Short.MAX_VALUE))
             .addGroup(pnlLeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(pnlLeftLayout.createSequentialGroup()
                     .addGap(112, 112, 112)
@@ -261,12 +262,12 @@ public class PanelShopOwnerWorkArea extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(pnlLeft, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(pnlRight, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(pnlRight, javax.swing.GroupLayout.DEFAULT_SIZE, 1140, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(pnlLeft, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(pnlRight, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(pnlRight, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 800, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
