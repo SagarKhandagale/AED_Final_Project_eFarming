@@ -12,6 +12,7 @@ import Business.Organization.Organization;
 import Business.Organization.OrganizationDirectory;
 import Business.Role.Role;
 import Business.UserAccount.UserAccount;
+import java.util.Arrays;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -74,10 +75,23 @@ public class PanelTransportationManageUserAccount extends javax.swing.JPanel {
 
     public void populateCmbEmployee(Organization organization) {
         cmbEmployee.removeAllItems();
-        System.out.println("populateCmbEmployee");
+        System.out.println("populateCmbEmployee : " + Arrays.toString(organization.getEmployeeDirectory().getEmployeeList().toArray()));
         for (Employee employee : organization.getEmployeeDirectory().getEmployeeList()) {
+            System.out.println("Employee : " + employee);
             cmbEmployee.addItem(employee.toString());
         }
+        
+//        for (Organization org : organizationDirectory.getOrganizationList()) 
+//        {
+//            if(org.equals(organization))
+//            {
+//                for (Employee employee : organization.getEmployeeDirectory().getEmployeeList()) 
+//                {
+//                    System.out.println("Employee : " + employee);
+//                    cmbEmployee.addItem(employee.toString());   
+//                }
+//            }
+//        }
     }
 
     private void populateCmbRole(Organization organization) {
@@ -120,9 +134,32 @@ public class PanelTransportationManageUserAccount extends javax.swing.JPanel {
         setPreferredSize(new java.awt.Dimension(1140, 800));
 
         cmbOrganizationName.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cmbOrganizationName.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cmbOrganizationNameItemStateChanged(evt);
+            }
+        });
+        cmbOrganizationName.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                cmbOrganizationNameFocusLost(evt);
+            }
+        });
+        cmbOrganizationName.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                cmbOrganizationNameMousePressed(evt);
+            }
+        });
+        cmbOrganizationName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbOrganizationNameActionPerformed(evt);
+            }
+        });
         cmbOrganizationName.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 cmbOrganizationNameKeyPressed(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                cmbOrganizationNameKeyTyped(evt);
             }
         });
 
@@ -130,7 +167,7 @@ public class PanelTransportationManageUserAccount extends javax.swing.JPanel {
 
         cmbRole.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        lblOrganizationName.setText("Organization Name:");
+        lblOrganizationName.setText("Employee:");
         lblOrganizationName.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(167, 196, 188)));
 
         lblOrganizationType.setText("Organization Type:");
@@ -217,7 +254,7 @@ public class PanelTransportationManageUserAccount extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(367, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 800, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -275,7 +312,7 @@ public class PanelTransportationManageUserAccount extends javax.swing.JPanel {
                 .addComponent(btnAddUserAccount)
                 .addGap(43, 43, 43)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -341,7 +378,148 @@ public class PanelTransportationManageUserAccount extends javax.swing.JPanel {
 
     private void cmbOrganizationNameKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cmbOrganizationNameKeyPressed
         // TODO add your handling code here:
-        String orgn = null;
+//        System.out.println("Inside cmbOrganizationNameKeyPressed");
+//        String orgn = null;
+//        if(!cmbOrganizationName.getSelectedItem().toString().equals(null))
+//        {
+////            System.out.println("cmbOrganizationName Not null");
+//            orgn = cmbOrganizationName.getSelectedItem().toString();
+////            System.out.println("cmbOrganizationName orgn : " + orgn);
+//        }
+//            
+//        
+//        Organization org = null;
+//        for(Organization o : organizationDirectory.getOrganizationList())
+//        {
+//            if(o.getName().equals(orgn))
+//            {
+////            System.out.println("o: " + o);
+//                org = o;
+//            }
+//        }
+//        
+//        if (org != null) 
+//        {
+//            populateCmbEmployee(org);
+//            populateCmbRole(org);
+//        }
+    }//GEN-LAST:event_cmbOrganizationNameKeyPressed
+
+    private void cmbOrganizationNameMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cmbOrganizationNameMousePressed
+//        String orgn = null;
+//        if(!cmbOrganizationName.getSelectedItem().toString().equals(null))
+//        {
+////            System.out.println("cmbOrganizationName Not null");
+//            orgn = cmbOrganizationName.getSelectedItem().toString();
+////            System.out.println("cmbOrganizationName orgn : " + orgn);
+//        }
+//            
+//        
+//        Organization org = null;
+//        for(Organization o : organizationDirectory.getOrganizationList())
+//        {
+//            if(o.getName().equals(orgn))
+//            {
+////            System.out.println("o: " + o);
+//                org = o;
+//            }
+//        }
+//        
+//        if (org != null) 
+//        {
+//            populateCmbEmployee(org);
+//            populateCmbRole(org);
+//        }
+    }//GEN-LAST:event_cmbOrganizationNameMousePressed
+
+    private void cmbOrganizationNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbOrganizationNameActionPerformed
+        System.out.println("Inside cmbOrganizationNameActionPerformed");
+        String orgn = (String) cmbOrganizationName.getSelectedItem();
+//        if(!cmbOrganizationName.getSelectedItem().toString().equals(null))
+//        {
+////            System.out.println("cmbOrganizationName Not null");
+//            orgn = cmbOrganizationName.getSelectedItem().toString();
+////            System.out.println("cmbOrganizationName orgn : " + orgn);
+//        }
+            
+        
+        Organization org = null;
+        for(Organization o : organizationDirectory.getOrganizationList())
+        {
+            if(o.getName().equals(orgn))
+            {
+            System.out.println("o: " + o);
+                org = o;
+            }
+        }
+        
+        if (org != null) 
+        {
+            populateCmbEmployee(org);
+            populateCmbRole(org);
+        }
+    }//GEN-LAST:event_cmbOrganizationNameActionPerformed
+
+    private void cmbOrganizationNameFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_cmbOrganizationNameFocusLost
+//        String orgn = null;
+//        cmbOrganizationName.setSelectedItem("Item");
+//        if(!cmbOrganizationName.getSelectedItem().toString().equals(null))
+//        {
+////            System.out.println("cmbOrganizationName Not null");
+//            orgn = cmbOrganizationName.getSelectedItem().toString();
+////            System.out.println("cmbOrganizationName orgn : " + orgn);
+//        }
+//            
+//        
+//        Organization org = null;
+//        for(Organization o : organizationDirectory.getOrganizationList())
+//        {
+//            if(o.getName().equals(orgn))
+//            {
+////            System.out.println("o: " + o);
+//                org = o;
+//            }
+//        }
+//        
+//        if (org != null) 
+//        {
+//            populateCmbEmployee(org);
+//            populateCmbRole(org);
+//        }
+    }//GEN-LAST:event_cmbOrganizationNameFocusLost
+
+    private void cmbOrganizationNameItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbOrganizationNameItemStateChanged
+        // TODO add your handling code here:
+//        System.out.println("Inside cmbOrganizationNameItemStateChanged");
+//        String orgn = null;
+//        if(!cmbOrganizationName.getSelectedItem().toString().equals(null))
+//        {
+////            System.out.println("cmbOrganizationName Not null");
+//            orgn = cmbOrganizationName.getSelectedItem().toString();
+////            System.out.println("cmbOrganizationName orgn : " + orgn);
+//        }
+//            
+//        
+//        Organization org = null;
+//        for(Organization o : organizationDirectory.getOrganizationList())
+//        {
+//            if(o.getName().equals(orgn))
+//            {
+////            System.out.println("o: " + o);
+//                org = o;
+//            }
+//        }
+//        
+//        if (org != null) 
+//        {
+//            populateCmbEmployee(org);
+//            populateCmbRole(org);
+//        }
+    }//GEN-LAST:event_cmbOrganizationNameItemStateChanged
+
+    private void cmbOrganizationNameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cmbOrganizationNameKeyTyped
+        System.out.println("Inside cmbOrganizationNameKeyTyped");
+        String orgn = (String) cmbOrganizationName.getSelectedItem();
         if(!cmbOrganizationName.getSelectedItem().toString().equals(null))
         {
 //            System.out.println("cmbOrganizationName Not null");
@@ -365,7 +543,7 @@ public class PanelTransportationManageUserAccount extends javax.swing.JPanel {
             populateCmbEmployee(org);
             populateCmbRole(org);
         }
-    }//GEN-LAST:event_cmbOrganizationNameKeyPressed
+    }//GEN-LAST:event_cmbOrganizationNameKeyTyped
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -10,7 +10,7 @@ import Business.Enterprise.Enterprise;
 import Business.Network.Network;
 import Business.Organization.Organization;
 import Business.UserAccount.UserAccount;
-import UI.RoleBigMarketManager.PanelBigMarketManagerWorkArea;
+import UI.RoleBigMarketManager.PanelBigMarketManagerWorkArea1;
 import javax.swing.JPanel;
 
 /**
@@ -22,7 +22,7 @@ public class BigMarketManager extends Role {
     @Override
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise,Network network, EcoSystem business) {
 
-        return new PanelBigMarketManagerWorkArea(userProcessContainer,account,organization,enterprise,network,business);
+        return new PanelBigMarketManagerWorkArea1(userProcessContainer,account,organization,enterprise,network,business);
     }
 
     @Override

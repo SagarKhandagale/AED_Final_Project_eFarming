@@ -140,7 +140,6 @@ public class PanelManageEnterpriseAdmin extends javax.swing.JPanel {
         lblUsername.setText("Username:");
         lblUsername.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(167, 196, 188)));
 
-        cmbNetwork.setBackground(new java.awt.Color(255, 255, 255));
         cmbNetwork.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         cmbNetwork.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -158,7 +157,6 @@ public class PanelManageEnterpriseAdmin extends javax.swing.JPanel {
         lblEnterpriseType.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(167, 196, 188)));
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel2.setSize(new java.awt.Dimension(228, 38));
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Manage Enterprise Admin");
@@ -181,7 +179,6 @@ public class PanelManageEnterpriseAdmin extends javax.swing.JPanel {
                 .addContainerGap())
         );
 
-        cmbEnterprise.setBackground(new java.awt.Color(255, 255, 255));
         cmbEnterprise.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         tblEnterpriseAdmin.setModel(new javax.swing.table.DefaultTableModel(
@@ -230,10 +227,10 @@ public class PanelManageEnterpriseAdmin extends javax.swing.JPanel {
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(111, 111, 111)
                                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(0, 0, Short.MAX_VALUE))
-                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(0, 40, Short.MAX_VALUE))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(cmbNetwork, javax.swing.GroupLayout.PREFERRED_SIZE, 402, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                        .addComponent(cmbNetwork, javax.swing.GroupLayout.PREFERRED_SIZE, 319, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(lblUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -308,7 +305,7 @@ public class PanelManageEnterpriseAdmin extends javax.swing.JPanel {
         if (!system.checkUniqueUsername(username))
         return;
 
-        JOptionPane.showMessageDialog(null, "enterprise " + enterprise);
+//        JOptionPane.showMessageDialog(null, "enterprise " + enterprise);
         Employee employee = enterprise.getEmployeeDirectory().createEmployee(name);
         UserAccount account = null;
 
