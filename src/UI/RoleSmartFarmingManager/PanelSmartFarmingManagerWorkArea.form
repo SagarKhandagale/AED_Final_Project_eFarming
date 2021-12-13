@@ -25,8 +25,8 @@
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
+          <Component id="pnlRight" alignment="1" pref="858" max="32767" attributes="0"/>
           <Component id="pnlLeft" alignment="0" max="32767" attributes="0"/>
-          <Component id="pnlRight" alignment="1" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
@@ -48,7 +48,7 @@
                       <Group type="102" alignment="1" attributes="0">
                           <Component id="lblIconManageUserAcc" min="-2" pref="40" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="lblManageUserAcc" min="-2" pref="226" max="-2" attributes="0"/>
+                          <Component id="lblManageContent" min="-2" pref="226" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
@@ -71,16 +71,16 @@
                   <Component id="lblManageOrganization" min="-2" pref="40" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="lblManageUserAcc" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
+                      <Component id="lblManageContent" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
                       <Component id="lblIconManageUserAcc" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="649" max="32767" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
               </Group>
               <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="112" max="-2" attributes="0"/>
                       <Component id="lblIconManageOrg" min="-2" pref="40" max="-2" attributes="0"/>
-                      <EmptySpace pref="698" max="32767" attributes="0"/>
+                      <EmptySpace pref="706" max="32767" attributes="0"/>
                   </Group>
               </Group>
           </Group>
@@ -106,11 +106,17 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="MANAGE USER PROFILE"/>
           </Properties>
+          <Events>
+            <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblManageOrganizationMousePressed"/>
+          </Events>
         </Component>
-        <Component class="javax.swing.JLabel" name="lblManageUserAcc">
+        <Component class="javax.swing.JLabel" name="lblManageContent">
           <Properties>
-            <Property name="text" type="java.lang.String" value="MANAGE WORK REQUEST"/>
+            <Property name="text" type="java.lang.String" value="MANAGE CONTENT"/>
           </Properties>
+          <Events>
+            <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblManageContentMousePressed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

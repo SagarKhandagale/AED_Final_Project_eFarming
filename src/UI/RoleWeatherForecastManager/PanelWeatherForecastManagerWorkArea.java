@@ -5,19 +5,53 @@
  */
 package UI.RoleWeatherForecastManager;
 
+import Business.EcoSystem;
+import Business.Enterprise.Enterprise;
+import Business.Network.Network;
+import Business.Organization.Organization;
+import Business.UserAccount.UserAccount;
+import UI.RoleTransporter.PanelManageTransportRequests;
+import UI.RoleTransporter.PanelTransporterManageProfile;
+import java.awt.CardLayout;
+import javax.swing.JPanel;
+
 /**
  *
  * @author sagar
  */
 public class PanelWeatherForecastManagerWorkArea extends javax.swing.JPanel {
-
+    JPanel userProcessContainer;
+    Enterprise enterprise;
+    EcoSystem system;
+    Network network;
+    UserAccount account;
+    Organization organization;
     /**
      * Creates new form PanelWeatherForecastManagerWorkArea
      */
-    public PanelWeatherForecastManagerWorkArea() {
+    public PanelWeatherForecastManagerWorkArea(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, Network network, EcoSystem business) {
         initComponents();
+        this.userProcessContainer = userProcessContainer;
+        this.account = account;
+        this.system = business;
+        this.network = network;
+        this.enterprise = enterprise;
+        this.organization = organization;
     }
-
+    private void manageUserProfile() 
+    {
+        PanelWeatherForecastManagerManageProfile profile = new PanelWeatherForecastManagerManageProfile(pnlRight, system, enterprise, account);
+        pnlRight.add("PanelWeatherForecastManagerManageProfile",profile);
+        CardLayout layout = (CardLayout) pnlRight.getLayout();
+        layout.next(pnlRight);
+    }
+    private void manageWeatherInfo() 
+    {
+        PanelManageWeatherInfo orders = new PanelManageWeatherInfo(pnlRight, system, enterprise, account);
+        pnlRight.add("PanelManageTransportRequests",orders);
+        CardLayout layout = (CardLayout) pnlRight.getLayout();
+        layout.next(pnlRight);
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -42,8 +76,18 @@ public class PanelWeatherForecastManagerWorkArea extends javax.swing.JPanel {
         lblIconManageUserAcc.setText("Logo");
 
         lblManageOrganization.setText("MANAGE USER PROFILE");
+        lblManageOrganization.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                lblManageOrganizationMousePressed(evt);
+            }
+        });
 
-        lblManageUserAcc.setText("MANAGE WORK REQUEST");
+        lblManageUserAcc.setText("MANAGE WEATHER INFO");
+        lblManageUserAcc.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                lblManageUserAccMousePressed(evt);
+            }
+        });
 
         javax.swing.GroupLayout pnlLeftLayout = new javax.swing.GroupLayout(pnlLeft);
         pnlLeft.setLayout(pnlLeftLayout);
@@ -104,6 +148,16 @@ public class PanelWeatherForecastManagerWorkArea extends javax.swing.JPanel {
             .addComponent(pnlRight, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void lblManageOrganizationMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblManageOrganizationMousePressed
+        // TODO add your handling code here:
+        manageUserProfile();
+    }//GEN-LAST:event_lblManageOrganizationMousePressed
+
+    private void lblManageUserAccMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblManageUserAccMousePressed
+        // TODO add your handling code here:
+        manageWeatherInfo();
+    }//GEN-LAST:event_lblManageUserAccMousePressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

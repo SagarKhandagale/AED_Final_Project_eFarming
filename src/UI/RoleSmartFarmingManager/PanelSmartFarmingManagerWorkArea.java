@@ -5,19 +5,55 @@
  */
 package UI.RoleSmartFarmingManager;
 
+import Business.EcoSystem;
+import Business.Enterprise.Enterprise;
+import Business.Network.Network;
+import Business.Organization.Organization;
+import Business.UserAccount.UserAccount;
+import UI.RoleShopOwner.PanelManageItems;
+import UI.RoleShopOwner.PanelShopOwnerManageProfile;
+import java.awt.CardLayout;
+import javax.swing.JPanel;
+
 /**
  *
  * @author sagar
  */
 public class PanelSmartFarmingManagerWorkArea extends javax.swing.JPanel {
-
+    
+    JPanel userProcessContainer;
+    Enterprise enterprise;
+    EcoSystem system;
+    Network network;
+    UserAccount account;
+    Organization organization;
     /**
      * Creates new form PanelSmartFarmingManagerWorkArea
      */
-    public PanelSmartFarmingManagerWorkArea() {
+    public PanelSmartFarmingManagerWorkArea(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, Network network, EcoSystem business) {
         initComponents();
+        this.userProcessContainer = userProcessContainer;
+        this.account = account;
+        this.system = business;
+        this.network = network;
+        this.enterprise = enterprise;
+        this.organization = organization;
     }
-
+    private void manageUserProfile() 
+    {
+        PanelSmartFarmingManagerManageProfile profile = new PanelSmartFarmingManagerManageProfile(pnlRight, system, enterprise, account);
+        pnlRight.add("PanelSmartFarmingManagerManageProfile",profile);
+        CardLayout layout = (CardLayout) pnlRight.getLayout();
+        layout.next(pnlRight);
+    }
+    
+    private void manageContent() 
+    {
+        PanelManageContent items = new PanelManageContent(pnlRight, system, enterprise, account);
+        pnlRight.add("PanelManageContent",items);
+        CardLayout layout = (CardLayout) pnlRight.getLayout();
+        layout.next(pnlRight);
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -32,7 +68,7 @@ public class PanelSmartFarmingManagerWorkArea extends javax.swing.JPanel {
         lblIconManageOrg = new javax.swing.JLabel();
         lblIconManageUserAcc = new javax.swing.JLabel();
         lblManageOrganization = new javax.swing.JLabel();
-        lblManageUserAcc = new javax.swing.JLabel();
+        lblManageContent = new javax.swing.JLabel();
         pnlRight = new javax.swing.JPanel();
 
         lblTopHeading.setText("SMART FARMING ORGANIZATION ");
@@ -42,8 +78,18 @@ public class PanelSmartFarmingManagerWorkArea extends javax.swing.JPanel {
         lblIconManageUserAcc.setText("Logo");
 
         lblManageOrganization.setText("MANAGE USER PROFILE");
+        lblManageOrganization.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                lblManageOrganizationMousePressed(evt);
+            }
+        });
 
-        lblManageUserAcc.setText("MANAGE WORK REQUEST");
+        lblManageContent.setText("MANAGE CONTENT");
+        lblManageContent.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                lblManageContentMousePressed(evt);
+            }
+        });
 
         javax.swing.GroupLayout pnlLeftLayout = new javax.swing.GroupLayout(pnlLeft);
         pnlLeft.setLayout(pnlLeftLayout);
@@ -60,7 +106,7 @@ public class PanelSmartFarmingManagerWorkArea extends javax.swing.JPanel {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlLeftLayout.createSequentialGroup()
                         .addComponent(lblIconManageUserAcc, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblManageUserAcc, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(lblManageContent, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(pnlLeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(pnlLeftLayout.createSequentialGroup()
@@ -77,14 +123,14 @@ public class PanelSmartFarmingManagerWorkArea extends javax.swing.JPanel {
                 .addComponent(lblManageOrganization, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20)
                 .addGroup(pnlLeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblManageUserAcc, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblManageContent, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblIconManageUserAcc, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(649, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(pnlLeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(pnlLeftLayout.createSequentialGroup()
                     .addGap(112, 112, 112)
                     .addComponent(lblIconManageOrg, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(698, Short.MAX_VALUE)))
+                    .addContainerGap(706, Short.MAX_VALUE)))
         );
 
         pnlRight.setLayout(new java.awt.CardLayout());
@@ -100,17 +146,27 @@ public class PanelSmartFarmingManagerWorkArea extends javax.swing.JPanel {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(pnlRight, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 858, Short.MAX_VALUE)
             .addComponent(pnlLeft, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(pnlRight, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void lblManageOrganizationMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblManageOrganizationMousePressed
+        // TODO add your handling code here:
+        manageUserProfile();
+    }//GEN-LAST:event_lblManageOrganizationMousePressed
+
+    private void lblManageContentMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblManageContentMousePressed
+        // TODO add your handling code here:
+        manageContent();
+    }//GEN-LAST:event_lblManageContentMousePressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel lblIconManageOrg;
     private javax.swing.JLabel lblIconManageUserAcc;
+    private javax.swing.JLabel lblManageContent;
     private javax.swing.JLabel lblManageOrganization;
-    private javax.swing.JLabel lblManageUserAcc;
     private javax.swing.JLabel lblTopHeading;
     private javax.swing.JPanel pnlLeft;
     private javax.swing.JPanel pnlRight;
