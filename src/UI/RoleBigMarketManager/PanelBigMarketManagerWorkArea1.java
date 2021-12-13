@@ -4,27 +4,25 @@
  * and open the template in the editor.
  */
 package UI.RoleBigMarketManager;
-package UI.RoleBigMarketManager;
 
 import Business.EcoSystem;
 import Business.Enterprise.Enterprise;
 import Business.Network.Network;
 import Business.Organization.Organization;
 import Business.UserAccount.UserAccount;
-import UI.EnterpriseAdmins.*;
-import UI.RoleShopOwner.PanelShopOwnerManageProfile;
 import java.awt.CardLayout;
 import javax.swing.JPanel;
 
 /**
  *
- * @author sagar
+ * @author Admin
  */
-public class PanelBigMarketManagerWorkArea extends javax.swing.JPanel {
+public class PanelBigMarketManagerWorkArea1 extends javax.swing.JPanel {
 
     /**
-     * Creates new form PanelBMSetupAdminWorkArea
+     * Creates new form PanelBigMarketManagerWorkArea1
      */
+    
     JPanel userProcessContainer;
     Enterprise enterprise;
     EcoSystem system;
@@ -32,7 +30,7 @@ public class PanelBigMarketManagerWorkArea extends javax.swing.JPanel {
     UserAccount account;
     Organization organization;
     
-    public PanelBigMarketManagerWorkArea(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, Network network, EcoSystem business) {
+    public PanelBigMarketManagerWorkArea1(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, Network network, EcoSystem business) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.account = account;
@@ -49,6 +47,7 @@ public class PanelBigMarketManagerWorkArea extends javax.swing.JPanel {
         CardLayout layout = (CardLayout) pnlRight.getLayout();
         layout.next(pnlRight);
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -58,6 +57,7 @@ public class PanelBigMarketManagerWorkArea extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
         pnlLeft = new javax.swing.JPanel();
         lblIconManageOrg = new javax.swing.JLabel();
         lblIconManageUserAcc = new javax.swing.JLabel();
@@ -69,8 +69,7 @@ public class PanelBigMarketManagerWorkArea extends javax.swing.JPanel {
         lblManageRequest1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         pnlRight = new javax.swing.JPanel();
-
-        setPreferredSize(new java.awt.Dimension(1440, 850));
+        jPanel2 = new javax.swing.JPanel();
 
         pnlLeft.setBackground(new java.awt.Color(249, 248, 237));
 
@@ -218,22 +217,53 @@ public class PanelBigMarketManagerWorkArea extends javax.swing.JPanel {
                     .addContainerGap(698, Short.MAX_VALUE)))
         );
 
+        pnlRight.setBackground(new java.awt.Color(249, 248, 237));
         pnlRight.setLayout(new java.awt.CardLayout());
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(pnlLeft, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(pnlRight, javax.swing.GroupLayout.PREFERRED_SIZE, 1122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(pnlLeft, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(pnlRight, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1140, Short.MAX_VALUE)
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 800, Short.MAX_VALUE)
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(pnlLeft, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(pnlRight, javax.swing.GroupLayout.PREFERRED_SIZE, 1122, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnlLeft, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(pnlRight, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -248,6 +278,8 @@ public class PanelBigMarketManagerWorkArea extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
