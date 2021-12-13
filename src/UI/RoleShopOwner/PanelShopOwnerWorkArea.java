@@ -9,6 +9,8 @@ import Business.EcoSystem;
 import Business.Enterprise.Enterprise;
 import Business.Network.Network;
 import Business.Organization.Organization;
+import Business.Role.ShopOwner;
+import Business.ShopItems.ShopItemDirectory;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
 import javax.swing.JPanel;
@@ -29,6 +31,7 @@ public class PanelShopOwnerWorkArea extends javax.swing.JPanel {
     Network network;
     UserAccount account;
     Organization organization;
+    ShopItemDirectory shopItemDirectory;
     
     public PanelShopOwnerWorkArea(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, Network network, EcoSystem business) {
         initComponents();
@@ -38,6 +41,7 @@ public class PanelShopOwnerWorkArea extends javax.swing.JPanel {
         this.network = network;
         this.enterprise = enterprise;
         this.organization = organization;
+        this.shopItemDirectory = shopItemDirectory;
     }
     
     private void manageUserProfile() 
@@ -50,7 +54,7 @@ public class PanelShopOwnerWorkArea extends javax.swing.JPanel {
     
     private void manageItems() 
     {
-        PanelManageItems items = new PanelManageItems(pnlRight, system, enterprise, account);
+        PanelManageItems items = new PanelManageItems(pnlRight, system, enterprise, account, shopItemDirectory);
         pnlRight.add("PanelManageItems",items);
         CardLayout layout = (CardLayout) pnlRight.getLayout();
         layout.next(pnlRight);

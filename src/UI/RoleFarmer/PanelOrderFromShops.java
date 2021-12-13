@@ -10,6 +10,8 @@ import Business.Enterprise.Enterprise;
 import Business.Organization.Organization;
 import Business.UserAccount.UserAccount;
 import Business.UserAccount.UserAccountDirectory;
+import java.util.Arrays;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
@@ -288,35 +290,54 @@ public class PanelOrderFromShops extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnViewItemListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewItemListActionPerformed
-        // TODO add your handling code here:
+        
+        int selectedRow = tblShopList.getSelectedRow();
+        
+        if(selectedRow >= 0)
+        {
+            String org;
+            org = (String) tblShopList.getValueAt(selectedRow, 0);
+            System.out.println("getShopItemList : " + Arrays.toString(system.getShopItemDirectory().getShopItemList().toArray()));
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(null, "Please select row from above table");
+        }
     }//GEN-LAST:event_btnViewItemListActionPerformed
 
     private void btnViewShopListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewShopListActionPerformed
         
-        for(UserAccount u : enterprise.getUserAccountDirectory().getUserAccountList())
+        System.out.println("getOrganizationList().size() : " + enterprise.getOrganizationDirectory().getOrganizationList().size());
+        System.out.println("getUserAccountList().size() : " + enterprise.getUserAccountDirectory().getUserAccountList().size());
+        
+        Object row[] = new Object[4];
+        
+        for(Organization o : enterprise.getOrganizationDirectory().getOrganizationList())
         {
-            if(u.getRole().equals("ShopOwner"))
+            DefaultTableModel model = (DefaultTableModel) tblShopList.getModel();
+            model.setRowCount(0);
+            System.out.println("Inside for Organization o : " + o.getSupportedRole().toString());
+            if(o.getSupportedRole().toString().equals("[ShopOwner]"))
             {
-                DefaultTableModel model = (DefaultTableModel) tblShopList.getModel();
-                model.setRowCount(0);
-                
-                Object row[] = new Object[4];
-                
-                String username = u.getUsername();
-                for(Organization o : enterprise.getOrganizationDirectory().getOrganizationList())
-                {
-                    if(o.getUserAccountDirectory().getUserAccountList().get(0).toString().equals(username))
-                    {
-                        row[0] = o.getName();
-                    }
-                }
-                row[1] = u.getAddLine() + ", " + u.getCity() + ", " + u.getState();
-                row[2] = u.getPhoneNo();
-                row[3] = u.getEmail();
-                
-                model.addRow(row);
+                row[0] = o.getName();
             }
+            for(UserAccount u : o.getUserAccountDirectory().getUserAccountList())
+            {
+                System.out.println("Inside for UserAccount u : " + u);
+                System.out.println("Inside for UserAccount u.getRole() : " + u.getRole());
+                String role = u.getRole().toString();
+                if(role.equals("ShopOwner"))
+                {
+                    System.out.println("Inside if UserAccount u.getAddLine() : " + u.getAddLine() + ", " + u.getCity() + ", " + u.getState());
+                    row[1] = u.getAddLine() + ", " + u.getCity() + ", " + u.getState();
+                    row[2] = u.getPhoneNo();
+                    row[3] = u.getEmail();
+
+                }
+            }
+            model.addRow(row);
         }
+        
     }//GEN-LAST:event_btnViewShopListActionPerformed
 
 

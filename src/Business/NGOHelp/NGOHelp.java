@@ -5,6 +5,7 @@
  */
 package Business.NGOHelp;
 
+import Business.UserAccount.UserAccount;
 import java.util.Date;
 
 /**
@@ -17,6 +18,15 @@ public class NGOHelp {
     private String DamageDetails;
     private String amount;
     private Date incidentDate;
+    private UserAccount userAccount;
+
+    public UserAccount getUserAccount() {
+        return userAccount;
+    }
+
+    public void setUserAccount(UserAccount userAccount) {
+        this.userAccount = userAccount;
+    }
 
     public String getDamageReason() {
         return DamageReason;

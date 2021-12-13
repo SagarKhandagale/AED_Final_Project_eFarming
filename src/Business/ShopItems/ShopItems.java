@@ -5,6 +5,8 @@
  */
 package Business.ShopItems;
 
+import Business.UserAccount.UserAccount;
+
 /**
  *
  * @author Admin
@@ -15,6 +17,18 @@ public class ShopItems {
     private String ItemName;
     private String Measure;
     private String DiscountedPrice;
+    private UserAccount userAccount;
+
+    public UserAccount getUserAccount() {
+        return userAccount;
+    }
+
+    public void setUserAccount(UserAccount userAccount) {
+        this.userAccount = userAccount;
+    }
+
+    public ShopItems() {
+    }
 
     public int getItemId() {
         return ItemId;

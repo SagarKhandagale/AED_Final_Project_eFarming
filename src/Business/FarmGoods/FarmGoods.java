@@ -5,6 +5,8 @@
  */
 package Business.FarmGoods;
 
+import Business.UserAccount.UserAccount;
+
 /**
  *
  * @author Admin
@@ -16,6 +18,15 @@ public class FarmGoods {
     private String expectedPrice;
     private String bigMarket;
     private String comments;
+    private UserAccount userAccount;
+
+    public UserAccount getUserAccount() {
+        return userAccount;
+    }
+
+    public void setUserAccount(UserAccount userAccount) {
+        this.userAccount = userAccount;
+    }
 
     public String getGoodsName() {
         return goodsName;

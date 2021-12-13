@@ -9,6 +9,7 @@ import Business.Enterprise.Enterprise;
 import Business.NGOHelp.NGOHelp;
 import Business.Network.Network;
 import Business.Organization.Organization;
+import Business.UserAccount.UserAccount;
 
 /**
  *
@@ -19,6 +20,7 @@ public class NGOHelpRequest {
     private Enterprise enterprise;
     private Organization.Type orgType;
     private String requestID;
+    private UserAccount farmer;
     private NGOHelp ngoHelp;
     int min = 100;
     int max = 999;

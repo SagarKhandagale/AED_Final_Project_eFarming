@@ -5,6 +5,7 @@
  */
 package Business.ShopItems;
 
+import Business.WorkQueue.WorkRequest;
 import java.util.ArrayList;
 
 /**
