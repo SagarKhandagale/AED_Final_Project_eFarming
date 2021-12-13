@@ -429,13 +429,37 @@ public class PanelCompanyMangerManageProfile extends javax.swing.JPanel {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAccept1;
+    private javax.swing.JButton btnAccept2;
+    private javax.swing.JButton btnAccept3;
+    private javax.swing.JButton btnAccept4;
+    private javax.swing.JButton btnFunds1;
+    private javax.swing.JButton btnFunds2;
+    private javax.swing.JButton btnFunds3;
+    private javax.swing.JButton btnFunds4;
+    private javax.swing.JButton btnReject1;
+    private javax.swing.JButton btnReject2;
+    private javax.swing.JButton btnReject3;
+    private javax.swing.JButton btnReject4;
     private javax.swing.JButton btnSave;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel10;
+    private javax.swing.JPanel jPanel11;
+    private javax.swing.JPanel jPanel12;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
+    private javax.swing.JPanel jPanel8;
+    private javax.swing.JPanel jPanel9;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JLabel lblAddressLine;
     private javax.swing.JLabel lblAddressLine1;
@@ -450,8 +474,16 @@ public class PanelCompanyMangerManageProfile extends javax.swing.JPanel {
     private javax.swing.JLabel lblState;
     private javax.swing.JLabel lblState1;
     private javax.swing.JLabel lblTitle1;
+    private javax.swing.JLabel lblTitle6;
+    private javax.swing.JLabel lblTitle7;
+    private javax.swing.JLabel lblTitle8;
+    private javax.swing.JLabel lblTitle9;
     private javax.swing.JLabel lblZipCode;
     private javax.swing.JLabel lblZipCode1;
+    private javax.swing.JTable tblFarmerHelp1;
+    private javax.swing.JTable tblFarmerHelp2;
+    private javax.swing.JTable tblFarmerHelp3;
+    private javax.swing.JTable tblFarmerHelp4;
     private javax.swing.JTextField txtAddressLine;
     private javax.swing.JTextField txtAddressLine1;
     private javax.swing.JTextField txtCity;
