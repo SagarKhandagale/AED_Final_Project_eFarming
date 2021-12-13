@@ -38,6 +38,7 @@ public class PanelTransportationAdminWorkArea extends javax.swing.JPanel {
         this.network = network;
         this.enterprise = enterprise;
         this.organization = organization;
+        manageOrganization();
     }
     
     private void manageOrganization() 
