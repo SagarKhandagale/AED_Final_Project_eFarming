@@ -38,6 +38,7 @@ public class PanelBigMarketManagerWorkArea1 extends javax.swing.JPanel {
         this.network = network;
         this.enterprise = enterprise;
         this.organization = organization;
+        manageUserProfile();
     }
     
     private void manageUserProfile()
